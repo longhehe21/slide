@@ -15,8 +15,6 @@
     function init() {
         const slides = Array.from(document.querySelectorAll('.slide'));
         const progressBar = document.getElementById('progressBar');
-        const nextHref = document.body.dataset.next || null;
-        const prevHref = document.body.dataset.prev || null;
 
         const modal = setupImageModal();
 
@@ -52,6 +50,9 @@
             const curr = getCurrentSlideIndex(slides);
 
             switch (e.key) {
+                /* Within-section nav only. Once at the last/first sub-slide,
+                   the key press does nothing — user must click ⌂ Menu to
+                   reach other sections. Keeps sections self-contained. */
                 case 'ArrowDown':
                 case 'ArrowRight':
                 case 'PageDown':
@@ -59,8 +60,6 @@
                     e.preventDefault();
                     if (curr < slides.length - 1) {
                         goToSlide(slides[curr + 1]);
-                    } else if (nextHref) {
-                        window.location.href = nextHref;
                     }
                     break;
                 case 'ArrowUp':
@@ -69,17 +68,7 @@
                     e.preventDefault();
                     if (curr > 0) {
                         goToSlide(slides[curr - 1]);
-                    } else if (prevHref) {
-                        window.location.href = prevHref;
                     }
-                    break;
-                case 'Home':
-                    e.preventDefault();
-                    window.location.href = 'index.html';
-                    break;
-                case 'End':
-                    e.preventDefault();
-                    window.location.href = 'recap.html';
                     break;
                 case 'm':
                 case 'M':
@@ -100,19 +89,11 @@
             const curr = getCurrentSlideIndex(slides);
 
             if (diff > 0) {
-                // swipe up → next slide / next file
-                if (curr < slides.length - 1) {
-                    goToSlide(slides[curr + 1]);
-                } else if (nextHref) {
-                    window.location.href = nextHref;
-                }
+                // swipe up → next sub-slide (within section only)
+                if (curr < slides.length - 1) goToSlide(slides[curr + 1]);
             } else {
-                // swipe down → prev slide / prev file
-                if (curr > 0) {
-                    goToSlide(slides[curr - 1]);
-                } else if (prevHref) {
-                    window.location.href = prevHref;
-                }
+                // swipe down → prev sub-slide (within section only)
+                if (curr > 0) goToSlide(slides[curr - 1]);
             }
         }, { passive: true });
 
