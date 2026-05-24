@@ -563,7 +563,50 @@
         }
 
         /* ===========================================
+           COMBINED HOOK + COST SLIDE
+           Time-cost pill in each hook-card header + savings banner below
+           =========================================== */
+        .hook-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .hook-time {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-family: var(--font-mono);
+            font-size: clamp(0.65rem, 0.9vw, 0.82rem);
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            font-weight: 700;
+        }
+        .hook-time.bad { color: #FF9580; background: rgba(255, 87, 34, 0.15); }
+        .hook-time.good { color: #7BD389; background: rgba(76, 175, 80, 0.18); }
+
+        .savings-banner {
+            margin-top: clamp(0.55rem, 1.2vw, 1rem);
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: clamp(0.78rem, 1.2vw, 1rem);
+            color: var(--text-primary);
+            padding: clamp(0.5rem, 1vw, 0.85rem) clamp(1rem, 2vw, 1.5rem);
+            background: linear-gradient(90deg, rgba(255,87,34,0.08), rgba(76,175,80,0.08));
+            border: 1px solid rgba(255,87,34,0.25);
+            border-radius: 999px;
+        }
+        .savings-banner b { color: var(--card-orange); font-weight: 700; }
+
+        /* Dashboard card spanning 2 columns — used for merged Hook+Cost */
+        .dash-card.wide { grid-column: span 2; }
+        .dash-card.wide .name { font-size: clamp(1rem, 1.4vw, 1.25rem); }
+        .dash-card.wide .desc { padding-right: 2em; }
+
+        /* ===========================================
            SLIDE 3 — Cost comparison (1h vs 15p)
+           (kept for legacy — Cost is now merged into Hook slide)
            =========================================== */
         .cost-grid {
             flex: 1;
@@ -1139,19 +1182,14 @@
          ============================================================ -->
     <section class="slide dashboard-slide" id="menu" data-title="Menu">
         <div class="dashboard-header reveal">
-            <div class="dashboard-kicker">Menu · 10 phần · Bấm để xem</div>
+            <div class="dashboard-kicker">Menu · 9 phần · Bấm để xem</div>
             <div class="dashboard-title">Bug Report — <em>Mục lục.</em></div>
         </div>
         <div class="dashboard-grid">
-            <a class="dash-card reveal" href="#hook">
-                <div class="num">01</div>
-                <div class="name">Hook</div>
-                <div class="desc">Cùng 1 bug — viết 2 cách. Tệ vs Tốt.</div>
-            </a>
-            <a class="dash-card reveal" href="#cost">
-                <div class="num">02</div>
-                <div class="name">Cost</div>
-                <div class="desc">1h hỏi tới-lui · vs · 15p fix luôn.</div>
+            <a class="dash-card wide reveal" href="#hook">
+                <div class="num">01 · 02</div>
+                <div class="name">Hook + Cost</div>
+                <div class="desc">Cùng 1 bug, viết 2 cách (Tệ vs Tốt). Một đường 1h hỏi tới-lui, một đường 15p fix luôn — chênh 45 phút.</div>
             </a>
             <a class="dash-card reveal" href="#tool-1">
                 <div class="num">03</div>
@@ -1197,65 +1235,48 @@
     </section>
 
     <!-- ============================================================
-         SLIDE 3 — Hook: TỆ vs TỐT
+         SLIDE 3 — Hook + Cost (combined)
+         Cùng 1 bug, viết 2 cách, chênh 45 phút
+         id="hook" — anchor reused so existing links still work
          ============================================================ -->
-    <section class="slide" id="hook" data-title="Hook">
-        <div class="slide-number">01 / 11</div>
+    <section class="slide" id="hook" data-title="Hook + Cost">
+        <div class="slide-number">01·02 / 11</div>
         <div class="breadcrumbs">
-            <span class="active">HOOK</span><span>COST</span><span>TOOL</span><span>PARTS</span><span>DEMO</span>
+            <span class="active">HOOK</span><span class="active">COST</span><span>TOOL</span><span>PARTS</span><span>DEMO</span>
         </div>
         <div class="section-label reveal">
-            <div class="section-kicker">01 · Hook</div>
-            <div class="section-title">Cùng 1 bug — viết 2 cách</div>
+            <div class="section-kicker">01 · 02 · Hook + Cost</div>
+            <div class="section-title">Cùng 1 bug — viết 2 cách, chênh 45 phút</div>
         </div>
 
         <div class="hook-grid">
             <div class="hook-card bad reveal">
-                <span class="hook-tag bad">BUG TỆ</span>
+                <div class="hook-head">
+                    <span class="hook-tag bad">BUG TỆ</span>
+                    <span class="hook-time bad">⏱ 1h hỏi tới-lui</span>
+                </div>
                 <div class="hook-quote bad">"Không hướng dẫn tỉnh thành phố phường xã đặc khu."</div>
                 <div class="hook-img-wrap">
                     <img src="assets/slide2_img3.png" alt="Ví dụ bug report tệ" />
                 </div>
             </div>
             <div class="hook-card good reveal">
-                <span class="hook-tag good">BUG TỐT</span>
-                <div class="hook-quote good">AI chưa hướng dẫn tỉnh/thành phố -> xã/phường/đặc khu ở phần II khi chọn địa chỉ tạm trú, mà đã nhảy sang hướng dẫn địa chỉ (số nhà, đường phố) + Screenshot đính kèm.
-Steps · Screenshot · Log đính kèm.</div>
+                <div class="hook-head">
+                    <span class="hook-tag good">BUG TỐT</span>
+                    <span class="hook-time good">⏱ 15p fix luôn</span>
+                </div>
+                <div class="hook-quote good">AI chưa hướng dẫn tỉnh/thành phố → xã/phường/đặc khu ở phần II khi chọn địa chỉ tạm trú, mà đã nhảy sang hướng dẫn địa chỉ (số nhà, đường phố). Steps · Screenshot · Log đính kèm.</div>
                 <div class="hook-img-wrap">
                     <img src="assets/slide2_img1.png" alt="Ví dụ bug report tốt" />
                 </div>
             </div>
         </div>
-        <div class="slide-footer"><span class="brand">Bug Report · Kiosk AI</span><span>01 — Hook</span></div>
-    </section>
 
-    <!-- ============================================================
-         SLIDE 3 — Cost
-         ============================================================ -->
-    <section class="slide" id="cost" data-title="Cost">
-        <div class="slide-number">02 / 11</div>
-        <div class="breadcrumbs">
-            <span>HOOK</span><span class="active">COST</span><span>TOOL</span><span>PARTS</span><span>DEMO</span>
-        </div>
-        <div class="section-label reveal">
-            <div class="section-kicker">02 · Cost</div>
-            <div class="section-title">Cùng 1 bug, chênh rất nhiều thời gian</div>
+        <div class="savings-banner reveal">
+            → 5 phút viết kỹ tiết kiệm <b>45 phút</b> tới-lui mỗi bug
         </div>
 
-        <div class="cost-grid">
-            <div class="cost-block bad reveal">
-                <div class="cost-amount">1h</div>
-                <div class="cost-caption">hỏi qua hỏi lại</div>
-            </div>
-            <div class="cost-vs reveal">vs</div>
-            <div class="cost-block good reveal">
-                <div class="cost-amount">15p</div>
-                <div class="cost-caption">fix luôn</div>
-            </div>
-        </div>
-        <div class="cost-takeaway reveal">→ 5 phút viết kỹ tiết kiệm <b>45 phút</b> tới-lui</div>
-
-        <div class="slide-footer"><span class="brand">Bug Report · Kiosk AI</span><span>02 — Cost</span></div>
+        <div class="slide-footer"><span class="brand">Bug Report · Kiosk AI</span><span>01·02 — Hook + Cost</span></div>
     </section>
 
     <!-- ============================================================
@@ -1714,7 +1735,7 @@ Steps · Screenshot · Log đính kèm.</div>
                 // Lookup: breadcrumb label → target slide id
                 const sectionMap = {
                     'HOOK': 'hook',
-                    'COST': 'cost',
+                    'COST': 'hook',   // Cost merged into Hook slide
                     'TOOL': 'tool-1',
                     'PARTS': 'parts',
                     'DEMO': 'demo',
