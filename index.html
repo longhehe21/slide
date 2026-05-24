@@ -137,8 +137,52 @@
             color: var(--text-muted);
             z-index: 5;
         }
-        .breadcrumbs span { opacity: 0.4; transition: opacity 0.3s; }
-        .breadcrumbs span.active { opacity: 1; color: var(--text-primary); }
+        .breadcrumbs span,
+        .breadcrumbs a {
+            opacity: 0.4;
+            transition: opacity 0.3s, color 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+        .breadcrumbs a:hover { opacity: 1; color: var(--card-orange); cursor: pointer; }
+        .breadcrumbs span.active,
+        .breadcrumbs a.active { opacity: 1; color: var(--text-primary); }
+
+        /* ===========================================
+           MENU BUTTON — top-left house icon
+           Visible on all slides except title and dashboard.
+           Click → jumps back to #menu (the dashboard slide).
+           =========================================== */
+        .menu-btn {
+            position: absolute;
+            top: var(--slide-padding);
+            left: calc(var(--slide-padding) + clamp(2.5rem, 4.5vw, 4.5rem));
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.3rem 0.7rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: var(--text-muted);
+            font-family: var(--font-display);
+            font-size: clamp(0.6rem, 0.9vw, 0.75rem);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            z-index: 6;
+            transition: all 0.25s ease;
+        }
+        .menu-btn:hover {
+            background: var(--card-orange);
+            color: var(--text-on-card);
+            border-color: var(--card-orange);
+            transform: translateY(-1px);
+        }
+        .menu-btn .icon {
+            font-size: 1.1em;
+            line-height: 1;
+        }
 
         .slide-footer {
             position: absolute;
@@ -311,6 +355,110 @@
             color: var(--text-muted);
             line-height: 1.5;
             max-width: 32ch;
+        }
+
+        /* ===========================================
+           SLIDE 2 — Dashboard (menu hub)
+           10 clickable section cards in a 5x2 grid.
+           Each card is an <a href="#section-id"> — browser
+           handles the smooth scroll via html.scroll-behavior.
+           =========================================== */
+        .dashboard-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: clamp(1rem, 2.5vw, 2rem);
+            padding: clamp(3rem, 6vw, 5rem) var(--slide-padding);
+        }
+        .dashboard-header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .dashboard-kicker {
+            font-family: var(--font-display);
+            font-size: clamp(0.7rem, 1vw, 0.85rem);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--card-orange);
+            font-weight: 700;
+        }
+        .dashboard-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 4vw, 3.2rem);
+            line-height: 1;
+            letter-spacing: -0.02em;
+            font-weight: 800;
+        }
+        .dashboard-title em {
+            color: var(--card-orange);
+            font-style: normal;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: clamp(0.5rem, 1.2vw, 1rem);
+            flex: 1;
+            min-height: 0;
+        }
+        .dash-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--line);
+            border-radius: clamp(10px, 1.2vw, 16px);
+            padding: clamp(0.85rem, 1.5vw, 1.4rem);
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: transform 0.3s var(--ease-out-expo),
+                        border-color 0.3s,
+                        background 0.3s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            min-height: 0;
+        }
+        .dash-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--card-orange);
+            background: rgba(255, 87, 34, 0.08);
+        }
+        .dash-card::after {
+            content: '→';
+            position: absolute;
+            bottom: clamp(0.5rem, 1vw, 0.85rem);
+            right: clamp(0.65rem, 1.2vw, 1.1rem);
+            font-family: var(--font-display);
+            font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+            color: var(--text-muted);
+            transition: transform 0.3s, color 0.3s;
+        }
+        .dash-card:hover::after {
+            color: var(--card-orange);
+            transform: translateX(4px);
+        }
+        .dash-card .num {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(1.2rem, 2vw, 1.7rem);
+            color: var(--card-orange);
+            line-height: 1;
+        }
+        .dash-card .name {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+        }
+        .dash-card .desc {
+            font-size: clamp(0.65rem, 0.9vw, 0.78rem);
+            color: var(--text-muted);
+            line-height: 1.35;
+            margin-top: auto;
+            padding-right: 1.2em;
         }
 
         /* ===========================================
@@ -931,6 +1079,17 @@
             .nav-dots { display: none; }
             .prio-row { grid-template-columns: 1fr; gap: 0.25rem; }
             .prio-sla { text-align: left; }
+            .dashboard-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(5, 1fr);
+            }
+            .menu-btn { display: none; }
+        }
+        @media (max-width: 1100px) and (min-width: 761px) {
+            .dashboard-grid {
+                grid-template-columns: repeat(5, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -952,10 +1111,10 @@
     <!-- ============================================================
          SLIDE 1 — Title
          ============================================================ -->
-    <section class="slide title-slide" data-title="Intro">
+    <section class="slide title-slide" id="intro" data-title="Intro">
         <div class="title-card reveal">
             <div>
-                <div class="title-meta">Learning sharing · 23.05.2026</div>
+                <div class="title-meta">Learning sharing · 25.05.2026</div>
             </div>
             <div>
                 <div class="title-headline">Bug<br>Report.</div>
@@ -968,15 +1127,79 @@
         </div>
         <div class="title-side">
             <div class="hashtag reveal">#01 / #15 · KIOSK AI · LEARNING SHARING</div>
-            <div class="pitch reveal">Cùng 1 bug. Hai cách viết. <em>Một là 15 phút, một là 1 giờ.</em></div>
+            <div class="pitch reveal">Cùng 1 bug. Hai cách viết. <br> <em>Một là 15 phút, một là 1 giờ.</em></div>
             <div class="note reveal">Mục tiêu: sau buổi này, ai cũng viết được bug report mà dev đọc 30 giây là biết fix ở đâu.</div>
         </div>
     </section>
 
     <!-- ============================================================
-         SLIDE 2 — Hook: TỆ vs TỐT
+         SLIDE 2 — Dashboard (menu hub)
+         Click any card → jumps to that section.
+         Browser handles smooth scroll via html.scroll-behavior.
          ============================================================ -->
-    <section class="slide" data-title="Hook">
+    <section class="slide dashboard-slide" id="menu" data-title="Menu">
+        <div class="dashboard-header reveal">
+            <div class="dashboard-kicker">Menu · 10 phần · Bấm để xem</div>
+            <div class="dashboard-title">Bug Report — <em>Mục lục.</em></div>
+        </div>
+        <div class="dashboard-grid">
+            <a class="dash-card reveal" href="#hook">
+                <div class="num">01</div>
+                <div class="name">Hook</div>
+                <div class="desc">Cùng 1 bug — viết 2 cách. Tệ vs Tốt.</div>
+            </a>
+            <a class="dash-card reveal" href="#cost">
+                <div class="num">02</div>
+                <div class="name">Cost</div>
+                <div class="desc">1h hỏi tới-lui · vs · 15p fix luôn.</div>
+            </a>
+            <a class="dash-card reveal" href="#tool-1">
+                <div class="num">03</div>
+                <div class="name">Redmine</div>
+                <div class="desc">Công cụ phòng dùng · sổ tay chung.</div>
+            </a>
+            <a class="dash-card reveal" href="#parts">
+                <div class="num">04</div>
+                <div class="name">4 phần</div>
+                <div class="desc">Bug report tốt = 4 thành phần.</div>
+            </a>
+            <a class="dash-card reveal" href="#demo">
+                <div class="num">05</div>
+                <div class="name">Demo</div>
+                <div class="desc">Tạo vấn đề mới — 8 bước trên Redmine.</div>
+            </a>
+            <a class="dash-card reveal" href="#diff">
+                <div class="num">06</div>
+                <div class="name">Phân biệt</div>
+                <div class="desc">Lỗi hay Tính năng? Khác nhau ở đâu.</div>
+            </a>
+            <a class="dash-card reveal" href="#heur-1">
+                <div class="num">07</div>
+                <div class="name">Heuristic</div>
+                <div class="desc">Mẹo Ctrl+Shift+I · Console đỏ/sạch.</div>
+            </a>
+            <a class="dash-card reveal" href="#evidence">
+                <div class="num">08</div>
+                <div class="name">Bằng chứng</div>
+                <div class="desc">4 cách lấy ảnh/log chứng minh lỗi.</div>
+            </a>
+            <a class="dash-card reveal" href="#priority">
+                <div class="num">09</div>
+                <div class="name">Ưu tiên</div>
+                <div class="desc">5 mức ưu tiên Redmine · SLA fix.</div>
+            </a>
+            <a class="dash-card reveal" href="#recap">
+                <div class="num">10</div>
+                <div class="name">Recap</div>
+                <div class="desc">4 ý chính cần nhớ · Q&amp;A.</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 3 — Hook: TỆ vs TỐT
+         ============================================================ -->
+    <section class="slide" id="hook" data-title="Hook">
         <div class="slide-number">01 / 11</div>
         <div class="breadcrumbs">
             <span class="active">HOOK</span><span>COST</span><span>TOOL</span><span>PARTS</span><span>DEMO</span>
@@ -989,7 +1212,7 @@
         <div class="hook-grid">
             <div class="hook-card bad reveal">
                 <span class="hook-tag bad">BUG TỆ</span>
-                <div class="hook-quote bad">"Không hướng dẫn tỉnh thành phố phường xã đặc khu. Fix giúp."</div>
+                <div class="hook-quote bad">"Không hướng dẫn tỉnh thành phố phường xã đặc khu."</div>
                 <div class="hook-img-wrap">
                     <img src="assets/slide2_img3.png" alt="Ví dụ bug report tệ" />
                 </div>
@@ -1009,7 +1232,7 @@ Steps · Screenshot · Log đính kèm.</div>
     <!-- ============================================================
          SLIDE 3 — Cost
          ============================================================ -->
-    <section class="slide" data-title="Cost">
+    <section class="slide" id="cost" data-title="Cost">
         <div class="slide-number">02 / 11</div>
         <div class="breadcrumbs">
             <span>HOOK</span><span class="active">COST</span><span>TOOL</span><span>PARTS</span><span>DEMO</span>
@@ -1038,7 +1261,7 @@ Steps · Screenshot · Log đính kèm.</div>
     <!-- ============================================================
          SLIDE 4 — Redmine: sổ tay chung
          ============================================================ -->
-    <section class="slide tool-slide" data-title="Tool 1">
+    <section class="slide tool-slide" id="tool-1" data-title="Tool 1">
         <div class="slide-number">03 / 11</div>
         <div class="breadcrumbs">
             <span>HOOK</span><span>COST</span><span class="active">TOOL</span><span>PARTS</span><span>DEMO</span>
@@ -1057,7 +1280,7 @@ Steps · Screenshot · Log đính kèm.</div>
     <!-- ============================================================
          SLIDE 5 — Redmine: danh sách vấn đề
          ============================================================ -->
-    <section class="slide tool-slide" data-title="Tool 2">
+    <section class="slide tool-slide" id="tool-2" data-title="Tool 2">
         <div class="slide-number">03 / 11</div>
         <div class="breadcrumbs">
             <span>HOOK</span><span>COST</span><span class="active">TOOL</span><span>PARTS</span><span>DEMO</span>
@@ -1076,7 +1299,7 @@ Steps · Screenshot · Log đính kèm.</div>
     <!-- ============================================================
          SLIDE 6 — Redmine: tạo vấn đề mới (form)
          ============================================================ -->
-    <section class="slide tool-slide" data-title="Tool 3">
+    <section class="slide tool-slide" id="tool-3" data-title="Tool 3">
         <div class="slide-number">03 / 11</div>
         <div class="breadcrumbs">
             <span>HOOK</span><span>COST</span><span class="active">TOOL</span><span>PARTS</span><span>DEMO</span>
@@ -1095,7 +1318,7 @@ Steps · Screenshot · Log đính kèm.</div>
     <!-- ============================================================
          SLIDE 7 — Redmine: form tạo vấn đề (chi tiết)
          ============================================================ -->
-    <section class="slide tool-slide" data-title="Tool 4">
+    <section class="slide tool-slide" id="tool-4" data-title="Tool 4">
         <div class="slide-number">03 / 11</div>
         <div class="breadcrumbs">
             <span>HOOK</span><span>COST</span><span class="active">TOOL</span><span>PARTS</span><span>DEMO</span>
@@ -1114,7 +1337,7 @@ Steps · Screenshot · Log đính kèm.</div>
     <!-- ============================================================
          SLIDE 8 — 4 thành phần của bug report tốt
          ============================================================ -->
-    <section class="slide" data-title="4 Parts">
+    <section class="slide" id="parts" data-title="4 Parts">
         <div class="slide-number">04 / 11</div>
         <div class="breadcrumbs">
             <span>HOOK</span><span>COST</span><span>TOOL</span><span class="active">PARTS</span><span>DEMO</span>
@@ -1153,7 +1376,7 @@ Steps · Screenshot · Log đính kèm.</div>
     <!-- ============================================================
          SLIDE 9 — Demo 8 bước tạo vấn đề mới
          ============================================================ -->
-    <section class="slide" data-title="Demo">
+    <section class="slide" id="demo" data-title="Demo">
         <div class="slide-number">05 / 11</div>
         <div class="breadcrumbs">
             <span>HOOK</span><span>COST</span><span>TOOL</span><span>PARTS</span><span class="active">DEMO</span>
@@ -1233,7 +1456,7 @@ Steps · Screenshot · Log đính kèm.</div>
     <!-- ============================================================
          SLIDE 10 — Lỗi vs Tính năng
          ============================================================ -->
-    <section class="slide" data-title="Bug vs Feature">
+    <section class="slide" id="diff" data-title="Bug vs Feature">
         <div class="slide-number">06 / 11</div>
         <div class="breadcrumbs">
             <span>DEMO</span><span class="active">DIFF</span><span>HEUR</span><span>EVID</span><span>PRIO</span>
@@ -1270,7 +1493,7 @@ Steps · Screenshot · Log đính kèm.</div>
     <!-- ============================================================
          SLIDE 11 — Heuristic: Console đỏ
          ============================================================ -->
-    <section class="slide" data-title="Heuristic 1">
+    <section class="slide" id="heur-1" data-title="Heuristic 1">
         <div class="slide-number">07 / 11</div>
         <div class="breadcrumbs">
             <span>DEMO</span><span>DIFF</span><span class="active">HEUR</span><span>EVID</span><span>PRIO</span>
@@ -1304,7 +1527,7 @@ Steps · Screenshot · Log đính kèm.</div>
     <!-- ============================================================
          SLIDE 12 — Heuristic: Console sạch
          ============================================================ -->
-    <section class="slide" data-title="Heuristic 2">
+    <section class="slide" id="heur-2" data-title="Heuristic 2">
         <div class="slide-number">07 / 11</div>
         <div class="breadcrumbs">
             <span>DEMO</span><span>DIFF</span><span class="active">HEUR</span><span>EVID</span><span>PRIO</span>
@@ -1338,7 +1561,7 @@ Steps · Screenshot · Log đính kèm.</div>
     <!-- ============================================================
          SLIDE 13 — 4 cách lấy bằng chứng
          ============================================================ -->
-    <section class="slide" data-title="Evidence">
+    <section class="slide" id="evidence" data-title="Evidence">
         <div class="slide-number">08 / 11</div>
         <div class="breadcrumbs">
             <span>DEMO</span><span>DIFF</span><span>HEUR</span><span class="active">EVID</span><span>PRIO</span>
@@ -1381,7 +1604,7 @@ Steps · Screenshot · Log đính kèm.</div>
     <!-- ============================================================
          SLIDE 14 — 5 mức ưu tiên
          ============================================================ -->
-    <section class="slide" data-title="Priority">
+    <section class="slide" id="priority" data-title="Priority">
         <div class="slide-number">09 / 11</div>
         <div class="breadcrumbs">
             <span>DEMO</span><span>DIFF</span><span>HEUR</span><span>EVID</span><span class="active">PRIO</span>
@@ -1426,7 +1649,7 @@ Steps · Screenshot · Log đính kèm.</div>
     <!-- ============================================================
          SLIDE 15 — Recap & Q&A
          ============================================================ -->
-    <section class="slide recap-slide" data-title="Recap">
+    <section class="slide recap-slide" id="recap" data-title="Recap">
         <div class="recap-card reveal">
             <div class="title-meta">11 · Recap</div>
             <div class="recap-headline">Nhớ 4 ý chính.</div>
@@ -1476,11 +1699,65 @@ Steps · Screenshot · Log đính kèm.</div>
                 this.navDotsContainer = document.getElementById('navDots');
                 this.currentSlide = 0;
 
+                this.setupNavLinks();
                 this.setupNavDots();
                 this.setupIntersectionObserver();
                 this.setupKeyboardNav();
                 this.setupTouchNav();
                 this.setupProgressBar();
+            }
+
+            /* Inject Menu button and convert breadcrumb spans → anchor links.
+               Done in JS so the per-slide HTML stays clean — no need to edit
+               13 slides individually if the menu changes. */
+            setupNavLinks() {
+                // Lookup: breadcrumb label → target slide id
+                const sectionMap = {
+                    'HOOK': 'hook',
+                    'COST': 'cost',
+                    'TOOL': 'tool-1',
+                    'PARTS': 'parts',
+                    'DEMO': 'demo',
+                    'DIFF': 'diff',
+                    'HEUR': 'heur-1',
+                    'EVID': 'evidence',
+                    'PRIO': 'priority',
+                };
+
+                this.slides.forEach(slide => {
+                    // Skip title and menu slide — they don't need menu/breadcrumb chrome
+                    if (slide.id === 'intro' || slide.id === 'menu') return;
+
+                    // 1. Convert <span>HOOK</span> → <a href="#hook">HOOK</a>
+                    const breadcrumbs = slide.querySelector('.breadcrumbs');
+                    if (breadcrumbs) {
+                        Array.from(breadcrumbs.children).forEach(child => {
+                            const label = child.textContent.trim();
+                            const target = sectionMap[label];
+                            if (!target) return;
+                            const a = document.createElement('a');
+                            a.href = '#' + target;
+                            a.textContent = label;
+                            if (child.classList.contains('active')) a.classList.add('active');
+                            child.replaceWith(a);
+                        });
+                    }
+
+                    // 2. Inject the Menu button after the slide-number
+                    if (!slide.querySelector('.menu-btn')) {
+                        const menuBtn = document.createElement('a');
+                        menuBtn.className = 'menu-btn';
+                        menuBtn.href = '#menu';
+                        menuBtn.title = 'Quay về menu (M)';
+                        menuBtn.innerHTML = '<span class="icon">⌂</span> MENU';
+                        const slideNumber = slide.querySelector('.slide-number');
+                        if (slideNumber) {
+                            slideNumber.after(menuBtn);
+                        } else {
+                            slide.prepend(menuBtn);
+                        }
+                    }
+                });
             }
 
             setupNavDots() {
@@ -1532,6 +1809,13 @@ Steps · Screenshot · Log đính kèm.</div>
                         case 'End':
                             e.preventDefault();
                             this.goTo(this.slides.length - 1);
+                            break;
+                        case 'm':
+                        case 'M':
+                            // Jump back to the dashboard / menu
+                            e.preventDefault();
+                            const menu = document.getElementById('menu');
+                            if (menu) menu.scrollIntoView({ behavior: 'smooth', block: 'start' });
                             break;
                     }
                 });
