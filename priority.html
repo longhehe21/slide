@@ -20,36 +20,36 @@
         </div>
         <div class="section-label reveal">
             <div class="section-kicker">09 · Mức ưu tiên</div>
-            <div class="section-title">5 mức ưu tiên Redmine</div>
+            <div class="section-title">5 mức ưu tiên · P0 → P4</div>
         </div>
 
         <div class="prio-table">
             <div class="prio-row urg reveal">
-                <div class="prio-level"><span class="prio-dot"></span> Tức thì</div>
-                <div class="prio-desc">LỖI giao diện nghiêm trọng: UI nhảy loạn xạ, không sử dụng được app.</div>
+                <div class="prio-level"><span class="prio-dot"></span> <span class="prio-tag">P0</span> Tức thì</div>
+                <div class="prio-desc"><b>Toàn app sập</b>, mọi người không dùng được, không có cách lách. <i>VD:</i> app tự đóng khi mở · trang chủ trắng xóa · bấm đâu cũng văng.</div>
                 <div class="prio-sla">≤ 4h</div>
             </div>
             <div class="prio-row emg reveal">
-                <div class="prio-level"><span class="prio-dot"></span> Khẩn cấp</div>
-                <div class="prio-desc">Đen màn hình, bị nhảy khỏi trang, không truy cập được chức năng.</div>
+                <div class="prio-level"><span class="prio-dot"></span> <span class="prio-tag">P1</span> Khẩn cấp</div>
+                <div class="prio-desc"><b>1 chức năng chính hỏng</b>, không có cách làm tạm thay. <i>VD:</i> nộp hồ sơ → đen màn hình · bấm Gửi nhảy khỏi trang · không đăng nhập được.</div>
                 <div class="prio-sla">Trong ngày</div>
             </div>
             <div class="prio-row high reveal">
-                <div class="prio-level"><span class="prio-dot"></span> Cao</div>
-                <div class="prio-desc">Cần thêm gấp 1 chức năng hoặc fix gấp lỗi liên quan đến quá trình test.</div>
+                <div class="prio-level"><span class="prio-dot"></span> <span class="prio-tag">P2</span> Cao</div>
+                <div class="prio-desc">Lỗi vẫn dùng được tạm, <b>hoặc</b> sếp cần thêm chức năng gấp cho bản phát hành sắp ra. <i>VD:</i> ô chọn phường/xã chậm 30 giây · sếp cần thêm trang lịch sử cho bản tuần này.</div>
                 <div class="prio-sla">2 ngày</div>
             </div>
             <div class="prio-row norm reveal">
-                <div class="prio-level"><span class="prio-dot"></span> Bình thường ⭐</div>
-                <div class="prio-desc">UI lệch, sai tên, sai màu, AI bỏ qua không hướng dẫn nhập…</div>
+                <div class="prio-level"><span class="prio-dot"></span> <span class="prio-tag">P3</span> Bình thường ⭐</div>
+                <div class="prio-desc">Lỗi nhỏ về giao diện / chữ — không cản trở công việc. <i>VD:</i> nút "Tiếp" lệch 2px · sai tên trường "Cmnd" → "CMND" · AI bỏ qua hướng dẫn nhập.</div>
                 <div class="prio-sla">Trong tuần</div>
             </div>
             <div class="prio-row low reveal">
-                <div class="prio-level"><span class="prio-dot"></span> Thấp</div>
-                <div class="prio-desc">Các tính năng cần cải thiện — ví dụ cho to/cỡ chữ…</div>
-                <div class="prio-sla">Sau khi xong lỗi</div>
+                <div class="prio-level"><span class="prio-dot"></span> <span class="prio-tag">P4</span> Thấp</div>
+                <div class="prio-desc">Cải thiện thêm, có thì tốt — không gấp. <i>VD:</i> tăng cỡ chữ cho người già · hiệu ứng tải mượt hơn · đổi tông màu nút.</div>
+                <div class="prio-sla">Sau khi xong P0–P3</div>
             </div>
-            <div class="prio-note reveal">⭐ Mặc định để <b>Bình thường</b> cho các lỗi cơ bản.</div>
+            <div class="prio-note reveal">⭐ Mặc định để <b>P3 · Bình thường</b> cho các lỗi cơ bản.</div>
         </div>
 
         <div class="slide-footer"><span class="brand">Bug Report · Kiosk AI</span><span>09 — Ưu tiên</span></div>
