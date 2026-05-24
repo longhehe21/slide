@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lỗi hay Tính năng · Bug Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared/deck.css">
+</head>
+<body data-prev="demo.html" data-next="heuristic.html">
+    <div class="progress-bar" id="progressBar"></div>
+
+    <section class="slide">
+        <div class="slide-number">06 / 10</div>
+        <a class="menu-btn" href="menu.html"><span class="icon">⌂</span> MENU</a>
+        <div class="breadcrumbs">
+            <a href="demo.html">DEMO</a><span class="active">DIFF</span><a href="heuristic.html">HEUR</a><a href="evidence.html">EVID</a><a href="priority.html">PRIO</a>
+        </div>
+        <div class="section-label reveal">
+            <div class="section-kicker">06 · Lỗi hay Tính năng</div>
+            <div class="section-title">Lỗi hay Tính năng?</div>
+        </div>
+
+        <div class="vs-grid">
+            <div class="vs-card bug reveal">
+                <h3>🐞 LỖI</h3>
+                <div class="rule">Có trong SPEC, code làm <b>sai</b> yêu cầu.</div>
+                <div class="examples">
+                    <b>VD:</b> Figma vẽ nút xanh, app hiện đỏ.<br>
+                    Click Submit không gửi → báo lỗi đỏ màn hình.<br>
+                    AI không hướng dẫn chức năng đã có spec.
+                </div>
+            </div>
+            <div class="vs-card feature reveal">
+                <h3>✨ TÍNH NĂNG</h3>
+                <div class="rule">Không có trong SPEC — muốn <b>thêm</b>, hoặc có nhưng <b>chưa làm</b>.</div>
+                <div class="examples">
+                    <b>VD:</b> "Sếp muốn thêm trang lịch sử nộp hồ sơ".<br>
+                    "Đổi tên nút Tiếp tục → Xác nhận".<br>
+                    "Thiếu tính năng lưu nháp hồ sơ".
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer"><span class="brand">Bug Report · Kiosk AI</span><span>06 — Lỗi hay Tính năng</span></div>
+    </section>
+
+    <nav class="page-nav">
+        <a href="demo.html">← Thực hành</a>
+        <a href="menu.html">⌂ Menu</a>
+        <a href="heuristic.html" class="next">Tiếp · Mẹo nhanh →</a>
+    </nav>
+
+    <script src="shared/deck.js"></script>
+</body>
+</html>

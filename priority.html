@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mức ưu tiên · Bug Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared/deck.css">
+</head>
+<body data-prev="evidence.html" data-next="recap.html">
+    <div class="progress-bar" id="progressBar"></div>
+
+    <section class="slide">
+        <div class="slide-number">09 / 10</div>
+        <a class="menu-btn" href="menu.html"><span class="icon">⌂</span> MENU</a>
+        <div class="breadcrumbs">
+            <a href="demo.html">DEMO</a><a href="diff.html">DIFF</a><a href="heuristic.html">HEUR</a><a href="evidence.html">EVID</a><span class="active">PRIO</span>
+        </div>
+        <div class="section-label reveal">
+            <div class="section-kicker">09 · Mức ưu tiên</div>
+            <div class="section-title">5 mức ưu tiên Redmine</div>
+        </div>
+
+        <div class="prio-table">
+            <div class="prio-row urg reveal">
+                <div class="prio-level"><span class="prio-dot"></span> Tức thì</div>
+                <div class="prio-desc">LỖI giao diện nghiêm trọng: UI nhảy loạn xạ, không sử dụng được app.</div>
+                <div class="prio-sla">≤ 4h</div>
+            </div>
+            <div class="prio-row emg reveal">
+                <div class="prio-level"><span class="prio-dot"></span> Khẩn cấp</div>
+                <div class="prio-desc">Đen màn hình, bị nhảy khỏi trang, không truy cập được chức năng.</div>
+                <div class="prio-sla">Trong ngày</div>
+            </div>
+            <div class="prio-row high reveal">
+                <div class="prio-level"><span class="prio-dot"></span> Cao</div>
+                <div class="prio-desc">Cần thêm gấp 1 chức năng hoặc fix gấp lỗi liên quan đến quá trình test.</div>
+                <div class="prio-sla">2 ngày</div>
+            </div>
+            <div class="prio-row norm reveal">
+                <div class="prio-level"><span class="prio-dot"></span> Bình thường ⭐</div>
+                <div class="prio-desc">UI lệch, sai tên, sai màu, AI bỏ qua không hướng dẫn nhập…</div>
+                <div class="prio-sla">Trong tuần</div>
+            </div>
+            <div class="prio-row low reveal">
+                <div class="prio-level"><span class="prio-dot"></span> Thấp</div>
+                <div class="prio-desc">Các tính năng cần cải thiện — ví dụ cho to/cỡ chữ…</div>
+                <div class="prio-sla">Sau khi xong lỗi</div>
+            </div>
+            <div class="prio-note reveal">⭐ Mặc định để <b>Bình thường</b> cho các lỗi cơ bản.</div>
+        </div>
+
+        <div class="slide-footer"><span class="brand">Bug Report · Kiosk AI</span><span>09 — Ưu tiên</span></div>
+    </section>
+
+    <nav class="page-nav">
+        <a href="evidence.html">← Bằng chứng</a>
+        <a href="menu.html">⌂ Menu</a>
+        <a href="recap.html" class="next">Tiếp · Tóm tắt →</a>
+    </nav>
+
+    <script src="shared/deck.js"></script>
+</body>
+</html>
