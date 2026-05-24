@@ -60,7 +60,9 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    padding: calc(var(--slide-padding) + 2.5rem) var(--slide-padding) calc(var(--slide-padding) + 1.5rem);
+    /* Top padding: room for slide-number + breadcrumbs chrome.
+       Bottom padding: room for slide-footer brand + fixed page-nav pills. */
+    padding: calc(var(--slide-padding) + 2.5rem) var(--slide-padding) calc(var(--slide-padding) + 3.5rem);
 }
 
 /* ===========================================
