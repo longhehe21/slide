@@ -1015,6 +1015,97 @@ body {
     }
 }
 
+/* ===========================================
+   IMAGE MODAL — click any slide image to zoom
+   Modal element is injected once by deck.js on DOMContentLoaded.
+   =========================================== */
+.slide img {
+    cursor: zoom-in;
+    transition: opacity 0.2s ease, transform 0.3s var(--ease-out-expo);
+}
+.slide img:hover { opacity: 0.92; }
+
+.image-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.92);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1rem, 3vw, 3rem);
+    cursor: zoom-out;
+}
+.image-modal.open {
+    display: flex;
+    animation: fadeScale 0.3s var(--ease-out-expo);
+}
+.modal-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
+    cursor: default;
+    animation: zoomIn 0.4s var(--ease-out-expo);
+}
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to   { opacity: 1; transform: scale(1); }
+}
+.modal-close {
+    position: fixed;
+    top: clamp(0.75rem, 2vw, 1.5rem);
+    right: clamp(0.75rem, 2vw, 1.5rem);
+    width: clamp(2.5rem, 4vw, 3rem);
+    height: clamp(2.5rem, 4vw, 3rem);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: white;
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    font-family: var(--font-display);
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+.modal-close:hover {
+    background: var(--card-orange);
+    border-color: var(--card-orange);
+    transform: rotate(90deg);
+}
+.modal-hint {
+    position: fixed;
+    bottom: clamp(0.75rem, 2vw, 1.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-mono);
+    font-size: clamp(0.65rem, 0.9vw, 0.8rem);
+    color: rgba(255, 255, 255, 0.5);
+    z-index: 1001;
+    pointer-events: none;
+}
+.modal-hint kbd {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    margin: 0 0.2rem;
+}
+
+/* Hide modal chrome on print + reduced motion (still show image) */
+@media (prefers-reduced-motion: reduce) {
+    .image-modal.open,
+    .modal-image { animation: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
