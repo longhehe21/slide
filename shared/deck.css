@@ -777,15 +777,24 @@ body {
     background: #0d1117;
     border: 1px solid var(--line);
     border-radius: clamp(10px, 1.2vw, 16px);
-    padding: clamp(0.4rem, 1vw, 0.85rem);
+    padding: clamp(0.6rem, 1.2vw, 1rem);
     display: flex; align-items: center; justify-content: center;
     min-height: 0;
-    /* Cap height so screenshot doesn't push past slide content area.
-       Previously 70vh caused overflow ~30px → title descenders kissed
-       the top of the DevTools window. 58vh leaves breathing room. */
-    max-height: 58vh;
+    max-height: 55vh;
+    /* Center the container in its grid row so it never stretches taller
+       than the image inside it (which would let the image bleed visually). */
+    align-self: center;
+    width: 100%;
 }
-.heur-screenshot img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; }
+.heur-screenshot img {
+    /* `display: block` removes the inline-baseline gap that can let the
+       image visually escape the dark frame at the bottom edge. */
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+}
 .heur-text { display: flex; flex-direction: column; gap: clamp(0.5rem, 1.2vw, 1rem); }
 .heur-shortcut {
     display: inline-flex; align-self: flex-start; gap: 0.35rem;
@@ -1027,6 +1036,10 @@ body {
    =========================================== */
 .slide img {
     cursor: zoom-in;
+    /* Block display removes the inline baseline gap (the few px below an
+       inline image where descender space would go) — without this the
+       image can appear to bleed slightly outside its dark frame container. */
+    display: block;
     transition: opacity 0.2s ease, transform 0.3s var(--ease-out-expo);
 }
 .slide img:hover { opacity: 0.92; }
