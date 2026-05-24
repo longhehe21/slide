@@ -124,7 +124,9 @@ body {
 .menu-btn {
     position: absolute;
     top: var(--slide-padding);
-    left: calc(var(--slide-padding) + clamp(2.5rem, 4.5vw, 4.5rem));
+    /* Larger offset so it doesn't overlap the slide-number "03 · 1/4" text
+       at wide viewports — Bricolage Grotesque 700 is chunky. */
+    left: calc(var(--slide-padding) + clamp(5rem, 9vw, 9rem));
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
@@ -165,6 +167,13 @@ body {
     font-family: var(--font-display);
     letter-spacing: 0.06em;
     text-transform: uppercase;
+}
+
+/* On pages with bottom page-nav (= any section file with data-next attr),
+   hide the slide-footer's right metadata span — it collides with the
+   fixed page-nav buttons. The brand label on the left stays visible. */
+body[data-next] .slide-footer > span:not(.brand) {
+    display: none;
 }
 
 /* ===========================================
