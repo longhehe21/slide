@@ -602,6 +602,40 @@ body {
 }
 .savings-banner b { color: var(--card-orange); font-weight: 700; }
 
+/* Row that holds savings banner + 'View actual screen' button side by side */
+.hook-extras {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.5rem, 1.5vw, 1.5rem);
+    margin-top: clamp(0.55rem, 1.2vw, 1rem);
+    flex-wrap: wrap;
+}
+.hook-extras .savings-banner { margin-top: 0; }
+
+/* Pill button that opens the actual bug screen in the image modal */
+.screen-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: clamp(0.5rem, 1vw, 0.85rem) clamp(1rem, 2vw, 1.5rem);
+    background: var(--card-orange);
+    color: var(--text-on-card);
+    border: none;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(0.78rem, 1.2vw, 1rem);
+    cursor: pointer;
+    transition: all 0.3s var(--ease-out-expo);
+    box-shadow: 0 4px 16px rgba(255, 87, 34, 0.25);
+    text-decoration: none;
+}
+.screen-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(255, 87, 34, 0.4);
+}
+
 /* ===========================================
    REDMINE TOOL slides
    =========================================== */

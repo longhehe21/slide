@@ -167,6 +167,15 @@
             slideImg.addEventListener('click', () => open(slideImg.src, slideImg.alt));
         });
 
+        // Wire up any non-image element with [data-modal-image="path/to.png"]
+        // → click opens that image in the modal. Lets buttons trigger the lightbox.
+        document.querySelectorAll('[data-modal-image]').forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                open(el.dataset.modalImage, el.dataset.modalAlt || '');
+            });
+        });
+
         // Click backdrop or close button → close
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay || e.target === closeBtn) close();
