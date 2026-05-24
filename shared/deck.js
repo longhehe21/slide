@@ -16,7 +16,14 @@
         const slides = Array.from(document.querySelectorAll('.slide'));
         const progressBar = document.getElementById('progressBar');
 
+        // Force start at top of page on fresh load (in case browser tries
+        // to restore a previous scroll position from session history).
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        window.scrollTo(0, 0);
+
         const modal = setupImageModal();
+        // Sanity log so we can confirm in DevTools this build is loaded.
+        console.log('[deck.js] v5 loaded · ' + slides.length + ' slide(s) on this page');
 
         // Always trigger intro animation on the FIRST slide as soon as DOM is ready
         // (the first slide is the one in viewport at scrollY=0). For multi-slide
