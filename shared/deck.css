@@ -40,7 +40,11 @@
 
 html, body { height: 100%; overflow-x: hidden; }
 html {
-    scroll-snap-type: y mandatory;
+    /* proximity (vs mandatory) — mandatory was racing with programmatic
+       smooth-scroll on Chrome, causing scrollIntoView to skip slides on
+       multi-slide pages like redmine.html. Proximity still snaps but
+       doesn't override scripted scrolls. */
+    scroll-snap-type: y proximity;
     scroll-behavior: smooth;
 }
 body {

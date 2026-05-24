@@ -58,7 +58,7 @@
                 case ' ':
                     e.preventDefault();
                     if (curr < slides.length - 1) {
-                        slides[curr + 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        goToSlide(slides[curr + 1]);
                     } else if (nextHref) {
                         window.location.href = nextHref;
                     }
@@ -68,7 +68,7 @@
                 case 'PageUp':
                     e.preventDefault();
                     if (curr > 0) {
-                        slides[curr - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        goToSlide(slides[curr - 1]);
                     } else if (prevHref) {
                         window.location.href = prevHref;
                     }
@@ -102,14 +102,14 @@
             if (diff > 0) {
                 // swipe up → next slide / next file
                 if (curr < slides.length - 1) {
-                    slides[curr + 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    goToSlide(slides[curr + 1]);
                 } else if (nextHref) {
                     window.location.href = nextHref;
                 }
             } else {
                 // swipe down → prev slide / prev file
                 if (curr > 0) {
-                    slides[curr - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    goToSlide(slides[curr - 1]);
                 } else if (prevHref) {
                     window.location.href = prevHref;
                 }
@@ -178,6 +178,18 @@
         });
 
         return { open, close, isOpen };
+    }
+
+    /* Scroll to a slide using explicit offsetTop. window.scrollTo gives a
+       deterministic target — scrollIntoView could be intercepted by
+       scroll-snap-type:mandatory and skip multiple slides at once. */
+    function goToSlide(slideEl) {
+        if (!slideEl) return;
+        window.scrollTo({
+            top: slideEl.offsetTop,
+            left: 0,
+            behavior: 'smooth'
+        });
     }
 
     /* Return the index of the slide currently filling most of the viewport.
