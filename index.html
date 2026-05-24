@@ -712,6 +712,11 @@
             transform: translateY(-4px);
             border-color: var(--card-orange);
         }
+        .part-card .icon {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1;
+            margin-bottom: 0.2rem;
+        }
         .part-card .num {
             font-family: var(--font-display);
             font-size: clamp(1.5rem, 3vw, 2.4rem);
@@ -1370,28 +1375,32 @@
 
         <div class="parts-grid">
             <div class="part-card reveal">
+                <div class="icon">📝</div>
                 <div class="num">01</div>
-                <div class="ttl">Bối cảnh</div>
-                <div class="desc">Mình đang ở màn nào, làm gì, mong đợi gì.</div>
+                <div class="ttl">Chủ đề</div>
+                <div class="desc">Ngắn, đủ ý.</div>
             </div>
             <div class="part-card reveal">
+                <div class="icon">👣</div>
                 <div class="num">02</div>
-                <div class="ttl">Hiện tượng</div>
-                <div class="desc">App thực tế làm gì — kèm screenshot và bước tái hiện.</div>
+                <div class="ttl">Các bước</div>
+                <div class="desc">Từ bước nào dẫn đến lỗi · lỗi ở trang nào.</div>
             </div>
             <div class="part-card reveal">
+                <div class="icon">🎯</div>
                 <div class="num">03</div>
-                <div class="ttl">Bằng chứng</div>
-                <div class="desc">Console log đỏ, file, ảnh chụp, network. Đủ để dev không phải hỏi lại.</div>
+                <div class="ttl">Kết quả</div>
+                <div class="desc">Mong đợi vs thực tế.</div>
             </div>
             <div class="part-card reveal">
+                <div class="icon">📎</div>
                 <div class="num">04</div>
-                <div class="ttl">Môi trường</div>
-                <div class="desc">Phiên bản code, OS, trình duyệt, build hôm nào.</div>
+                <div class="ttl">Bằng chứng</div>
+                <div class="desc">Screenshot + log.</div>
             </div>
         </div>
 
-        <div class="slide-footer"><span class="brand">Bug Report · Kiosk AI</span><span>04 — 4 Parts</span></div>
+        <div class="slide-footer"><span class="brand">Bug Report · Kiosk AI</span><span>04 — 4 thành phần</span></div>
     </section>
 
     <!-- ============================================================
@@ -1677,7 +1686,7 @@
             <div class="recap-list">
                 <div class="recap-item">
                     <div class="n">1</div>
-                    <div class="t">Bug report = <b>4 phần</b>: bối cảnh · hiện tượng · bằng chứng · môi trường.</div>
+                    <div class="t">Bug report = <b>4 phần</b>: Chủ đề · Các bước · Kết quả · Bằng chứng.</div>
                 </div>
                 <div class="recap-item">
                     <div class="n">2</div>
