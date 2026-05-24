@@ -492,7 +492,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    margin-bottom: clamp(0.75rem, 1.5vw, 1.5rem);
+    /* Buffer below the title — prevents descenders (g, y, q) from kissing
+       the next element on tight slides like heuristic.html. */
+    margin-bottom: clamp(1rem, 2vw, 2rem);
 }
 .section-number {
     font-family: var(--font-display);
@@ -777,7 +779,11 @@ body {
     border-radius: clamp(10px, 1.2vw, 16px);
     padding: clamp(0.4rem, 1vw, 0.85rem);
     display: flex; align-items: center; justify-content: center;
-    min-height: 0; max-height: 70vh;
+    min-height: 0;
+    /* Cap height so screenshot doesn't push past slide content area.
+       Previously 70vh caused overflow ~30px → title descenders kissed
+       the top of the DevTools window. 58vh leaves breathing room. */
+    max-height: 58vh;
 }
 .heur-screenshot img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; }
 .heur-text { display: flex; flex-direction: column; gap: clamp(0.5rem, 1.2vw, 1rem); }
