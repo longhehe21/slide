@@ -49,10 +49,7 @@
                 return;
             }
 
-            const scrollY = window.scrollY;
-            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-            const atTop = scrollY < 50;
-            const atBottom = scrollY >= maxScroll - 50;
+            const curr = getCurrentSlideIndex(slides);
 
             switch (e.key) {
                 case 'ArrowDown':
@@ -60,8 +57,8 @@
                 case 'PageDown':
                 case ' ':
                     e.preventDefault();
-                    if (slides.length > 1 && !atBottom) {
-                        scrollToNextSlide(slides);
+                    if (curr < slides.length - 1) {
+                        slides[curr + 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
                     } else if (nextHref) {
                         window.location.href = nextHref;
                     }
@@ -70,8 +67,8 @@
                 case 'ArrowLeft':
                 case 'PageUp':
                     e.preventDefault();
-                    if (slides.length > 1 && !atTop) {
-                        scrollToPrevSlide(slides);
+                    if (curr > 0) {
+                        slides[curr - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
                     } else if (prevHref) {
                         window.location.href = prevHref;
                     }
@@ -100,20 +97,19 @@
         document.addEventListener('touchend', (e) => {
             const diff = touchStartY - e.changedTouches[0].clientY;
             if (Math.abs(diff) < 60) return;
-            const scrollY = window.scrollY;
-            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const curr = getCurrentSlideIndex(slides);
 
             if (diff > 0) {
-                // swipe up → next
-                if (slides.length > 1 && scrollY < maxScroll - 50) {
-                    scrollToNextSlide(slides);
+                // swipe up → next slide / next file
+                if (curr < slides.length - 1) {
+                    slides[curr + 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
                 } else if (nextHref) {
                     window.location.href = nextHref;
                 }
             } else {
-                // swipe down → prev
-                if (slides.length > 1 && scrollY > 50) {
-                    scrollToPrevSlide(slides);
+                // swipe down → prev slide / prev file
+                if (curr > 0) {
+                    slides[curr - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
                 } else if (prevHref) {
                     window.location.href = prevHref;
                 }
@@ -184,15 +180,27 @@
         return { open, close, isOpen };
     }
 
-    function scrollToNextSlide(slides) {
-        const y = window.scrollY;
-        const next = slides.find(s => s.offsetTop > y + 10);
-        if (next) next.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    function scrollToPrevSlide(slides) {
-        const y = window.scrollY;
-        const prev = [...slides].reverse().find(s => s.offsetTop < y - 10);
-        if (prev) prev.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    /* Return the index of the slide currently filling most of the viewport.
+       We use the slide whose center is closest to the viewport center — this
+       is robust against:
+       - Smooth-scroll animation mid-flight (intermediate scrollY values)
+       - Browser quirks where document.scrollHeight is unreliable when body
+         has height:100% and children overflow with vh units
+       - scroll-snap engaging at half-scrolled positions */
+    function getCurrentSlideIndex(slides) {
+        if (!slides.length) return -1;
+        const viewportCenter = window.scrollY + window.innerHeight / 2;
+        let bestIdx = 0;
+        let bestDist = Infinity;
+        for (let i = 0; i < slides.length; i++) {
+            const slideCenter = slides[i].offsetTop + slides[i].offsetHeight / 2;
+            const dist = Math.abs(slideCenter - viewportCenter);
+            if (dist < bestDist) {
+                bestDist = dist;
+                bestIdx = i;
+            }
+        }
+        return bestIdx;
     }
 
     if (document.readyState === 'loading') {
