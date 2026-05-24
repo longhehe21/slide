@@ -1,0 +1,957 @@
+[
+  {
+    "number": 1,
+    "title": "",
+    "content": [
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "Learning sharing \u00b7 23.05.2026"
+      },
+      {
+        "type": "text",
+        "content": "Bug\u000bReport"
+      },
+      {
+        "type": "text",
+        "content": "vi\u1ebft sao \u0111\u1ec3 dev fix nhanh"
+      },
+      {
+        "type": "text",
+        "content": "H\u00e0 Th\u00e0nh Long"
+      },
+      {
+        "type": "text",
+        "content": "Developer"
+      },
+      {
+        "type": "text",
+        "content": "Kiosk AI"
+      }
+    ],
+    "images": [
+      {
+        "path": "assets/slide1_img1.jpg",
+        "width": 6095697,
+        "height": 6858000
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "number": 2,
+    "title": "",
+    "content": [
+      {
+        "type": "text",
+        "content": "01"
+      },
+      {
+        "type": "text",
+        "content": "HOOK"
+      },
+      {
+        "type": "text",
+        "content": "C\u00f9ng 1 bug \u2014 vi\u1ebft 2 c\u00e1ch"
+      },
+      {
+        "type": "text",
+        "content": "\ud83d\ude35 Bug T\u1ec6"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "\u2728 Bug T\u1ed0T"
+      },
+      {
+        "type": "text",
+        "content": ""
+      }
+    ],
+    "images": [
+      {
+        "path": "assets/slide2_img1.png",
+        "width": 5276506,
+        "height": 2623046
+      },
+      {
+        "path": "assets/slide2_img2.png",
+        "width": 5039677,
+        "height": 1609146
+      },
+      {
+        "path": "assets/slide2_img3.png",
+        "width": 5791201,
+        "height": 3423761
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "number": 3,
+    "title": "",
+    "content": [
+      {
+        "type": "text",
+        "content": "02"
+      },
+      {
+        "type": "text",
+        "content": "COST"
+      },
+      {
+        "type": "text",
+        "content": "C\u00f9ng 1 bug, ch\u00eanh r\u1ea5t nhi\u1ec1u th\u1eddi gian"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "1h"
+      },
+      {
+        "type": "text",
+        "content": "h\u1ecfi qua h\u1ecfi l\u1ea1i"
+      },
+      {
+        "type": "text",
+        "content": "vs"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "15p"
+      },
+      {
+        "type": "text",
+        "content": "fix lu\u00f4n"
+      }
+    ],
+    "images": [],
+    "notes": ""
+  },
+  {
+    "number": 4,
+    "title": "",
+    "content": [
+      {
+        "type": "text",
+        "content": "03"
+      },
+      {
+        "type": "text",
+        "content": "C\u00d4NG C\u1ee4 PH\u00d2NG D\u00d9NG"
+      },
+      {
+        "type": "text",
+        "content": "Redmine \u2014 ph\u1ea7n m\u1ec1m qu\u1ea3n l\u00fd d\u1ef1 \u00e1n "
+      },
+      {
+        "type": "text",
+        "content": "Project: Kiosk AI \u2013 Desktop \u2013 s\u1ed5 tay chung c\u1ee7a c\u1ea3 ph\u00f2ng"
+      },
+      {
+        "type": "text",
+        "content": "\ud83d\udcf7\u000bpaste \u1ea3nh trang ch\u1ee7 Redmine"
+      },
+      {
+        "type": "text",
+        "content": ""
+      }
+    ],
+    "images": [
+      {
+        "path": "assets/slide4_img1.png",
+        "width": 9448800,
+        "height": 4297680
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "number": 5,
+    "title": "",
+    "content": [
+      {
+        "type": "text",
+        "content": "03"
+      },
+      {
+        "type": "text",
+        "content": "C\u00d4NG C\u1ee4 PH\u00d2NG D\u00d9NG"
+      },
+      {
+        "type": "text",
+        "content": "Redmine \u2014 n\u01a1i m\u00ecnh b\u00e1o l\u1ed7i"
+      },
+      {
+        "type": "text",
+        "content": "Project: Kiosk AI \u2013 Desktop -> danh s\u00e1ch c\u00e1c v\u1ea5n \u0111\u1ec1"
+      },
+      {
+        "type": "text",
+        "content": "\ud83d\udcf7\u000bpaste \u1ea3nh trang ch\u1ee7 Redmine"
+      },
+      {
+        "type": "text",
+        "content": ""
+      }
+    ],
+    "images": [
+      {
+        "path": "assets/slide5_img1.png",
+        "width": 9387840,
+        "height": 4223074
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "number": 6,
+    "title": "",
+    "content": [
+      {
+        "type": "text",
+        "content": "03"
+      },
+      {
+        "type": "text",
+        "content": "C\u00d4NG C\u1ee4 PH\u00d2NG D\u00d9NG"
+      },
+      {
+        "type": "text",
+        "content": "Redmine \u2014 n\u01a1i m\u00ecnh b\u00e1o l\u1ed7i"
+      },
+      {
+        "type": "text",
+        "content": "Project: Kiosk AI \u2013 Desktop -> t\u1ea1o v\u1eabn \u0111\u1ec1 m\u1edbi"
+      },
+      {
+        "type": "text",
+        "content": "\ud83d\udcf7\u000bpaste \u1ea3nh trang ch\u1ee7 Redmine"
+      },
+      {
+        "type": "text",
+        "content": ""
+      }
+    ],
+    "images": [
+      {
+        "path": "assets/slide6_img1.png",
+        "width": 9418320,
+        "height": 4223542
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "number": 7,
+    "title": "",
+    "content": [
+      {
+        "type": "text",
+        "content": "03"
+      },
+      {
+        "type": "text",
+        "content": "C\u00d4NG C\u1ee4 PH\u00d2NG D\u00d9NG"
+      },
+      {
+        "type": "text",
+        "content": "Redmine \u2014 n\u01a1i m\u00ecnh b\u00e1o l\u1ed7i"
+      },
+      {
+        "type": "text",
+        "content": "Project: Kiosk AI \u2013 Desktop -> t\u1ea1o v\u1eabn \u0111\u1ec1 m\u1edbi"
+      },
+      {
+        "type": "text",
+        "content": "\ud83d\udcf7\u000bpaste \u1ea3nh trang ch\u1ee7 Redmine"
+      }
+    ],
+    "images": [
+      {
+        "path": "assets/slide7_img1.png",
+        "width": 9418320,
+        "height": 4297680
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "number": 8,
+    "title": "",
+    "content": [
+      {
+        "type": "text",
+        "content": "04"
+      },
+      {
+        "type": "text",
+        "content": "5 TH\u00c0NH PH\u1ea6N"
+      },
+      {
+        "type": "text",
+        "content": "Bug report t\u1ed1t = 4 ph\u1ea7n"
+      }
+    ],
+    "images": [],
+    "notes": ""
+  },
+  {
+    "number": 9,
+    "title": "",
+    "content": [
+      {
+        "type": "text",
+        "content": "05"
+      },
+      {
+        "type": "text",
+        "content": "DEMO"
+      },
+      {
+        "type": "text",
+        "content": "T\u1ea1o v\u1ea5n \u0111\u1ec1 m\u1edbi \u2014 8 b\u01b0\u1edbc"
+      },
+      {
+        "type": "text",
+        "content": "\ud83d\udcf7\u000bpaste \u1ea3nh form 'T\u1ea1o v\u1ea5n \u0111\u1ec1 m\u1edbi'"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "1"
+      },
+      {
+        "type": "text",
+        "content": "Ki\u1ec3u v\u1ea5n \u0111\u1ec1"
+      },
+      {
+        "type": "text",
+        "content": "L\u1ed7i / T\u00ednh n\u0103ng"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "2"
+      },
+      {
+        "type": "text",
+        "content": "Ch\u1ee7 \u0111\u1ec1"
+      },
+      {
+        "type": "text",
+        "content": "1 c\u00e2u ng\u1eafn m\u00f4 t\u1ea3 c\u1ee7a form ho\u1eb7c m\u00e0n h\u00ecnh"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "3"
+      },
+      {
+        "type": "text",
+        "content": "M\u00f4 t\u1ea3"
+      },
+      {
+        "type": "text",
+        "content": "Ctrl+V paste \u1ea3nh + log + m\u00f4 t\u1ea3 l\u1ed7i"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "4"
+      },
+      {
+        "type": "text",
+        "content": "M\u1ee9c \u01b0u ti\u00ean"
+      },
+      {
+        "type": "text",
+        "content": "m\u1eb7c \u0111\u1ecbnh B\u00ecnh th\u01b0\u1eddng"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "5"
+      },
+      {
+        "type": "text",
+        "content": "T\u00e1c v\u1ee5 cha"
+      },
+      {
+        "type": "text",
+        "content": "n\u1ebfu li\u00ean quan bug kh\u00e1c"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "6"
+      },
+      {
+        "type": "text",
+        "content": "Ph\u00e2n c\u00f4ng"
+      },
+      {
+        "type": "text",
+        "content": "dev n\u00e0o fix"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "7"
+      },
+      {
+        "type": "text",
+        "content": "Phi\u00ean b\u1ea3n"
+      },
+      {
+        "type": "text",
+        "content": "Phi\u00ean b\u1ea3n c\u1ee7a code cu\u1ed1i c\u00f9ng ng\u00e0y n\u00e0o"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "8"
+      },
+      {
+        "type": "text",
+        "content": "T\u1eadp tin"
+      },
+      {
+        "type": "text",
+        "content": "\u1ea2nh ch\u1ee5p m\u00e0n h\u00ecnh l\u1ed7i (l\u1ea5y t\u1eeb m\u00f4 t\u1ea3 ho\u1eb7c t\u1ea3i \u1ea3nh l\u00ean t\u1eeb thi\u1ebft b\u1ecb)"
+      }
+    ],
+    "images": [
+      {
+        "path": "assets/slide9_img1.png",
+        "width": 6400800,
+        "height": 4937760
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "number": 10,
+    "title": "",
+    "content": [
+      {
+        "type": "text",
+        "content": "06"
+      },
+      {
+        "type": "text",
+        "content": "PH\u00c2N BI\u1ec6T"
+      },
+      {
+        "type": "text",
+        "content": "L\u1ed7i hay T\u00ednh n\u0103ng?"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "\ud83d\udc1e L\u1ed6I"
+      },
+      {
+        "type": "text",
+        "content": "C\u00f3 trong SPEC, code l\u00e0m sai ch\u01b0a \u0111\u00fang y\u00eau c\u1ea7u"
+      },
+      {
+        "type": "text",
+        "content": "VD: Figma v\u1ebd n\u00fat xanh, app hi\u1ec7n \u0111\u1ecf.\u000bClick submit kh\u00f4ng g\u1eedi -> b\u00e1o l\u1ed7i \u0111\u1ecf m\u00e0n h\u00ecnh.\u000bAI kh\u00f4ng h\u01b0\u1edbng d\u1eabn ch\u1ee9c n\u0103ng "
+      },
+      {
+        "type": "text",
+        "content": "\ud83d\udcf7\u000bpaste \u1ea3nh v\u00ed d\u1ee5 L\u1ed7i"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "\u2728 T\u00cdNH N\u0102NG"
+      },
+      {
+        "type": "text",
+        "content": "Kh\u00f4ng c\u00f3 trong SPEC mu\u1ed1n th\u00eam ho\u1eb7c c\u00f3 nh\u01b0ng ch\u01b0a l\u00e0m"
+      },
+      {
+        "type": "text",
+        "content": "VD: \u2018S\u1ebfp mu\u1ed1n th\u00eam trang l\u1ecbch s\u1eed n\u1ed9p h\u1ed3 s\u01a1'.\u000b'\u0110\u1ed5i t\u00ean n\u00fat Ti\u1ebfp t\u1ee5c \u2192 X\u00e1c nh\u1eadn\u2019.\n\u2018Thi\u1ebfu t\u00ednh n\u0103ng l\u01b0u nh\u00e1p h\u1ed3 s\u01a1\u2019.\u000b"
+      },
+      {
+        "type": "text",
+        "content": "\ud83d\udcf7\u000bpaste \u1ea3nh v\u00ed d\u1ee5 T\u00ednh n\u0103ng"
+      },
+      {
+        "type": "text",
+        "content": "TH\u00caM CH\u1ee8C N\u0102NG M\u1edaI?"
+      }
+    ],
+    "images": [
+      {
+        "path": "assets/slide10_img1.png",
+        "width": 5029200,
+        "height": 2312699
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "number": 11,
+    "title": "",
+    "content": [
+      {
+        "type": "text",
+        "content": "07"
+      },
+      {
+        "type": "text",
+        "content": "HEURISTIC"
+      },
+      {
+        "type": "text",
+        "content": "M\u1eb9o nhanh: Ctrl + Shift + I"
+      },
+      {
+        "type": "text",
+        "content": "\ud83d\udcf7\u000bpaste \u1ea3nh DevTools Console c\u00f3 ch\u1eef \u0111\u1ecf"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "\ud83d\udd34 Console c\u00f3 ch\u1eef \u0110\u1ece"
+      },
+      {
+        "type": "text",
+        "content": "\u2192 L\u1ed6I do code"
+      }
+    ],
+    "images": [
+      {
+        "path": "assets/slide11_img1.png",
+        "width": 6400800,
+        "height": 4538101
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "number": 12,
+    "title": "",
+    "content": [
+      {
+        "type": "text",
+        "content": "07"
+      },
+      {
+        "type": "text",
+        "content": "HEURISTIC"
+      },
+      {
+        "type": "text",
+        "content": "M\u1eb9o nhanh: Ctrl + Shift + I"
+      },
+      {
+        "type": "text",
+        "content": "\ud83d\udcf7\u000bpaste \u1ea3nh DevTools Console c\u00f3 ch\u1eef \u0111\u1ecf"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "\ud83d\udfe2 Console S\u1ea0CH, ch\u1ea1y b\u00ecnh th\u01b0\u1eddng"
+      },
+      {
+        "type": "text",
+        "content": "\u2192 Do thi\u1ebfu T\u00cdNH N\u0102NG / y\u00eau c\u1ea7u m\u1edbi"
+      }
+    ],
+    "images": [
+      {
+        "path": "assets/slide12_img1.png",
+        "width": 6400800,
+        "height": 4561683
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "number": 13,
+    "title": "",
+    "content": [
+      {
+        "type": "text",
+        "content": "09"
+      },
+      {
+        "type": "text",
+        "content": "B\u1eb0NG CH\u1ee8NG"
+      },
+      {
+        "type": "text",
+        "content": "4 c\u00e1ch l\u1ea5y b\u1eb1ng ch\u1ee9ng"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "\ud83d\udcf8"
+      },
+      {
+        "type": "text",
+        "content": "Screenshot"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "Win + Shift + S"
+      },
+      {
+        "type": "text",
+        "content": "\ud83d\udcf7\u000b\u1ea3nh demo screenshot"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "\ud83d\udd34"
+      },
+      {
+        "type": "text",
+        "content": "Console \u0111\u1ecf"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "Ctrl + Shift + I"
+      },
+      {
+        "type": "text",
+        "content": "\ud83d\udcf7\u000b\u1ea3nh demo console \u0111\u1ecf"
+      },
+      {
+        "type": "text",
+        "content": ""
+      }
+    ],
+    "images": [
+      {
+        "path": "assets/slide13_img1.jpg",
+        "width": 5303520,
+        "height": 1543050
+      },
+      {
+        "path": "assets/slide13_img2.png",
+        "width": 5303520,
+        "height": 1541059
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "number": 14,
+    "title": "",
+    "content": [
+      {
+        "type": "text",
+        "content": "10"
+      },
+      {
+        "type": "text",
+        "content": "M\u1ee8C \u01afU TI\u00caN"
+      },
+      {
+        "type": "text",
+        "content": "5 m\u1ee9c \u01b0u ti\u00ean Redmine"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "T\u1ee9c th\u00ec"
+      },
+      {
+        "type": "text",
+        "content": "L\u1ed7I giao di\u1ec7n nghi\u00eam tr\u1ecdng : UI nh\u1ea3y lo\u1ea1n x\u1ea1 kh\u00f4ng s\u1eed d\u1ee5ng \u0111\u01b0\u1ee3c app"
+      },
+      {
+        "type": "text",
+        "content": "\u2264 4h"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "Kh\u1ea9n c\u1ea5p"
+      },
+      {
+        "type": "text",
+        "content": "L\u1ed7i \u0111en m\u00e0n h\u00ecnh, l\u1ed7i b\u1ecb nh\u1ea3y kh\u1ecfi trang, l\u1ed7i kh\u00f4ng truy c\u1eadp \u0111\u01b0\u1ee3c ho\u1eb7c kh\u00f4ng s\u1eed d\u1ee5ng \u0111\u01b0\u1ee3c ch\u1ee9c n\u0103ng"
+      },
+      {
+        "type": "text",
+        "content": "trong ng\u00e0y"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "Cao"
+      },
+      {
+        "type": "text",
+        "content": "C\u1ea7n th\u00eam g\u1ea5p 1 ch\u1ee9c n\u0103ng ho\u1eb7c c\u1ea7n fix l\u1ed7i g\u1ea5p li\u00ean quan \u0111\u1ebfn qu\u00e1 tr\u00ecnh test"
+      },
+      {
+        "type": "text",
+        "content": "2 ng\u00e0y"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "B\u00ecnh th\u01b0\u1eddng \u2b50"
+      },
+      {
+        "type": "text",
+        "content": "UI l\u1ec7ch, sai t\u00ean, sai m\u00e0u, AI b\u1ecf qua kh\u00f4ng h\u01b0\u1edbng d\u1eabn nh\u1eadp\u2026.."
+      },
+      {
+        "type": "text",
+        "content": "Trong tu\u1ea7n"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "Th\u1ea5p"
+      },
+      {
+        "type": "text",
+        "content": "C\u00e1c t\u00ednh n\u0103ng c\u1ea7n c\u1ea3i thi\u1ec7n v\u00ed d\u1ee5 cho to c\u1ee1 ch\u1eef \u2026.."
+      },
+      {
+        "type": "text",
+        "content": "Sau khi ho\u00e0n th\u00e0nh t\u1ea5t c\u1ea3 c\u00e1c l\u1ed7i"
+      },
+      {
+        "type": "text",
+        "content": "\u2b50 N\u00ean \u0111\u1ec3 b\u00ecnh th\u01b0\u1eddng cho c\u00e1c l\u1ed7i c\u01a1 b\u1ea3n"
+      }
+    ],
+    "images": [],
+    "notes": ""
+  },
+  {
+    "number": 15,
+    "title": "",
+    "content": [
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "11"
+      },
+      {
+        "type": "text",
+        "content": "RECAP"
+      },
+      {
+        "type": "text",
+        "content": "Nh\u1edb 4 \u00fd ch\u00ednh"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "1"
+      },
+      {
+        "type": "text",
+        "content": "Bug report = 4 ph\u1ea7n "
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "2"
+      },
+      {
+        "type": "text",
+        "content": "Redmine: ch\u1ecdn L\u1ed7i hay T\u00ednh n\u0103ng + paste screenshot + log"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "3"
+      },
+      {
+        "type": "text",
+        "content": "Console \u0111\u1ecf = L\u1ed7i \u00b7 S\u1ea1ch = T\u00ednh n\u0103ng"
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": "4"
+      },
+      {
+        "type": "text",
+        "content": "M\u1eb7c \u0111\u1ecbnh \u01b0u ti\u00ean B\u00ecnh th\u01b0\u1eddng"
+      },
+      {
+        "type": "text",
+        "content": "C\u1ea3m \u01a1n \u2014 c\u00e2u h\u1ecfi?"
+      },
+      {
+        "type": "text",
+        "content": ""
+      }
+    ],
+    "images": [
+      {
+        "path": "assets/slide15_img1.jpg",
+        "width": 5017129,
+        "height": 4727266
+      }
+    ],
+    "notes": ""
+  }
+]
