@@ -27,6 +27,7 @@
         setupProgressBar();
         setupRouter();
         try { setupAmbientFx(); } catch (e) { console.warn('[deck.js] ambient fx:', e); }
+        try { setupCatMascot(); } catch (e) { console.warn('[deck.js] cat mascot:', e); }
 
         observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -36,7 +37,7 @@
             });
         }, { threshold: [0, 0.5, 1] });
 
-        console.log('[deck.js] v12 SPA + morph transitions loaded');
+        console.log('[deck.js] v13 light theme + cat mascot 🐈‍⬛');
     }
 
     // ==========================================================
@@ -302,6 +303,49 @@
         });
 
         return { open, close, isOpen };
+    }
+
+    // ==========================================================
+    // MÈO ĐEN MASCOT — bottom-left corner, click for Git joke
+    // ==========================================================
+    function setupCatMascot() {
+        const jokes = [
+            'Meo~ Đừng `git push --force` lên main đó!',
+            'Tao đã `git reset --hard` đời mày 😼',
+            '🐾 `git blame` ra tao thì mày mệt đó',
+            'Nhớ rebase trước khi mở PR nhé human',
+            'Ở dưới gầm bàn có 1 con mèo đang `git stash`',
+            'Conflict? Tao bấm `--abort` cho gọn',
+            'Mèo đen biết `cherry-pick` từng sợi tóc bạc của mày',
+            'main branch là của tao 🐈‍⬛',
+            'Tao chỉ pull khi nào tao muốn',
+            'Commit message của tao luôn là "meo"',
+        ];
+
+        const cat = document.createElement('button');
+        cat.className = 'cat-mascot';
+        cat.setAttribute('aria-label', 'Mèo đen mascot');
+        cat.textContent = '🐈‍⬛';
+
+        const tip = document.createElement('div');
+        tip.className = 'cat-tooltip';
+        tip.setAttribute('aria-hidden', 'true');
+
+        document.body.appendChild(cat);
+        document.body.appendChild(tip);
+
+        let hideTimer = 0;
+        cat.addEventListener('click', () => {
+            const joke = jokes[Math.floor(Math.random() * jokes.length)];
+            tip.textContent = joke;
+            tip.classList.add('show');
+            cat.classList.add('angry');
+            clearTimeout(hideTimer);
+            hideTimer = setTimeout(() => {
+                tip.classList.remove('show');
+                cat.classList.remove('angry');
+            }, 3500);
+        });
     }
 
     // ==========================================================

@@ -3,17 +3,21 @@
    Edit colors here to retheme the whole deck.
    =========================================== */
 :root {
-    --bg-primary: #1a1a1a;
-    --bg-gradient: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+    /* LIGHT THEME — GitHub-flavored */
+    --bg-primary: #faf9f6;
+    --bg-gradient: linear-gradient(135deg, #fafaf8 0%, #f4f2ec 50%, #f8f6f1 100%);
     --card-orange: #FF5722;
     --card-coral: #FF7B5C;
-    --card-blue: #4A90E2;
-    --card-green: #4CAF50;
-    --card-yellow: #FFC107;
-    --text-primary: #ffffff;
-    --text-muted: #9a9590;
-    --text-on-card: #1a1a1a;
-    --line: rgba(255, 255, 255, 0.12);
+    --card-blue: #0969da;       /* GitHub link blue */
+    --card-green: #1a7f37;      /* GitHub merge green */
+    --card-yellow: #bf8700;     /* GitHub draft amber */
+    --card-purple: #8250df;     /* GitHub PR purple */
+    --card-red: #cf222e;        /* GitHub closed red */
+    --text-primary: #1f2328;    /* GitHub default text */
+    --text-muted: #656d76;      /* GitHub muted text */
+    --text-on-card: #1a1a1a;    /* dark text on orange card */
+    --line: rgba(31, 35, 40, 0.12);
+    --card-bg: #ffffff;
 
     --font-display: "Bricolage Grotesque", "Be Vietnam Pro", sans-serif;
     --font-body: "Be Vietnam Pro", system-ui, sans-serif;
@@ -46,7 +50,7 @@ html, body { min-height: 100%; overflow-x: hidden; }
    View Transitions API page swaps — between the old-snapshot fade-out and
    the new-snapshot fade-in, body content may be transparent for a frame;
    without an html background the user sees the browser default (white). */
-html { background-color: #1a1a1a; }
+html { background-color: #faf9f6; }
 html {
     /* proximity (vs mandatory) — mandatory was racing with programmatic
        smooth-scroll on Chrome, causing scrollIntoView to skip slides on
@@ -118,8 +122,8 @@ body::before, body::after {
     content: '';
     position: fixed;
     border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.55;
+    filter: blur(140px);
+    opacity: 0.4;
     z-index: 0;
     pointer-events: none;
     will-change: transform;
@@ -127,14 +131,14 @@ body::before, body::after {
 body::before {
     width: clamp(300px, 50vw, 700px);
     height: clamp(300px, 50vw, 700px);
-    background: radial-gradient(circle, rgba(255, 87, 34, 0.6), transparent 70%);
+    background: radial-gradient(circle, rgba(255, 87, 34, 0.45), transparent 70%);
     top: -15%; left: -10%;
     animation: drift1 22s ease-in-out infinite;
 }
 body::after {
     width: clamp(280px, 45vw, 600px);
     height: clamp(280px, 45vw, 600px);
-    background: radial-gradient(circle, rgba(74, 144, 226, 0.45), transparent 70%);
+    background: radial-gradient(circle, rgba(130, 80, 223, 0.35), transparent 70%);
     bottom: -15%; right: -10%;
     animation: drift2 28s ease-in-out infinite;
 }
@@ -165,7 +169,7 @@ body::after {
 .fx-grid {
     position: fixed;
     inset: 0;
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1.5px);
+    background-image: radial-gradient(circle, rgba(31, 35, 40, 0.07) 1px, transparent 1.5px);
     background-size: 48px 48px;
     pointer-events: none;
     z-index: 0;
@@ -1814,4 +1818,183 @@ body {
     body::before, body::after { animation: none; opacity: 0.3; }
     .dash-card, .part-card { transform: none !important; }
     .fx-particle, .fx-frame { animation: none; opacity: 0.3; }
+}
+
+/* ============================================================
+   LIGHT THEME OVERRIDES — flip card surfaces from dark-overlay
+   to white-with-shadow. Code blocks, branch diagrams, and the
+   image modal stay dark for terminal authenticity.
+   ============================================================ */
+.dash-card,
+.step-card,
+.evi-card,
+.part-card {
+    background: var(--card-bg);
+    box-shadow: 0 1px 2px rgba(31, 35, 40, 0.04),
+                0 0 0 1px rgba(31, 35, 40, 0.08);
+}
+.dash-card:hover {
+    background: #fffaf6;
+    box-shadow: 0 12px 32px rgba(255, 87, 34, 0.18),
+                0 0 0 1px rgba(255, 87, 34, 0.35);
+    border-color: transparent;
+}
+.part-card:hover,
+.step-card:hover {
+    background: #fffaf6;
+    box-shadow: 0 8px 24px rgba(255, 87, 34, 0.15),
+                0 0 0 1px rgba(255, 87, 34, 0.3);
+}
+
+.dash-card,
+.part-card,
+.step-card,
+.evi-card {
+    border: none;  /* using box-shadow ring instead */
+}
+
+/* Spotlight overlay (mouse-following) — orange-tinted on light bg */
+.dash-card::before {
+    background: radial-gradient(
+        circle 200px at var(--mx, 50%) var(--my, 50%),
+        rgba(255, 87, 34, 0.12),
+        transparent 60%
+    );
+}
+.part-card::before {
+    background: radial-gradient(
+        circle 220px at var(--mx, 50%) var(--my, 50%),
+        rgba(255, 87, 34, 0.1),
+        transparent 60%
+    );
+}
+
+/* Top-left ⌂ MENU pill — white card with shadow */
+.menu-btn {
+    background: var(--card-bg);
+    color: var(--text-muted);
+    border-color: var(--line);
+    box-shadow: 0 1px 3px rgba(31, 35, 40, 0.08);
+}
+
+/* Bottom-right page-nav pills (non-next variant) */
+.page-nav a:not(.next) {
+    background: var(--card-bg);
+    color: var(--text-muted);
+    border-color: var(--line);
+    box-shadow: 0 1px 3px rgba(31, 35, 40, 0.06);
+}
+.page-nav a:not(.next):hover {
+    background: var(--card-orange);
+    color: var(--text-on-card);
+    border-color: var(--card-orange);
+}
+
+/* Keyboard key visualization (Ctrl+Shift+I etc.) */
+.heur-shortcut kbd {
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border-color: var(--line);
+    box-shadow: 0 1px 0 rgba(31, 35, 40, 0.15);
+}
+
+/* Slide-footer brand text */
+.slide-footer { color: var(--text-muted); }
+
+/* Section-kicker (label above title) */
+.section-kicker { color: var(--text-muted); }
+
+/* Breadcrumbs — darker text */
+.breadcrumbs span,
+.breadcrumbs a { color: var(--text-muted); }
+.breadcrumbs a:hover { color: var(--card-orange); }
+
+/* Title-side hashtag (mono code label on title page) */
+.title-side .hashtag { color: var(--card-orange); }
+.title-side .note { color: var(--text-muted); }
+
+/* Dashboard-header kicker */
+.dashboard-kicker { color: var(--card-orange); }
+
+/* Take-away callouts inside cmd-side */
+.cmd-side .takeaway { color: var(--text-muted); }
+.cmd-side .takeaway b { color: var(--text-primary); }
+.cmd-side h3 { color: var(--text-primary); }
+
+/* Pip number on cards */
+.dash-card .num,
+.step-card .head { color: var(--card-orange); }
+.dash-card .desc { color: var(--text-muted); }
+
+/* Step card title (head) text */
+.step-card .head > span:not(.key) { color: var(--text-primary); font-weight: 600; }
+
+/* Callout boxes — adjust contrast for light bg */
+.callout.warn   { background: rgba(191, 135, 0, 0.08);   border-color: rgba(191, 135, 0, 0.35); }
+.callout.danger { background: rgba(207, 34, 46, 0.07);   border-color: rgba(207, 34, 46, 0.3); }
+.callout.tip    { background: rgba(26, 127, 55, 0.07);   border-color: rgba(26, 127, 55, 0.3); }
+.callout b { color: var(--card-red); }
+.callout.tip b { color: var(--card-green); }
+
+/* Mèo đen 🐈‍⬛ mascot — corner peek */
+.cat-mascot {
+    position: fixed;
+    bottom: clamp(0.5rem, 1.5vw, 1.25rem);
+    left: clamp(0.5rem, 1.5vw, 1.25rem);
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    z-index: 4;
+    pointer-events: auto;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.4s var(--ease-out-expo);
+    filter: drop-shadow(0 2px 8px rgba(31, 35, 40, 0.2));
+    animation: catTail 4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+.cat-mascot:hover {
+    transform: scale(1.3) rotate(-8deg);
+}
+.cat-mascot.angry { animation: catShake 0.5s ease-in-out infinite; }
+@keyframes catTail {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50%      { transform: translateY(-4px) rotate(2deg); }
+}
+@keyframes catShake {
+    0%, 100% { transform: rotate(-8deg) scale(1.1); }
+    50%      { transform: rotate(8deg) scale(1.1); }
+}
+.cat-tooltip {
+    position: fixed;
+    bottom: clamp(3rem, 6vw, 4.5rem);
+    left: clamp(0.5rem, 1.5vw, 1.25rem);
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    font-family: var(--font-mono);
+    font-size: clamp(0.65rem, 0.95vw, 0.78rem);
+    padding: 0.4rem 0.7rem;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+    transition: all 0.3s var(--ease-out-expo);
+    z-index: 4;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(31, 35, 40, 0.2);
+}
+.cat-tooltip.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.cat-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 1rem;
+    width: 10px; height: 10px;
+    background: var(--text-primary);
+    transform: rotate(45deg);
+}
+
+@media (max-width: 760px) {
+    .cat-mascot { display: none; }
 }
