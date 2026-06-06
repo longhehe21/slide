@@ -3,72 +3,54 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mục lục · Bug Report</title>
+    <title>Mục lục · Git Workflow</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="shared/deck.css">
 </head>
-<body data-prev="index.html" data-next="hook.html">
+<body>
     <div class="progress-bar" id="progressBar"></div>
 
     <section class="slide dashboard-slide">
         <div class="dashboard-header reveal">
-            <div class="dashboard-kicker">Menu · 9 phần · Bấm để xem</div>
-            <div class="dashboard-title">Bug Report — <em>Mục lục.</em></div>
+            <div class="dashboard-kicker">Menu · 6 phần · Bấm để xem</div>
+            <div class="dashboard-title">Git Workflow — <em>Mục lục.</em></div>
         </div>
         <div class="dashboard-grid">
-            <a class="dash-card wide reveal" href="hook.html">
-                <div class="dash-icon">🆚</div>
-                <div class="num">01·02</div>
-                <div class="name">1 bug · 2 cách</div>
-                <div class="desc">Tệ vs Tốt → chênh 45 phút</div>
-            </a>
-            <a class="dash-card reveal" href="redmine.html">
-                <div class="dash-icon">📂</div>
-                <div class="num">03</div>
-                <div class="name">Redmine</div>
-                <div class="desc">Sổ tay chung của phòng</div>
-            </a>
-            <a class="dash-card reveal" href="parts.html">
-                <div class="dash-icon">🧩</div>
-                <div class="num">04</div>
-                <div class="name">5 thành phần</div>
-                <div class="desc">Cốt lõi của bug report</div>
-            </a>
-            <a class="dash-card reveal" href="demo.html">
-                <div class="dash-icon">🛠️</div>
-                <div class="num">05</div>
-                <div class="name">Thực hành</div>
-                <div class="desc">Tạo issue · 8 bước</div>
-            </a>
-            <a class="dash-card reveal" href="diff.html">
+            <a class="dash-card reveal" href="hook.html">
                 <div class="dash-icon">🤔</div>
-                <div class="num">06</div>
-                <div class="name">Lỗi hay Tính năng</div>
-                <div class="desc">2 loại — phân biệt sao?</div>
+                <div class="num">01</div>
+                <div class="name">Tại sao cần?</div>
+                <div class="desc">Lịch sử rối → khó review</div>
             </a>
-            <a class="dash-card reveal" href="heuristic.html">
-                <div class="dash-icon">💡</div>
-                <div class="num">07</div>
-                <div class="name">Mẹo nhanh</div>
-                <div class="desc">Ctrl+Shift+I · Console</div>
+            <a class="dash-card reveal" href="rebase.html">
+                <div class="dash-icon">🔄</div>
+                <div class="num">02</div>
+                <div class="name">Rebase</div>
+                <div class="desc">git rebase main · lịch sử tuyến tính</div>
             </a>
-            <a class="dash-card reveal" href="evidence.html">
-                <div class="dash-icon">🔍</div>
-                <div class="num">08</div>
-                <div class="name">Bằng chứng</div>
-                <div class="desc">2 cách lấy log/ảnh</div>
+            <a class="dash-card reveal" href="rebase-interactive.html">
+                <div class="dash-icon">✂️</div>
+                <div class="num">03</div>
+                <div class="name">Rebase tương tác</div>
+                <div class="desc">squash · reword · edit · drop</div>
             </a>
-            <a class="dash-card reveal" href="priority.html">
-                <div class="dash-icon">🚦</div>
-                <div class="num">09</div>
-                <div class="name">Ưu tiên</div>
-                <div class="desc">P0 → P4 · SLA fix</div>
+            <a class="dash-card reveal" href="cherry-pick.html">
+                <div class="dash-icon">🍒</div>
+                <div class="num">04</div>
+                <div class="name">Cherry-pick</div>
+                <div class="desc">Lấy 1 commit lẻ qua branch khác</div>
+            </a>
+            <a class="dash-card reveal" href="conflict.html">
+                <div class="dash-icon">⚔️</div>
+                <div class="num">05</div>
+                <div class="name">Conflict</div>
+                <div class="desc">Marker · abort · continue</div>
             </a>
             <a class="dash-card reveal" href="recap.html">
                 <div class="dash-icon">🎯</div>
-                <div class="num">10</div>
+                <div class="num">06</div>
                 <div class="name">Tóm tắt</div>
                 <div class="desc">4 ý chính · Q&amp;A</div>
             </a>

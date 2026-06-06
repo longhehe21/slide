@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02 · Rebase · Git Workflow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared/deck.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <section class="slide">
+        <div class="slide-number">02 / 6</div>
+        <a class="menu-btn" href="menu.html"><span class="icon">⌂</span> MENU</a>
+        <div class="breadcrumbs">
+            <a href="hook.html">HOOK</a><span class="active">REBASE</span><a href="rebase-interactive.html">SQUASH</a><a href="cherry-pick.html">CHERRY</a><a href="conflict.html">CONFLICT</a>
+        </div>
+        <div class="section-label reveal">
+            <div class="section-kicker">02 · Rebase</div>
+            <div class="section-title">Merge vs Rebase — cùng kết quả, khác lịch sử</div>
+        </div>
+
+        <div class="cmd-pair">
+            <div class="cmd-side bad reveal">
+                <h3>🔀 MERGE <span class="badge">phổ biến</span></h3>
+                <div class="code-block"><span class="comment"># Đứng ở feature branch</span>
+<span class="cmd">git merge main</span>
+
+<span class="comment"># Lịch sử có commit merge thừa:</span>
+<span class="hash">*</span>   <span class="cmd">Merge branch 'main' into feat/login</span>
+<span class="hash">|\</span>
+<span class="hash">| *</span> <span class="branch">feat: thêm login</span>
+<span class="hash">* |</span> <span class="main">main: cập nhật README</span>
+<span class="hash">|/</span>
+<span class="hash">*</span>   <span class="main">init</span></div>
+                <div class="takeaway">Giữ toàn bộ history thật, nhưng <b>thêm commit merge thừa</b> → đồ thị git rối, log chằng chịt.</div>
+            </div>
+            <div class="cmd-side good reveal">
+                <h3>🔄 REBASE <span class="badge">sạch</span></h3>
+                <div class="code-block"><span class="comment"># Đứng ở feature branch</span>
+<span class="cmd">git rebase main</span>
+
+<span class="comment"># Lịch sử thẳng băng:</span>
+<span class="hash">*</span> <span class="branch">feat: thêm login</span>
+<span class="hash">*</span> <span class="main">main: cập nhật README</span>
+<span class="hash">*</span> <span class="main">init</span></div>
+                <div class="takeaway">Commit của feature được <b>"xếp lại"</b> trên đầu main → lịch sử tuyến tính, không commit merge thừa.</div>
+            </div>
+        </div>
+
+        <div class="callout danger reveal">
+            <span class="icon">⚠️</span>
+            <div>
+                <b>Golden rule:</b> KHÔNG rebase nhánh đã <code>git push</code> lên public (main, develop, hoặc branch đã share team).<br>
+                → Lý do: rebase viết lại hash commit. Người khác đã pull về sẽ vỡ trận.<br>
+                <b>OK rebase:</b> branch riêng của mình chưa share.
+            </div>
+        </div>
+
+        <div class="slide-footer"><span class="brand">Git Workflow · Kiosk AI</span></div>
+    </section>
+
+    <nav class="page-nav">
+        <a href="hook.html">← Hook</a>
+        <a href="menu.html">⌂ Menu</a>
+        <a href="rebase-interactive.html" class="next">Tiếp · Rebase tương tác →</a>
+    </nav>
+
+    <script src="shared/deck.js"></script>
+</body>
+</html>

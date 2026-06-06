@@ -3,65 +3,59 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1 bug · 2 cách · Bug Report</title>
+    <title>01 · Tại sao · Git Workflow</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="shared/deck.css">
 </head>
-<body data-prev="menu.html" data-next="redmine.html">
+<body>
     <div class="progress-bar" id="progressBar"></div>
 
     <section class="slide">
-        <div class="slide-number">01·02 / 10</div>
+        <div class="slide-number">01 / 6</div>
         <a class="menu-btn" href="menu.html"><span class="icon">⌂</span> MENU</a>
         <div class="breadcrumbs">
-            <span class="active">HOOK</span><a href="redmine.html">TOOL</a><a href="parts.html">PARTS</a><a href="demo.html">DEMO</a>
+            <span class="active">HOOK</span><a href="rebase.html">REBASE</a><a href="rebase-interactive.html">SQUASH</a><a href="cherry-pick.html">CHERRY</a><a href="conflict.html">CONFLICT</a>
         </div>
         <div class="section-label reveal">
-            <div class="section-kicker">01 · 02 · 1 bug · 2 cách</div>
-            <div class="section-title">Cùng 1 bug — viết 2 cách, chênh 45 phút</div>
+            <div class="section-kicker">01 · Tại sao</div>
+            <div class="section-title">Cùng 1 feature — lịch sử 2 kiểu</div>
         </div>
 
-        <div class="hook-grid">
-            <div class="hook-card bad reveal">
-                <div class="hook-head">
-                    <span class="hook-tag bad">BUG TỆ</span>
-                    <span class="hook-time bad">⏱ 1h hỏi tới-lui</span>
-                </div>
-                <div class="hook-quote bad">"Không hướng dẫn tỉnh thành phố phường xã đặc khu."</div>
-                <div class="hook-img-wrap">
-                    <img src="assets/slide2_img3.png" alt="Ví dụ bug report tệ" />
-                </div>
+        <div class="cmd-pair">
+            <div class="cmd-side bad reveal">
+                <h3>🌀 GIT RỐI <span class="badge">khó review</span></h3>
+                <div class="code-block"><span class="hash">a8f3b2c</span> <span class="cmd">fix typo</span>
+<span class="hash">2e7d910</span> <span class="cmd">fix again</span>
+<span class="hash">9c1ab47</span> <span class="cmd">WIP login</span>
+<span class="hash">5b2f8e3</span> <span class="cmd">try again</span>
+<span class="hash">4d6c1a8</span> <span class="cmd">fix bug</span>
+<span class="hash">7e8b3f2</span> <span class="cmd">final final</span>
+<span class="hash">3a9d7e1</span> <span class="cmd">final final v2</span>
+<span class="hash">1c4f9b7</span> <span class="cmd">login ok</span></div>
+                <div class="takeaway">PR có 8 commit kiểu "fix · WIP · final" → reviewer không biết đọc cái nào. Revert 1 phần = vỡ trận.</div>
             </div>
-            <div class="hook-card good reveal">
-                <div class="hook-head">
-                    <span class="hook-tag good">BUG TỐT</span>
-                    <span class="hook-time good">⏱ 15p fix luôn</span>
-                </div>
-                <div class="hook-quote good">AI chưa hướng dẫn tỉnh/thành phố → xã/phường/đặc khu ở phần II khi chọn địa chỉ tạm trú, mà đã nhảy sang hướng dẫn địa chỉ (số nhà, đường phố). Steps · Screenshot · Log đính kèm.</div>
-                <div class="hook-img-wrap">
-                    <img src="assets/slide2_img1.png" alt="Ví dụ bug report tốt" />
-                </div>
+            <div class="cmd-side good reveal">
+                <h3>✨ GIT SẠCH <span class="badge">1 commit = 1 ý</span></h3>
+                <div class="code-block"><span class="hash">a8f3b2c</span> <span class="cmd">feat(auth): thêm trang login</span>
+<span class="comment">    + form email/password</span>
+<span class="comment">    + validate client-side</span>
+<span class="comment">    + gọi API /v1/login</span>
+
+<span class="hash">9c1ab47</span> <span class="cmd">fix(auth): handle 401 redirect về /login</span>
+
+<span class="hash">5b2f8e3</span> <span class="cmd">test(auth): unit test cho login form</span></div>
+                <div class="takeaway">3 commit, mỗi cái 1 ý rõ ràng. Reviewer đọc nhanh. Bug? <code>git revert &lt;hash&gt;</code> 1 phát là xong.</div>
             </div>
         </div>
 
-        <div class="hook-extras reveal">
-            <div class="savings-banner">
-                → 5 phút viết kỹ tiết kiệm <b>45 phút</b> tới-lui mỗi bug
-            </div>
-            <button class="screen-btn" type="button"
-                    data-modal-image="assets/slide2_img2.png"
-                    data-modal-alt="Màn hình form Tạo mới thông báo lưu trú — bug thực tế">
-                📷 Xem màn hình lỗi thực tế
-            </button>
-        </div>
-
-        <div class="slide-footer"><span class="brand">Bug Report · Kiosk AI</span><span>01·02 — 1 bug · 2 cách</span></div>
+        <div class="slide-footer"><span class="brand">Git Workflow · Kiosk AI</span></div>
     </section>
 
     <nav class="page-nav">
-        <a href="menu.html" class="next">⌂ Quay lại Menu</a>
+        <a href="menu.html">⌂ Menu</a>
+        <a href="rebase.html" class="next">Tiếp · Rebase →</a>
     </nav>
 
     <script src="shared/deck.js"></script>

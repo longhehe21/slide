@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03 · Rebase tương tác · Git Workflow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared/deck.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <section class="slide">
+        <div class="slide-number">03 / 6</div>
+        <a class="menu-btn" href="menu.html"><span class="icon">⌂</span> MENU</a>
+        <div class="breadcrumbs">
+            <a href="hook.html">HOOK</a><a href="rebase.html">REBASE</a><span class="active">SQUASH</span><a href="cherry-pick.html">CHERRY</a><a href="conflict.html">CONFLICT</a>
+        </div>
+        <div class="section-label reveal">
+            <div class="section-kicker">03 · Rebase tương tác</div>
+            <div class="section-title">Gộp 5 commit "WIP" thành 1 commit sạch</div>
+        </div>
+
+        <div class="code-block reveal" style="margin-top: clamp(0.5rem, 1vw, 1rem);">
+<span class="cmd">git rebase -i HEAD~5</span>  <span class="comment"># mở editor sửa 5 commit gần nhất</span>
+
+<span class="comment"># Editor hiện ra như này:</span>
+<span class="cmd">pick</span> <span class="hash">a8f3b2</span> WIP login form
+<span class="cmd">pick</span> <span class="hash">2e7d91</span> fix typo
+<span class="cmd">pick</span> <span class="hash">9c1ab4</span> add validate
+<span class="cmd">pick</span> <span class="hash">5b2f8e</span> fix again
+<span class="cmd">pick</span> <span class="hash">4d6c1a</span> final final
+<span class="comment">                                                                       </span>
+<span class="comment"># Đổi 4 dòng dưới từ `pick` → `squash` (s):</span>
+<span class="cmd">pick</span>   <span class="hash">a8f3b2</span> WIP login form
+<span class="flag">squash</span> <span class="hash">2e7d91</span> fix typo
+<span class="flag">squash</span> <span class="hash">9c1ab4</span> add validate
+<span class="flag">squash</span> <span class="hash">5b2f8e</span> fix again
+<span class="flag">squash</span> <span class="hash">4d6c1a</span> final final
+<span class="comment"># → Save & exit → editor mở lại cho bạn viết message mới gộp:</span>
+<span class="cmd">feat(auth): trang login với validate</span></div>
+
+        <div class="step-grid">
+            <div class="step-card reveal">
+                <div class="head"><span class="key">pick</span> <span>giữ commit</span></div>
+                <div class="desc">Không thay đổi gì. Mặc định.</div>
+            </div>
+            <div class="step-card reveal">
+                <div class="head"><span class="key">squash</span> <span>gộp vào commit trên</span></div>
+                <div class="desc"><b>Hay dùng nhất.</b> Gộp commit này vào commit ngay phía trên → giữ thay đổi code, message gộp lại.</div>
+            </div>
+            <div class="step-card reveal">
+                <div class="head"><span class="key">reword</span> <span>chỉ sửa message</span></div>
+                <div class="desc">Code giữ nguyên, chỉ đổi commit message. Sửa typo trong message.</div>
+            </div>
+            <div class="step-card reveal">
+                <div class="head"><span class="key">drop</span> <span>xóa hẳn commit</span></div>
+                <div class="desc">Code của commit đó bị xóa luôn. Cẩn thận — không undo được sau khi push.</div>
+            </div>
+        </div>
+
+        <div class="callout tip reveal">
+            <span class="icon">💡</span>
+            <div><b>Mẹo:</b> luôn <code>git rebase -i</code> <b>TRƯỚC khi mở PR</b>. Squash 8 commit "WIP" thành 1-3 commit có ý nghĩa → review sướng hơn nhiều.</div>
+        </div>
+
+        <div class="slide-footer"><span class="brand">Git Workflow · Kiosk AI</span></div>
+    </section>
+
+    <nav class="page-nav">
+        <a href="rebase.html">← Rebase</a>
+        <a href="menu.html">⌂ Menu</a>
+        <a href="cherry-pick.html" class="next">Tiếp · Cherry-pick →</a>
+    </nav>
+
+    <script src="shared/deck.js"></script>
+</body>
+</html>

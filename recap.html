@@ -3,43 +3,43 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tóm tắt · Bug Report</title>
+    <title>Tóm tắt · Git Workflow</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="shared/deck.css">
 </head>
-<body data-prev="priority.html" data-next="menu.html">
+<body>
     <div class="progress-bar" id="progressBar"></div>
 
     <section class="slide recap-slide">
         <a class="menu-btn" href="menu.html"><span class="icon">⌂</span> MENU</a>
 
         <div class="recap-card reveal">
-            <div class="title-meta">10 · Tóm tắt</div>
+            <div class="title-meta">06 · Tóm tắt</div>
             <div class="recap-headline">Nhớ 4 ý chính.</div>
             <div class="recap-list">
                 <div class="recap-item">
                     <div class="n">1</div>
-                    <div class="t">Bug report = <b>5 phần</b>: Chủ đề · Các bước · Kết quả · Bằng chứng · Môi trường.</div>
+                    <div class="t"><b>Rebase</b> = lịch sử sạch tuyến tính · <b>Merge</b> = giữ commit merge thừa. Branch riêng → rebase, share team → merge.</div>
                 </div>
                 <div class="recap-item">
                     <div class="n">2</div>
-                    <div class="t">Redmine: chọn <b>Lỗi hay Tính năng</b> + paste screenshot + log.</div>
+                    <div class="t"><b>Rebase tương tác</b> <code>git rebase -i HEAD~5</code> → <code>squash</code>/<code>reword</code> trước khi mở PR. Reviewer biết ơn.</div>
                 </div>
                 <div class="recap-item">
                     <div class="n">3</div>
-                    <div class="t">Console <b>đỏ = Lỗi</b> · Console <b>sạch = Tính năng</b>.</div>
+                    <div class="t"><b>Cherry-pick</b> <code>git cherry-pick &lt;hash&gt;</code> → lấy 1 commit lẻ từ branch khác. Hotfix gấp lên main không cần merge cả branch.</div>
                 </div>
                 <div class="recap-item">
                     <div class="n">4</div>
-                    <div class="t">Mặc định mức ưu tiên là <b>P3 · Bình thường</b>.</div>
+                    <div class="t"><b>Conflict</b>: xóa 3 marker (<code>&lt;&lt;&lt;</code> · <code>===</code> · <code>&gt;&gt;&gt;</code>) → <code>git add</code> → <code>--continue</code>. Rối quá → <code>--abort</code>.</div>
                 </div>
             </div>
         </div>
         <div class="recap-side">
             <div class="qa reveal">Cảm ơn — <em>câu hỏi?</em></div>
-            <div class="thanks reveal">5 phút viết kỹ tiết kiệm 45 phút tới-lui.</div>
+            <div class="thanks reveal">Golden rule: KHÔNG rebase code đã push lên public.</div>
             <div class="sig reveal">
                 <div><b>Hà Thành Long</b></div>
                 <div>Developer · Kiosk AI · 25.05.2026</div>
@@ -48,6 +48,7 @@
     </section>
 
     <nav class="page-nav">
+        <a href="conflict.html">← Conflict</a>
         <a href="menu.html" class="next">⌂ Quay lại Menu</a>
     </nav>
 

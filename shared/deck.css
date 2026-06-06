@@ -91,38 +91,20 @@ body {
 }
 
 /* ----- Source: menu card view-transition-names (per destination href) ----- */
-.dash-card[href="hook.html"]      { view-transition-name: morph-hook; }
-.dash-card[href="redmine.html"]   { view-transition-name: morph-redmine; }
-.dash-card[href="parts.html"]     { view-transition-name: morph-parts; }
-.dash-card[href="demo.html"]      { view-transition-name: morph-demo; }
-.dash-card[href="diff.html"]      { view-transition-name: morph-diff; }
-.dash-card[href="heuristic.html"] { view-transition-name: morph-heur; }
-.dash-card[href="evidence.html"]  { view-transition-name: morph-evid; }
-.dash-card[href="priority.html"]  { view-transition-name: morph-prio; }
-.dash-card[href="recap.html"]     { view-transition-name: morph-recap; }
+.dash-card[href="hook.html"]              { view-transition-name: morph-hook; }
+.dash-card[href="rebase.html"]            { view-transition-name: morph-rebase; }
+.dash-card[href="rebase-interactive.html"] { view-transition-name: morph-rebasei; }
+.dash-card[href="cherry-pick.html"]       { view-transition-name: morph-cherry; }
+.dash-card[href="conflict.html"]          { view-transition-name: morph-conflict; }
+.dash-card[href="recap.html"]             { view-transition-name: morph-recap; }
 
-/* ----- Destination: section header pairs with corresponding card -----
-   body.dataset.page is set by deck.js mountPage() based on URL. */
-body[data-page="hook"]    .section-label { view-transition-name: morph-hook; }
-body[data-page="parts"]   .section-label { view-transition-name: morph-parts; }
-body[data-page="demo"]    .section-label { view-transition-name: morph-demo; }
-body[data-page="diff"]    .section-label { view-transition-name: morph-diff; }
-body[data-page="evidence"] .section-label { view-transition-name: morph-evid; }
-body[data-page="priority"] .section-label { view-transition-name: morph-prio; }
-
-/* Redmine sub-slides share the SAME morph name → smooth transitions between
-   sub-slides as well as morph from menu card */
-body[data-page="redmine"]      .section-label,
-body[data-page="redmine-list"] .section-label,
-body[data-page="redmine-new"]  .section-label,
-body[data-page="redmine-form"] .section-label { view-transition-name: morph-redmine; }
-
-/* Heuristic sub-slides */
-body[data-page="heuristic"]       .section-label,
-body[data-page="heuristic-clean"] .section-label { view-transition-name: morph-heur; }
-
-/* Recap card (different layout from other sections) */
-body[data-page="recap"] .recap-card { view-transition-name: morph-recap; }
+/* ----- Destination: section header pairs with corresponding card ----- */
+body[data-page="hook"]              .section-label { view-transition-name: morph-hook; }
+body[data-page="rebase"]            .section-label { view-transition-name: morph-rebase; }
+body[data-page="rebase-interactive"] .section-label { view-transition-name: morph-rebasei; }
+body[data-page="cherry-pick"]       .section-label { view-transition-name: morph-cherry; }
+body[data-page="conflict"]          .section-label { view-transition-name: morph-conflict; }
+body[data-page="recap"]             .recap-card    { view-transition-name: morph-recap; }
 
 /* Title page hero ↔ Menu page header */
 body[data-page="index"] .title-card        { view-transition-name: morph-home; }
@@ -744,9 +726,9 @@ body {
 .recap-side .qa em { text-shadow: 0 0 40px rgba(255, 87, 34, 0.5); }
 .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: clamp(0.5rem, 1.2vw, 1rem);
+    gap: clamp(0.75rem, 1.5vw, 1.25rem);
     flex: 1;
     min-height: 0;
 }
@@ -1468,6 +1450,171 @@ body {
 .recap-side .sig b { color: var(--text-primary); font-weight: 700; }
 
 /* ===========================================
+   GIT WORKFLOW DECK — code blocks, command lists, branch diagrams
+   =========================================== */
+
+/* Terminal-style code block */
+.code-block {
+    font-family: var(--font-mono);
+    background: #0d1117;
+    border: 1px solid var(--line);
+    border-radius: clamp(8px, 1vw, 14px);
+    padding: clamp(0.75rem, 1.4vw, 1.25rem) clamp(1rem, 1.8vw, 1.5rem);
+    font-size: clamp(0.75rem, 1.1vw, 0.95rem);
+    line-height: 1.6;
+    color: #d8d4cf;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    position: relative;
+}
+.code-block::before {
+    content: '';
+    position: absolute;
+    top: 0.65rem; left: 0.85rem;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #ff5f57;
+    box-shadow: 16px 0 0 #febc2e, 32px 0 0 #28c840;
+}
+.code-block { padding-top: clamp(1.5rem, 2.5vw, 2.2rem); }
+.code-block .cmd     { color: var(--card-orange); font-weight: 700; }
+.code-block .comment { color: #6e7681; font-style: italic; }
+.code-block .branch  { color: #7BD389; }
+.code-block .hash    { color: #FFC76A; }
+.code-block .flag    { color: #8ab4ea; }
+.code-block .arrow   { color: var(--text-muted); }
+
+/* Two-column terminal comparison */
+.cmd-pair {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(0.75rem, 1.8vw, 1.8rem);
+    margin-top: clamp(0.75rem, 1.5vw, 1.5rem);
+    min-height: 0;
+}
+.cmd-side {
+    display: flex; flex-direction: column;
+    gap: clamp(0.5rem, 1vw, 0.85rem);
+    overflow: hidden; min-height: 0;
+}
+.cmd-side h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 1.6vw, 1.35rem);
+    letter-spacing: -0.01em;
+    display: flex; align-items: center; gap: 0.4rem;
+}
+.cmd-side h3 .badge {
+    font-family: var(--font-mono);
+    font-size: 0.7em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 6px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+.cmd-side.bad h3 .badge  { background: rgba(255, 87, 34, 0.18); color: #FF9580; }
+.cmd-side.good h3 .badge { background: rgba(76, 175, 80, 0.18); color: #7BD389; }
+.cmd-side .takeaway {
+    font-size: var(--small-size);
+    color: var(--text-muted);
+    line-height: 1.5;
+    padding: 0.5rem 0.75rem;
+    border-left: 3px solid var(--line);
+    margin-top: auto;
+}
+.cmd-side.bad .takeaway  { border-left-color: var(--card-orange); }
+.cmd-side.good .takeaway { border-left-color: var(--card-green); }
+
+/* Step grid — list of git commands with explanations */
+.step-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(0.5rem, 1.2vw, 1rem);
+    margin-top: clamp(0.75rem, 1.5vw, 1.25rem);
+    align-content: start;
+    min-height: 0;
+}
+.step-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--line);
+    border-radius: clamp(8px, 1vw, 12px);
+    padding: clamp(0.7rem, 1.3vw, 1.1rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.step-card .head {
+    display: flex; align-items: baseline; gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: clamp(0.8rem, 1.2vw, 1rem);
+    color: var(--card-orange);
+    font-weight: 700;
+}
+.step-card .head .key {
+    background: rgba(255, 87, 34, 0.15);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+}
+.step-card .desc {
+    font-size: var(--small-size);
+    color: var(--text-muted);
+    line-height: 1.45;
+}
+.step-card .desc b { color: var(--text-primary); font-weight: 600; }
+
+/* Branch diagram — ASCII commit graph with colored highlights */
+.branch-diagram {
+    font-family: var(--font-mono);
+    font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+    line-height: 1.5;
+    background: #0d1117;
+    border: 1px solid var(--line);
+    border-radius: clamp(8px, 1vw, 12px);
+    padding: clamp(0.85rem, 1.5vw, 1.4rem);
+    color: #d8d4cf;
+    white-space: pre;
+    overflow-x: auto;
+}
+.branch-diagram .main    { color: var(--card-orange); }
+.branch-diagram .feat    { color: #7BD389; }
+.branch-diagram .hot     { color: #FFC76A; }
+.branch-diagram .picked  { color: var(--card-orange); font-weight: 700; }
+.branch-diagram .label   { color: var(--text-muted); font-style: italic; }
+
+/* Warning callout box (golden rule, gotchas) */
+.callout {
+    margin-top: clamp(0.65rem, 1.2vw, 1rem);
+    padding: clamp(0.6rem, 1.2vw, 1rem) clamp(0.85rem, 1.5vw, 1.25rem);
+    border-radius: 10px;
+    font-size: var(--small-size);
+    line-height: 1.5;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+.callout.warn {
+    background: rgba(255, 193, 7, 0.08);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    color: var(--text-primary);
+}
+.callout.danger {
+    background: rgba(255, 87, 34, 0.08);
+    border: 1px solid rgba(255, 87, 34, 0.3);
+    color: var(--text-primary);
+}
+.callout.tip {
+    background: rgba(76, 175, 80, 0.08);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    color: var(--text-primary);
+}
+.callout .icon { font-size: 1.2em; flex-shrink: 0; line-height: 1.2; }
+.callout b { color: var(--card-orange); }
+.callout.tip b { color: var(--card-green); }
+
+/* ===========================================
    RESPONSIVE
    =========================================== */
 @media (max-height: 700px) {
@@ -1483,7 +1630,7 @@ body {
     .prio-sla { text-align: left; }
     .dashboard-grid {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(5, 1fr);
+        grid-template-rows: repeat(3, 1fr);
     }
     .menu-btn { display: none; }
     .page-nav { bottom: 0.5rem; right: 0.5rem; gap: 0.25rem; }
@@ -1491,7 +1638,7 @@ body {
 }
 @media (max-width: 1100px) and (min-width: 761px) {
     .dashboard-grid {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
     }
 }
