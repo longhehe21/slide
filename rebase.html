@@ -42,60 +42,33 @@
                             <p><strong>Cả hai đều cập nhật nhánh của bạn với <code>main</code> mới nhất, nhưng tạo lịch sử khác nhau.</strong></p>
 
                             <h2>🔀 Cách 1: <code>git merge main</code></h2>
-                            <div class="code-block"><span class="cmt"># Khi đang ở nhánh của mình</span>
-$ git merge main
 
-<span class="cmt"># Lịch sử có thêm 1 commit "gộp" thừa:</span>
-*   Gộp main vào nhánh
-|\
-| * <span class="br">Thêm trang đăng nhập</span>
-* | <span class="kw">Cập nhật README ở main</span>
-|/
-*   commit đầu tiên</div>
+                            <div class="branch-graph"><span class="feat">●</span>──── <strong style="color: var(--gh-danger);">Gộp main vào nhánh</strong>  <span class="label">← commit gộp thừa</span>
+<span class="feat">│</span>╲
+<span class="feat">│</span> <span class="main">●</span>── <span class="label">Cập nhật README ở main</span>
+<span class="feat">│</span> <span class="main">│</span>
+<span class="feat">●</span> <span class="main">│</span>── <span class="label">Thêm trang đăng nhập</span>
+<span class="feat">│</span> <span class="main">│</span>
+<span class="feat">│</span>╱
+●──── <span class="label">commit gốc chung</span></div>
 
                             <div class="alert note">
                                 <div class="alert-title">📝 Đặc điểm</div>
-                                Giữ đủ lịch sử thật, nhưng <strong>có 1 commit "gộp" thừa</strong>. Khi log ra nhiều nhánh sẽ rối.
+                                Giữ đủ lịch sử thật, nhưng <strong>có 1 commit "gộp" thừa</strong> ở trên cùng — không có code mới, chỉ ghi *"chỗ này đã gộp"*. Đồ thị có hình chữ Y.
                             </div>
 
                             <h2>🔄 Cách 2: <code>git rebase main</code></h2>
-                            <div class="code-block"><span class="cmt"># Khi đang ở nhánh của mình</span>
-$ git rebase main
 
-<span class="cmt"># Lịch sử thẳng băng, không commit thừa:</span>
-* <span class="br">Thêm trang đăng nhập</span>
-* <span class="kw">Cập nhật README ở main</span>
-* commit đầu tiên</div>
+                            <div class="branch-graph"><span class="feat">●</span>──── <span class="label">Thêm trang đăng nhập</span>  <span class="label">← được "xếp lại" lên trên</span>
+<span class="feat">│</span>
+<span class="main">●</span>──── <span class="label">Cập nhật README ở main</span>
+<span class="main">│</span>
+●──── <span class="label">commit gốc chung</span></div>
 
                             <div class="alert tip">
                                 <div class="alert-title">💡 Đặc điểm</div>
-                                Commit của bạn được <strong>"xếp lại"</strong> lên trên main → lịch sử tuyến tính, sạch.
+                                Commit của bạn được <strong>"xếp lại"</strong> lên trên main → lịch sử <strong>thẳng băng</strong>, không có chữ Y, không có commit thừa.
                             </div>
-
-                            <h2>📋 Ví dụ thật — chạy <code>git log</code> trên main</h2>
-
-                            <p>Giả sử bạn merge xong PR #5 (thêm trang đăng nhập, có 3 commit). Lịch sử main sẽ là:</p>
-
-                            <div class="diff-block">
-                                <div class="diff-head">⚠️ Nếu dùng <code>git merge</code> (có commit gộp)</div>
-<pre><span class="line del">a1b2c3d  Merge pull request #5 from feat/login</span>
-<span class="line ctx">e4f5g6h  test: viết test cho form login</span>
-<span class="line ctx">i7j8k9l  fix: sửa lỗi sai mật khẩu</span>
-<span class="line ctx">m0n1o2p  feat: thêm trang đăng nhập</span>
-<span class="line ctx">q3r4s5t  fix: cập nhật README ở main</span></pre>
-                            </div>
-
-                            <p>5 commit, trong đó <span style="color: var(--gh-danger);">commit đầu màu đỏ là commit gộp thừa</span> — không có code mới, chỉ ghi *"chỗ này đã merge"*.</p>
-
-                            <div class="diff-block">
-                                <div class="diff-head">✨ Nếu dùng <code>git rebase</code> (sạch, không commit thừa)</div>
-<pre><span class="line ctx">e4f5g6h  test: viết test cho form login</span>
-<span class="line ctx">i7j8k9l  fix: sửa lỗi sai mật khẩu</span>
-<span class="line ctx">m0n1o2p  feat: thêm trang đăng nhập</span>
-<span class="line ctx">q3r4s5t  fix: cập nhật README ở main</span></pre>
-                            </div>
-
-                            <p>Đúng 4 commit, mỗi commit là 1 thay đổi thật. Đọc 5 giây hiểu hết.</p>
 
                             <div class="alert danger">
                                 <div class="alert-title">⛔ QUY TẮC VÀNG</div>
