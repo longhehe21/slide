@@ -72,6 +72,31 @@ $ git rebase main
                                 Commit của bạn được <strong>"xếp lại"</strong> lên trên main → lịch sử tuyến tính, sạch.
                             </div>
 
+                            <h2>📋 Ví dụ thật — chạy <code>git log</code> trên main</h2>
+
+                            <p>Giả sử bạn merge xong PR #5 (thêm trang đăng nhập, có 3 commit). Lịch sử main sẽ là:</p>
+
+                            <div class="diff-block">
+                                <div class="diff-head">⚠️ Nếu dùng <code>git merge</code> (có commit gộp)</div>
+<pre><span class="line del">a1b2c3d  Merge pull request #5 from feat/login</span>
+<span class="line ctx">e4f5g6h  test: viết test cho form login</span>
+<span class="line ctx">i7j8k9l  fix: sửa lỗi sai mật khẩu</span>
+<span class="line ctx">m0n1o2p  feat: thêm trang đăng nhập</span>
+<span class="line ctx">q3r4s5t  fix: cập nhật README ở main</span></pre>
+                            </div>
+
+                            <p>5 commit, trong đó <span style="color: var(--gh-danger);">commit đầu màu đỏ là commit gộp thừa</span> — không có code mới, chỉ ghi *"chỗ này đã merge"*.</p>
+
+                            <div class="diff-block">
+                                <div class="diff-head">✨ Nếu dùng <code>git rebase</code> (sạch, không commit thừa)</div>
+<pre><span class="line ctx">e4f5g6h  test: viết test cho form login</span>
+<span class="line ctx">i7j8k9l  fix: sửa lỗi sai mật khẩu</span>
+<span class="line ctx">m0n1o2p  feat: thêm trang đăng nhập</span>
+<span class="line ctx">q3r4s5t  fix: cập nhật README ở main</span></pre>
+                            </div>
+
+                            <p>Đúng 4 commit, mỗi commit là 1 thay đổi thật. Đọc 5 giây hiểu hết.</p>
+
                             <div class="alert danger">
                                 <div class="alert-title">⛔ QUY TẮC VÀNG</div>
                                 <strong>KHÔNG rebase code đã đẩy lên nhánh chung</strong> (main, develop, hoặc nhánh team đã pull về).<br>
