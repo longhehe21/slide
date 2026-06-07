@@ -3,79 +3,118 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>05 · Conflict · Git Workflow</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>#05 Conflict · git-workflow</title>
     <link rel="stylesheet" href="shared/deck.css">
 </head>
 <body>
+    <header class="gh-topbar">
+        <span class="octocat">🐙</span>
+        <span class="repo-path">
+            <a href="index.html">longhehe21</a>
+            <span class="sep">/</span>
+            <a href="index.html"><b>git-workflow</b></a>
+        </span>
+        <nav class="repo-tabs">
+            <a href="index.html">📖 Code</a>
+            <a href="menu.html" class="active">⊙ Issues <span class="count">6</span></a>
+        </nav>
+    </header>
+
     <div class="progress-bar" id="progressBar"></div>
 
     <section class="slide">
-        <div class="slide-number">05 / 6</div>
-        <a class="menu-btn" href="menu.html"><span class="icon">⌂</span> MENU</a>
-        <div class="breadcrumbs">
-            <a href="hook.html">HOOK</a><a href="rebase.html">REBASE</a><a href="rebase-interactive.html">SQUASH</a><a href="cherry-pick.html">CHERRY</a><span class="active">CONFLICT</span>
-        </div>
-        <div class="section-label reveal">
-            <div class="section-kicker">05 · Conflict</div>
-            <div class="section-title">Xử lý xung đột — đừng hoảng</div>
-        </div>
-
-        <div class="cmd-pair">
-            <div class="cmd-side bad reveal">
-                <h3>📛 GIT NÓI GÌ <span class="badge">marker</span></h3>
-                <div class="code-block"><span class="comment"># Khi conflict, file sẽ có 3 marker:</span>
-
-function login(email, password) {
-<span class="hash">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span>          <span class="comment">← code của BẠN</span>
-    return api.post('/v1/login', {
-        email, password
-    });
-<span class="hash">=======</span>                <span class="comment">← ranh giới</span>
-    return api.post('/auth/login', {
-        username: email, pwd: password
-    });
-<span class="hash">&gt;&gt;&gt;&gt;&gt;&gt;&gt; main</span>           <span class="comment">← code của branch khác</span>
-}</div>
-                <div class="takeaway">3 marker: <code>&lt;&lt;&lt;&lt; HEAD</code> = bạn · <code>====</code> = ranh giới · <code>&gt;&gt;&gt;&gt; main</code> = đối thủ. <b>Xóa cả 3 marker</b> sau khi chọn xong code.</div>
+        <div class="issue-view reveal">
+            <div class="issue-header">
+                <h1 class="title">Xử lý conflict — đừng hoảng <span class="num">#05</span></h1>
+                <div class="status-line">
+                    <span class="status-badge open"><span class="icon">⊙</span> Open</span>
+                    <span><b>@longhehe21</b> opened this issue 30 minutes ago</span>
+                </div>
             </div>
-            <div class="cmd-side good reveal">
-                <h3>🛠️ XỬ LÝ <span class="badge">3 bước</span></h3>
-                <div class="code-block"><span class="comment"># 1. Xem file nào conflict</span>
-<span class="cmd">git status</span>
-<span class="comment"># both modified: src/auth.js</span>
 
-<span class="comment"># 2. Mở file, sửa thủ công, xóa 3 marker</span>
-<span class="comment"># (dùng VSCode để click 'Accept Current'</span>
-<span class="comment">#  hoặc 'Accept Incoming' tiện hơn)</span>
+            <div class="issue-body">
+                <div>
+                    <div class="comment-card">
+                        <div class="comment-head">
+                            <span class="author"><b>@longhehe21</b></span> commented · 30 minutes ago
+                        </div>
+                        <div class="comment-body">
+                            <p>Khi 2 branch sửa cùng 1 dòng, git không tự gộp được → conflict. Git để lại marker trong file cho bạn tự chọn.</p>
 
-<span class="comment"># 3. Stage + tiếp tục</span>
-<span class="cmd">git add</span> src/auth.js
-<span class="cmd">git rebase --continue</span>
-<span class="comment">#   (hoặc git merge --continue)</span>
+                            <h2>📛 Marker — git nói gì</h2>
 
-<span class="comment"># Lỡ rối quá → quay lui:</span>
-<span class="cmd">git rebase --abort</span></div>
-                <div class="takeaway"><b>VSCode</b> có UI 4 nút sẵn: Accept Current / Incoming / Both / Compare → nhanh hơn sửa tay.</div>
+                            <div class="diff-block">
+                                <div class="diff-head">src/auth.js · <code>both modified</code></div>
+<pre><span class="line ctx">function login(email, password) {</span>
+<span class="line ctx">  <span style="color: var(--gh-attention);">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span>          // ← code của BẠN</span>
+<span class="line add">  return api.post('/v1/login', {</span>
+<span class="line add">      email, password</span>
+<span class="line add">  });</span>
+<span class="line ctx">  <span style="color: var(--gh-attention);">=======</span>                // ← ranh giới</span>
+<span class="line del">  return api.post('/auth/login', {</span>
+<span class="line del">      username: email, pwd: password</span>
+<span class="line del">  });</span>
+<span class="line ctx">  <span style="color: var(--gh-attention);">&gt;&gt;&gt;&gt;&gt;&gt;&gt; main</span>           // ← code của branch khác</span>
+<span class="line ctx">}</span></pre>
+                            </div>
+
+                            <div class="alert note">
+                                <div class="alert-title">📝 3 marker</div>
+                                <code>&lt;&lt;&lt; HEAD</code> = code <strong>bạn</strong> · <code>====</code> = ranh giới · <code>&gt;&gt;&gt; main</code> = code <strong>đối phương</strong>. <strong>Xóa cả 3 marker</strong> sau khi chọn xong code.
+                            </div>
+
+                            <h2>🛠 Xử lý — 3 bước</h2>
+
+                            <div class="code-block"><span class="cmt"># 1. Xem file nào conflict</span>
+$ git status
+<span class="kw">both modified:</span>   src/auth.js
+
+<span class="cmt"># 2. Mở file, sửa thủ công, xóa 3 marker</span>
+<span class="cmt">#    (VSCode có UI 4 nút: Accept Current / Incoming / Both / Compare)</span>
+
+<span class="cmt"># 3. Stage + tiếp tục</span>
+$ git add src/auth.js
+$ git rebase --continue
+<span class="cmt">#   (hoặc git merge --continue)</span>
+
+<span class="cmt"># Lỡ rối quá → quay lui:</span>
+$ git rebase --abort</div>
+
+                            <div class="alert tip">
+                                <div class="alert-title">💡 Tip giảm conflict</div>
+                                Pull/rebase main thường xuyên (mỗi sáng) → conflict nhỏ thay vì chờ 1 tuần rồi conflict 50 file.<br>
+                                <strong>1 PR = 1 ý</strong> → ít file đụng = ít conflict.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="issue-sidebar">
+                    <div class="sidebar-section">
+                        <h4>Labels</h4>
+                        <div class="labels">
+                            <span class="label lbl-red">conflict</span>
+                            <span class="label lbl-gray">survival</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h4>Assignees</h4>
+                        <div class="assignee"><span class="avatar">HL</span>@longhehe21</div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h4>Milestone</h4>
+                        <div><span style="color: var(--gh-accent);">v1.0 · Git Sharing</span></div>
+                    </div>
+                </aside>
             </div>
         </div>
-
-        <div class="callout tip reveal">
-            <span class="icon">💡</span>
-            <div>
-                <b>Tip giảm conflict:</b> pull/rebase main thường xuyên (mỗi sáng) → conflict nhỏ thay vì chờ 1 tuần rồi conflict 50 file. <b>1 PR = 1 ý</b> → ít file đụng = ít conflict.
-            </div>
-        </div>
-
-        <div class="slide-footer"><span class="brand">Git Workflow · Kiosk AI</span></div>
     </section>
 
     <nav class="page-nav">
-        <a href="cherry-pick.html">← Cherry-pick</a>
-        <a href="menu.html">⌂ Menu</a>
-        <a href="recap.html" class="next">Tiếp · Tóm tắt →</a>
+        <a href="cherry-pick.html">← #04 Cherry-pick</a>
+        <a href="menu.html">⊙ Issues</a>
+        <span class="spacer"></span>
+        <a href="recap.html" class="primary">Next #06 · Recap →</a>
     </nav>
 
     <script src="shared/deck.js"></script>

@@ -3,73 +3,114 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>04 · Cherry-pick · Git Workflow</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>#04 Cherry-pick · git-workflow</title>
     <link rel="stylesheet" href="shared/deck.css">
 </head>
 <body>
+    <header class="gh-topbar">
+        <span class="octocat">🐙</span>
+        <span class="repo-path">
+            <a href="index.html">longhehe21</a>
+            <span class="sep">/</span>
+            <a href="index.html"><b>git-workflow</b></a>
+        </span>
+        <nav class="repo-tabs">
+            <a href="index.html">📖 Code</a>
+            <a href="menu.html" class="active">⊙ Issues <span class="count">6</span></a>
+        </nav>
+    </header>
+
     <div class="progress-bar" id="progressBar"></div>
 
     <section class="slide">
-        <div class="slide-number">04 / 6</div>
-        <a class="menu-btn" href="menu.html"><span class="icon">⌂</span> MENU</a>
-        <div class="breadcrumbs">
-            <a href="hook.html">HOOK</a><a href="rebase.html">REBASE</a><a href="rebase-interactive.html">SQUASH</a><span class="active">CHERRY</span><a href="conflict.html">CONFLICT</a>
-        </div>
-        <div class="section-label reveal">
-            <div class="section-kicker">04 · Cherry-pick</div>
-            <div class="section-title">Lấy 1 commit lẻ từ branch khác</div>
-        </div>
-
-        <div class="cmd-pair">
-            <div class="cmd-side good reveal">
-                <h3>🍒 LỆNH <span class="badge">đơn giản</span></h3>
-                <div class="code-block"><span class="comment"># 1. Tìm hash commit cần lấy</span>
-<span class="cmd">git log feat/login --oneline</span>
-<span class="hash">a8f3b2c</span> fix: vá lỗ hổng XSS login
-<span class="hash">9c1ab47</span> feat: thêm trang login
-<span class="hash">5b2f8e3</span> WIP
-
-<span class="comment"># 2. Sang main và cherry-pick commit fix</span>
-<span class="cmd">git checkout main</span>
-<span class="cmd">git cherry-pick</span> <span class="hash">a8f3b2c</span>
-
-<span class="comment"># Xong! Commit fix XSS đã có trên main,</span>
-<span class="comment"># mà KHÔNG kéo theo feat/login chưa xong.</span></div>
-                <div class="takeaway"><b>Use case</b>: hotfix nằm trong feature branch nhưng cần đẩy lên production GẤP, không thể chờ feature xong.</div>
+        <div class="issue-view reveal">
+            <div class="issue-header">
+                <h1 class="title">Cherry-pick: lấy 1 commit lẻ từ branch khác <span class="num">#04</span></h1>
+                <div class="status-line">
+                    <span class="status-badge open"><span class="icon">⊙</span> Open</span>
+                    <span><b>@longhehe21</b> opened this issue 1 hour ago</span>
+                </div>
             </div>
-            <div class="cmd-side reveal">
-                <h3>📊 Trước / Sau</h3>
-                <div class="branch-diagram"><span class="label">Trước:</span>
-<span class="main">main</span>     <span class="hash">●──●──●</span>
-                  <span class="hash">\</span>
-<span class="feat">feat</span>      <span class="hash">●──●──<span class="picked">★</span> </span> <span class="label">← XSS fix kẹt ở đây</span>
 
-<span class="label">Sau git cherry-pick:</span>
-<span class="main">main</span>     <span class="hash">●──●──●──<span class="picked">★'</span></span>  <span class="label">← commit mới</span>
-                  <span class="hash">\</span>
-<span class="feat">feat</span>      <span class="hash">●──●──<span class="picked">★</span> </span> <span class="label">← bản gốc còn đó</span></div>
-                <div class="takeaway">Commit <b>★'</b> trên main có cùng <i>nội dung</i> nhưng <i>hash khác</i> với commit gốc ★.</div>
+            <div class="issue-body">
+                <div>
+                    <div class="comment-card">
+                        <div class="comment-head">
+                            <span class="author"><b>@longhehe21</b></span> commented · 1 hour ago
+                        </div>
+                        <div class="comment-body">
+                            <p><strong>Use case:</strong> hotfix nằm trong feature branch chưa xong, cần đẩy lên <code>main</code> gấp mà không kéo theo cả branch.</p>
+
+                            <h2>Lệnh 3 bước</h2>
+
+                            <div class="code-block"><span class="cmt"># 1. Tìm hash commit cần lấy</span>
+$ git log feat/login --oneline
+<span class="h">a8f3b2c</span> <span class="kw">fix:</span> vá lỗ hổng XSS login
+<span class="h">9c1ab47</span> <span class="br">feat:</span> thêm trang login
+<span class="h">5b2f8e3</span> WIP
+
+<span class="cmt"># 2. Sang main và cherry-pick commit fix</span>
+$ git checkout main
+$ git cherry-pick <span class="h">a8f3b2c</span>
+
+<span class="cmt"># Xong. Commit fix XSS đã có trên main,</span>
+<span class="cmt"># KHÔNG kéo theo feat/login chưa xong.</span></div>
+
+                            <h2>Trước / Sau</h2>
+
+                            <div class="branch-graph"><span class="label">Trước cherry-pick:</span>
+
+<span class="main">main</span>     ●──●──●
+                  \
+<span class="feat">feat</span>      ●──●──<span class="pick">★</span>   <span class="label">← XSS fix kẹt ở đây</span>
+
+<span class="label">Sau git cherry-pick a8f3b2c:</span>
+
+<span class="main">main</span>     ●──●──●──<span class="pick">★'</span>   <span class="label">← commit mới, hash khác</span>
+                  \
+<span class="feat">feat</span>      ●──●──<span class="pick">★</span>    <span class="label">← bản gốc vẫn còn</span></div>
+
+                            <div class="alert note">
+                                <div class="alert-title">📝 Lưu ý hash</div>
+                                Commit <strong>★'</strong> trên main có cùng <em>nội dung</em> nhưng <em>hash khác</em> với commit gốc ★ (vì khác parent).
+                            </div>
+
+                            <div class="alert warn">
+                                <div class="alert-title">⚠ Mẹo</div>
+                                <strong>Multi-cherry-pick:</strong> lấy 1 dãy commit liên tiếp:<br>
+                                <code>git cherry-pick A^..B</code> (từ A đến B, kể cả 2 đầu).<br>
+                                <strong>Có conflict?</strong> → <code>git cherry-pick --continue</code> hoặc <code>--abort</code>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="issue-sidebar">
+                    <div class="sidebar-section">
+                        <h4>Labels</h4>
+                        <div class="labels">
+                            <span class="label lbl-purple">cherry-pick</span>
+                            <span class="label lbl-yellow">hotfix</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h4>Assignees</h4>
+                        <div class="assignee"><span class="avatar">HL</span>@longhehe21</div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h4>Milestone</h4>
+                        <div><span style="color: var(--gh-accent);">v1.0 · Git Sharing</span></div>
+                    </div>
+                </aside>
             </div>
         </div>
-
-        <div class="callout warn reveal">
-            <span class="icon">📌</span>
-            <div>
-                <b>Multi-cherry-pick:</b> lấy 1 dãy commit liên tiếp <code>git cherry-pick A^..B</code> (từ A đến B, kể cả 2 đầu).<br>
-                <b>Có conflict?</b> → <code>git cherry-pick --continue</code> hoặc <code>--abort</code>.
-            </div>
-        </div>
-
-        <div class="slide-footer"><span class="brand">Git Workflow · Kiosk AI</span></div>
     </section>
 
     <nav class="page-nav">
-        <a href="rebase-interactive.html">← Rebase tương tác</a>
-        <a href="menu.html">⌂ Menu</a>
-        <a href="conflict.html" class="next">Tiếp · Conflict →</a>
+        <a href="rebase-interactive.html">← #03 Interactive</a>
+        <a href="menu.html">⊙ Issues</a>
+        <span class="spacer"></span>
+        <a href="conflict.html" class="primary">Next #05 · Conflict →</a>
     </nav>
 
     <script src="shared/deck.js"></script>

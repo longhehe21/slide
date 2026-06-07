@@ -3,53 +3,110 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tóm tắt · Git Workflow</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>#06 Tóm tắt · git-workflow</title>
     <link rel="stylesheet" href="shared/deck.css">
 </head>
 <body>
+    <header class="gh-topbar">
+        <span class="octocat">🐙</span>
+        <span class="repo-path">
+            <a href="index.html">longhehe21</a>
+            <span class="sep">/</span>
+            <a href="index.html"><b>git-workflow</b></a>
+        </span>
+        <nav class="repo-tabs">
+            <a href="index.html">📖 Code</a>
+            <a href="menu.html" class="active">⊙ Issues <span class="count">6</span></a>
+        </nav>
+    </header>
+
     <div class="progress-bar" id="progressBar"></div>
 
-    <section class="slide recap-slide">
-        <a class="menu-btn" href="menu.html"><span class="icon">⌂</span> MENU</a>
-
-        <div class="recap-card reveal">
-            <div class="title-meta">06 · Tóm tắt</div>
-            <div class="recap-headline">Nhớ 4 ý chính.</div>
-            <div class="recap-list">
-                <div class="recap-item">
-                    <div class="n">1</div>
-                    <div class="t"><b>Rebase</b> = lịch sử sạch tuyến tính · <b>Merge</b> = giữ commit merge thừa. Branch riêng → rebase, share team → merge.</div>
-                </div>
-                <div class="recap-item">
-                    <div class="n">2</div>
-                    <div class="t"><b>Rebase tương tác</b> <code>git rebase -i HEAD~5</code> → <code>squash</code>/<code>reword</code> trước khi mở PR. Reviewer biết ơn.</div>
-                </div>
-                <div class="recap-item">
-                    <div class="n">3</div>
-                    <div class="t"><b>Cherry-pick</b> <code>git cherry-pick &lt;hash&gt;</code> → lấy 1 commit lẻ từ branch khác. Hotfix gấp lên main không cần merge cả branch.</div>
-                </div>
-                <div class="recap-item">
-                    <div class="n">4</div>
-                    <div class="t"><b>Conflict</b>: xóa 3 marker (<code>&lt;&lt;&lt;</code> · <code>===</code> · <code>&gt;&gt;&gt;</code>) → <code>git add</code> → <code>--continue</code>. Rối quá → <code>--abort</code>.</div>
+    <section class="slide">
+        <div class="issue-view reveal">
+            <div class="issue-header">
+                <h1 class="title">[Pinned] Tóm tắt — 4 ý cần nhớ <span class="num">#06</span></h1>
+                <div class="status-line">
+                    <span class="status-badge pinned"><span class="icon">📌</span> Pinned</span>
+                    <span><b>@longhehe21</b> · milestone closing comment</span>
                 </div>
             </div>
-        </div>
-        <div class="recap-side">
-            <div class="qa reveal">Cảm ơn — <em>câu hỏi?</em></div>
-            <div class="thanks reveal">Golden rule: KHÔNG rebase code đã push lên public.</div>
-            <div class="sig reveal">
-                <div><b>Hà Thành Long</b></div>
-                <div>Developer · Kiosk AI · 25.05.2026</div>
+
+            <div class="issue-body">
+                <div>
+                    <div class="comment-card">
+                        <div class="comment-head">
+                            <span class="author"><b>@longhehe21</b></span> closed this milestone · just now
+                        </div>
+                        <div class="comment-body">
+                            <p><strong>Closing checklist</strong> — 4 ý chính từ buổi learning sharing này:</p>
+
+                            <div class="diff-block">
+                                <div class="diff-head">milestone-summary.md</div>
+<pre><span class="line add"><strong>Rebase</strong> = lịch sử sạch tuyến tính</span>
+<span class="line add"><strong>Merge</strong>  = giữ commit merge thừa</span>
+<span class="line ctx">  → Branch riêng → rebase. Share team → merge.</span>
+<span class="line add"></span>
+<span class="line add"><strong>Rebase tương tác:</strong> git rebase -i HEAD~5</span>
+<span class="line ctx">  → squash/reword TRƯỚC khi mở PR. Reviewer biết ơn.</span>
+<span class="line add"></span>
+<span class="line add"><strong>Cherry-pick:</strong> git cherry-pick &lt;hash&gt;</span>
+<span class="line ctx">  → Lấy 1 commit lẻ. Hotfix gấp lên main không cần merge cả branch.</span>
+<span class="line add"></span>
+<span class="line add"><strong>Conflict:</strong> 3 marker (&lt;&lt;&lt; === &gt;&gt;&gt;)</span>
+<span class="line ctx">  → git add → --continue. Rối → --abort.</span></pre>
+                            </div>
+
+                            <div class="alert danger">
+                                <div class="alert-title">⛔ GOLDEN RULE</div>
+                                <strong>KHÔNG rebase</strong> code đã push lên public (main, develop, branch đã share team).
+                            </div>
+
+                            <h2>🎯 Câu hỏi?</h2>
+                            <p style="font-size: var(--fs-3); color: var(--gh-accent); margin-top: 1rem;">
+                                Cảm ơn các bạn đã theo dõi. Ai có câu hỏi cứ raise issue mới 🙂
+                            </p>
+
+                            <div class="author-row" style="display: flex; align-items: center; gap: 0.75rem; margin-top: 1.5rem;">
+                                <div style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--gh-accent), var(--gh-done)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.95rem;">HL</div>
+                                <div>
+                                    <b>Hà Thành Long</b> · Developer · Kiosk AI<br>
+                                    <span style="color: var(--gh-fg-muted); font-size: var(--fs-small);">25/05/2026 · Learning Sharing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="issue-sidebar">
+                    <div class="sidebar-section">
+                        <h4>Labels</h4>
+                        <div class="labels">
+                            <span class="label lbl-yellow">recap</span>
+                            <span class="label lbl-green">closed</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h4>Assignees</h4>
+                        <div class="assignee"><span class="avatar">HL</span>@longhehe21</div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h4>Milestone</h4>
+                        <div><span style="color: var(--gh-accent);">v1.0 · Git Sharing ✓</span></div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h4>Participants</h4>
+                        <div class="assignee"><span class="avatar">HL</span>@longhehe21</div>
+                    </div>
+                </aside>
             </div>
         </div>
     </section>
 
     <nav class="page-nav">
-        <a href="conflict.html">← Conflict</a>
-        <a href="menu.html" class="next">⌂ Quay lại Menu</a>
+        <a href="conflict.html">← #05 Conflict</a>
+        <span class="spacer"></span>
+        <a href="menu.html" class="primary">⊙ Back to Issues</a>
     </nav>
 
     <script src="shared/deck.js"></script>

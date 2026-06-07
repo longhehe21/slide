@@ -3,57 +3,106 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mục lục · Git Workflow</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>Issues · longhehe21/git-workflow</title>
     <link rel="stylesheet" href="shared/deck.css">
 </head>
 <body>
+    <header class="gh-topbar">
+        <span class="octocat">🐙</span>
+        <span class="repo-path">
+            <a href="index.html">longhehe21</a>
+            <span class="sep">/</span>
+            <a href="index.html"><b>git-workflow</b></a>
+            <span class="visibility">Public</span>
+        </span>
+        <nav class="repo-tabs">
+            <a href="index.html">📖 Code</a>
+            <a href="menu.html" class="active">⊙ Issues <span class="count">6</span></a>
+        </nav>
+    </header>
+
     <div class="progress-bar" id="progressBar"></div>
 
-    <section class="slide dashboard-slide">
-        <div class="dashboard-header reveal">
-            <div class="dashboard-kicker">Menu · 6 phần · Bấm để xem</div>
-            <div class="dashboard-title">Git Workflow — <em>Mục lục.</em></div>
-        </div>
-        <div class="dashboard-grid">
-            <a class="dash-card reveal" href="hook.html">
-                <div class="dash-icon">🤔</div>
-                <div class="num">01</div>
-                <div class="name">Tại sao cần?</div>
-                <div class="desc">Lịch sử rối → khó review</div>
-            </a>
-            <a class="dash-card reveal" href="rebase.html">
-                <div class="dash-icon">🔄</div>
-                <div class="num">02</div>
-                <div class="name">Rebase</div>
-                <div class="desc">git rebase main · lịch sử tuyến tính</div>
-            </a>
-            <a class="dash-card reveal" href="rebase-interactive.html">
-                <div class="dash-icon">✂️</div>
-                <div class="num">03</div>
-                <div class="name">Rebase tương tác</div>
-                <div class="desc">squash · reword · edit · drop</div>
-            </a>
-            <a class="dash-card reveal" href="cherry-pick.html">
-                <div class="dash-icon">🍒</div>
-                <div class="num">04</div>
-                <div class="name">Cherry-pick</div>
-                <div class="desc">Lấy 1 commit lẻ qua branch khác</div>
-            </a>
-            <a class="dash-card reveal" href="conflict.html">
-                <div class="dash-icon">⚔️</div>
-                <div class="num">05</div>
-                <div class="name">Conflict</div>
-                <div class="desc">Marker · abort · continue</div>
-            </a>
-            <a class="dash-card reveal" href="recap.html">
-                <div class="dash-icon">🎯</div>
-                <div class="num">06</div>
-                <div class="name">Tóm tắt</div>
-                <div class="desc">4 ý chính · Q&amp;A</div>
-            </a>
+    <section class="slide">
+        <div class="issue-view reveal">
+            <div class="issue-list-header">
+                <span class="filter-active"><span class="dot">●</span> <b>6 Open</b></span>
+                <span style="color: var(--gh-fg-muted);">✓ 0 Closed</span>
+                <span class="sort">Sort: Newest ▾</span>
+            </div>
+
+            <div class="issue-list">
+                <a class="issue-row" href="hook.html">
+                    <span class="status">⊙</span>
+                    <div class="body">
+                        <div class="title-line">
+                            <span class="title">Tại sao cần Git workflow nâng cao?</span>
+                            <span class="label lbl-blue">hook</span>
+                            <span class="label lbl-yellow">P1</span>
+                        </div>
+                        <div class="meta">#01 opened 2 hours ago by <b>@longhehe21</b> · <code>main</code></div>
+                    </div>
+                </a>
+
+                <a class="issue-row" href="rebase.html">
+                    <span class="status">⊙</span>
+                    <div class="body">
+                        <div class="title-line">
+                            <span class="title"><code>git rebase main</code> vs <code>git merge main</code></span>
+                            <span class="label lbl-green">rebase</span>
+                            <span class="label lbl-red">golden-rule</span>
+                        </div>
+                        <div class="meta">#02 opened 2 hours ago by <b>@longhehe21</b> · <code>feat/rebase</code></div>
+                    </div>
+                </a>
+
+                <a class="issue-row" href="rebase-interactive.html">
+                    <span class="status">⊙</span>
+                    <div class="body">
+                        <div class="title-line">
+                            <span class="title">Rebase tương tác: squash · reword · drop</span>
+                            <span class="label lbl-green">rebase</span>
+                            <span class="label lbl-purple">interactive</span>
+                        </div>
+                        <div class="meta">#03 opened 1 hour ago by <b>@longhehe21</b> · <code>feat/squash</code></div>
+                    </div>
+                </a>
+
+                <a class="issue-row" href="cherry-pick.html">
+                    <span class="status">⊙</span>
+                    <div class="body">
+                        <div class="title-line">
+                            <span class="title">Cherry-pick: lấy 1 commit lẻ từ branch khác</span>
+                            <span class="label lbl-purple">cherry-pick</span>
+                            <span class="label lbl-yellow">hotfix</span>
+                        </div>
+                        <div class="meta">#04 opened 1 hour ago by <b>@longhehe21</b> · <code>hotfix/xss</code></div>
+                    </div>
+                </a>
+
+                <a class="issue-row" href="conflict.html">
+                    <span class="status">⊙</span>
+                    <div class="body">
+                        <div class="title-line">
+                            <span class="title">Xử lý conflict — đừng hoảng</span>
+                            <span class="label lbl-red">conflict</span>
+                            <span class="label lbl-gray">survival</span>
+                        </div>
+                        <div class="meta">#05 opened 30 minutes ago by <b>@longhehe21</b> · <code>fix/merge</code></div>
+                    </div>
+                </a>
+
+                <a class="issue-row pinned" href="recap.html">
+                    <span class="status">📌</span>
+                    <div class="body">
+                        <div class="title-line">
+                            <span class="title">[Pinned] Tóm tắt — 4 ý cần nhớ</span>
+                            <span class="label lbl-yellow">recap</span>
+                        </div>
+                        <div class="meta">#06 pinned by <b>@longhehe21</b> · milestone closing</div>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
 

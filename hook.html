@@ -3,59 +3,109 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>01 · Tại sao · Git Workflow</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>#01 Tại sao cần · git-workflow</title>
     <link rel="stylesheet" href="shared/deck.css">
 </head>
 <body>
+    <header class="gh-topbar">
+        <span class="octocat">🐙</span>
+        <span class="repo-path">
+            <a href="index.html">longhehe21</a>
+            <span class="sep">/</span>
+            <a href="index.html"><b>git-workflow</b></a>
+        </span>
+        <nav class="repo-tabs">
+            <a href="index.html">📖 Code</a>
+            <a href="menu.html" class="active">⊙ Issues <span class="count">6</span></a>
+        </nav>
+    </header>
+
     <div class="progress-bar" id="progressBar"></div>
 
     <section class="slide">
-        <div class="slide-number">01 / 6</div>
-        <a class="menu-btn" href="menu.html"><span class="icon">⌂</span> MENU</a>
-        <div class="breadcrumbs">
-            <span class="active">HOOK</span><a href="rebase.html">REBASE</a><a href="rebase-interactive.html">SQUASH</a><a href="cherry-pick.html">CHERRY</a><a href="conflict.html">CONFLICT</a>
-        </div>
-        <div class="section-label reveal">
-            <div class="section-kicker">01 · Tại sao</div>
-            <div class="section-title">Cùng 1 feature — lịch sử 2 kiểu</div>
-        </div>
-
-        <div class="cmd-pair">
-            <div class="cmd-side bad reveal">
-                <h3>🌀 GIT RỐI <span class="badge">khó review</span></h3>
-                <div class="code-block"><span class="hash">a8f3b2c</span> <span class="cmd">fix typo</span>
-<span class="hash">2e7d910</span> <span class="cmd">fix again</span>
-<span class="hash">9c1ab47</span> <span class="cmd">WIP login</span>
-<span class="hash">5b2f8e3</span> <span class="cmd">try again</span>
-<span class="hash">4d6c1a8</span> <span class="cmd">fix bug</span>
-<span class="hash">7e8b3f2</span> <span class="cmd">final final</span>
-<span class="hash">3a9d7e1</span> <span class="cmd">final final v2</span>
-<span class="hash">1c4f9b7</span> <span class="cmd">login ok</span></div>
-                <div class="takeaway">PR có 8 commit kiểu "fix · WIP · final" → reviewer không biết đọc cái nào. Revert 1 phần = vỡ trận.</div>
+        <div class="issue-view reveal">
+            <div class="issue-header">
+                <h1 class="title">Tại sao cần Git workflow nâng cao? <span class="num">#01</span></h1>
+                <div class="status-line">
+                    <span class="status-badge open"><span class="icon">⊙</span> Open</span>
+                    <span><b>@longhehe21</b> opened this issue 2 hours ago · 3 comments</span>
+                </div>
             </div>
-            <div class="cmd-side good reveal">
-                <h3>✨ GIT SẠCH <span class="badge">1 commit = 1 ý</span></h3>
-                <div class="code-block"><span class="hash">a8f3b2c</span> <span class="cmd">feat(auth): thêm trang login</span>
-<span class="comment">    + form email/password</span>
-<span class="comment">    + validate client-side</span>
-<span class="comment">    + gọi API /v1/login</span>
 
-<span class="hash">9c1ab47</span> <span class="cmd">fix(auth): handle 401 redirect về /login</span>
+            <div class="issue-body">
+                <div>
+                    <div class="comment-card">
+                        <div class="comment-head">
+                            <span class="author"><b>@longhehe21</b></span> commented · 2 hours ago
+                        </div>
+                        <div class="comment-body">
+                            <p><strong>TL;DR:</strong> Cùng 1 feature, lịch sử git có 2 kiểu. Bên rối, reviewer khóc; bên sạch, review xong trong 30 giây.</p>
 
-<span class="hash">5b2f8e3</span> <span class="cmd">test(auth): unit test cho login form</span></div>
-                <div class="takeaway">3 commit, mỗi cái 1 ý rõ ràng. Reviewer đọc nhanh. Bug? <code>git revert &lt;hash&gt;</code> 1 phát là xong.</div>
+                            <h2>🌀 Trường hợp xấu — 8 commit "WIP"</h2>
+
+                            <div class="code-block"><span class="cmt">$ git log --oneline feat/login</span>
+<span class="h">a8f3b2c</span> fix typo
+<span class="h">2e7d910</span> fix again
+<span class="h">9c1ab47</span> WIP login
+<span class="h">5b2f8e3</span> try again
+<span class="h">4d6c1a8</span> fix bug
+<span class="h">7e8b3f2</span> final final
+<span class="h">3a9d7e1</span> final final v2
+<span class="h">1c4f9b7</span> login ok</div>
+
+                            <div class="alert danger">
+                                <div class="alert-title">🚫 Vấn đề</div>
+                                Reviewer không biết commit nào quan trọng. Revert 1 phần = vỡ trận. <code>git bisect</code> bó tay.
+                            </div>
+
+                            <h2>✨ Trường hợp tốt — 3 commit có ý nghĩa</h2>
+
+                            <div class="code-block"><span class="cmt">$ git log --oneline feat/login</span>
+<span class="h">a8f3b2c</span> <span class="br">feat(auth):</span> thêm trang login với validate
+<span class="h">9c1ab47</span> <span class="br">fix(auth):</span> handle 401 redirect về /login
+<span class="h">5b2f8e3</span> <span class="br">test(auth):</span> unit test cho login form</div>
+
+                            <div class="alert tip">
+                                <div class="alert-title">💡 Lợi ích</div>
+                                3 commit, mỗi cái 1 ý. Reviewer đọc 30 giây. Bug? <code>git revert &lt;hash&gt;</code> 1 phát.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="issue-sidebar">
+                    <div class="sidebar-section">
+                        <h4>Labels</h4>
+                        <div class="labels">
+                            <span class="label lbl-blue">hook</span>
+                            <span class="label lbl-yellow">P1</span>
+                            <span class="label lbl-gray">documentation</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h4>Assignees</h4>
+                        <div class="assignee">
+                            <span class="avatar">HL</span>
+                            @longhehe21
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h4>Milestone</h4>
+                        <div><span style="color: var(--gh-accent);">v1.0 · Git Sharing</span></div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h4>Linked PRs</h4>
+                        <div style="color: var(--gh-fg-muted); font-size: var(--fs-small);">None yet</div>
+                    </div>
+                </aside>
             </div>
         </div>
-
-        <div class="slide-footer"><span class="brand">Git Workflow · Kiosk AI</span></div>
     </section>
 
     <nav class="page-nav">
-        <a href="menu.html">⌂ Menu</a>
-        <a href="rebase.html" class="next">Tiếp · Rebase →</a>
+        <a href="menu.html">← Issues</a>
+        <span class="spacer"></span>
+        <a href="rebase.html" class="primary">Next #02 · Rebase →</a>
     </nav>
 
     <script src="shared/deck.js"></script>
