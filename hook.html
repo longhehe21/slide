@@ -39,35 +39,35 @@
                             <span class="author"><b>@longhehe21</b></span> commented · 2 hours ago
                         </div>
                         <div class="comment-body">
-                            <p><strong>TL;DR:</strong> Cùng 1 feature, lịch sử git có 2 kiểu. Bên rối, reviewer khóc; bên sạch, review xong trong 30 giây.</p>
+                            <p><strong>Cùng 1 chức năng, lịch sử git có 2 kiểu.</strong> Bên rối — người review không hiểu bạn làm gì. Bên sạch — đọc 30 giây là biết.</p>
 
-                            <h2>🌀 Trường hợp xấu — 8 commit "WIP"</h2>
+                            <h2>🌀 Kiểu rối — 8 commit lẫn lộn</h2>
 
-                            <div class="code-block"><span class="cmt">$ git log --oneline feat/login</span>
-<span class="h">a8f3b2c</span> fix typo
-<span class="h">2e7d910</span> fix again
-<span class="h">9c1ab47</span> WIP login
-<span class="h">5b2f8e3</span> try again
+                            <div class="code-block"><span class="cmt">$ git log</span>
+<span class="h">a8f3b2c</span> sửa typo
+<span class="h">2e7d910</span> sửa tiếp
+<span class="h">9c1ab47</span> đang làm login
+<span class="h">5b2f8e3</span> sửa nữa
 <span class="h">4d6c1a8</span> fix bug
-<span class="h">7e8b3f2</span> final final
-<span class="h">3a9d7e1</span> final final v2
-<span class="h">1c4f9b7</span> login ok</div>
+<span class="h">7e8b3f2</span> xong rồi
+<span class="h">3a9d7e1</span> xong thật
+<span class="h">1c4f9b7</span> đăng nhập ok</div>
 
                             <div class="alert danger">
-                                <div class="alert-title">🚫 Vấn đề</div>
-                                Reviewer không biết commit nào quan trọng. Revert 1 phần = vỡ trận. <code>git bisect</code> bó tay.
+                                <div class="alert-title">🚫 Hậu quả</div>
+                                Người review không biết commit nào quan trọng. Có bug — không biết commit nào gây ra.
                             </div>
 
-                            <h2>✨ Trường hợp tốt — 3 commit có ý nghĩa</h2>
+                            <h2>✨ Kiểu sạch — 3 commit có ý nghĩa</h2>
 
-                            <div class="code-block"><span class="cmt">$ git log --oneline feat/login</span>
-<span class="h">a8f3b2c</span> <span class="br">feat(auth):</span> thêm trang login với validate
-<span class="h">9c1ab47</span> <span class="br">fix(auth):</span> handle 401 redirect về /login
-<span class="h">5b2f8e3</span> <span class="br">test(auth):</span> unit test cho login form</div>
+                            <div class="code-block"><span class="cmt">$ git log</span>
+<span class="h">a8f3b2c</span> <span class="br">Thêm trang đăng nhập</span> kèm phần kiểm tra dữ liệu
+<span class="h">9c1ab47</span> <span class="br">Sửa lỗi</span> sai mật khẩu nhảy về trang trắng
+<span class="h">5b2f8e3</span> <span class="br">Viết test</span> cho form đăng nhập</div>
 
                             <div class="alert tip">
                                 <div class="alert-title">💡 Lợi ích</div>
-                                3 commit, mỗi cái 1 ý. Reviewer đọc 30 giây. Bug? <code>git revert &lt;hash&gt;</code> 1 phát.
+                                Mỗi commit 1 ý. Đọc tên là hiểu code làm gì. Có bug — biết commit nào, gỡ ra 1 phát.
                             </div>
                         </div>
                     </div>

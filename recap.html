@@ -39,32 +39,33 @@
                             <span class="author"><b>@longhehe21</b></span> closed this milestone · just now
                         </div>
                         <div class="comment-body">
-                            <p><strong>Closing checklist</strong> — 4 ý chính từ buổi learning sharing này:</p>
+                            <p><strong>4 ý cần nhớ</strong> sau buổi học hôm nay:</p>
 
                             <div class="diff-block">
-                                <div class="diff-head">milestone-summary.md</div>
-<pre><span class="line add"><strong>Rebase</strong> = lịch sử sạch tuyến tính</span>
-<span class="line add"><strong>Merge</strong>  = giữ commit merge thừa</span>
-<span class="line ctx">  → Branch riêng → rebase. Share team → merge.</span>
+                                <div class="diff-head">tóm-tắt.md</div>
+<pre><span class="line add"><strong>1.</strong> Rebase = lịch sử sạch thẳng băng</span>
+<span class="line ctx">   Merge  = giữ commit "gộp" thừa</span>
+<span class="line ctx">   → Nhánh riêng → rebase. Nhánh chung → merge.</span>
 <span class="line add"></span>
-<span class="line add"><strong>Rebase tương tác:</strong> git rebase -i HEAD~5</span>
-<span class="line ctx">  → squash/reword TRƯỚC khi mở PR. Reviewer biết ơn.</span>
+<span class="line add"><strong>2.</strong> git rebase -i HEAD~5</span>
+<span class="line ctx">   → Gộp / sửa tên commit TRƯỚC khi đưa code review.</span>
 <span class="line add"></span>
-<span class="line add"><strong>Cherry-pick:</strong> git cherry-pick &lt;hash&gt;</span>
-<span class="line ctx">  → Lấy 1 commit lẻ. Hotfix gấp lên main không cần merge cả branch.</span>
+<span class="line add"><strong>3.</strong> git cherry-pick &lt;mã commit&gt;</span>
+<span class="line ctx">   → "Hái" 1 commit lẻ từ nhánh khác sang nhánh hiện tại.</span>
 <span class="line add"></span>
-<span class="line add"><strong>Conflict:</strong> 3 marker (&lt;&lt;&lt; === &gt;&gt;&gt;)</span>
-<span class="line ctx">  → git add → --continue. Rối → --abort.</span></pre>
+<span class="line add"><strong>4.</strong> Conflict: 3 dấu &lt;&lt;&lt; === &gt;&gt;&gt;</span>
+<span class="line ctx">   → Xóa 3 dấu → git add → git rebase --continue.</span>
+<span class="line ctx">   → Rối quá → git rebase --abort để quay lui.</span></pre>
                             </div>
 
                             <div class="alert danger">
-                                <div class="alert-title">⛔ GOLDEN RULE</div>
-                                <strong>KHÔNG rebase</strong> code đã push lên public (main, develop, branch đã share team).
+                                <div class="alert-title">⛔ QUY TẮC VÀNG</div>
+                                <strong>KHÔNG rebase</strong> code đã đẩy lên nhánh chung (main, develop, hoặc nhánh team đã pull về).
                             </div>
 
                             <h2>🎯 Câu hỏi?</h2>
                             <p style="font-size: var(--fs-3); color: var(--gh-accent); margin-top: 1rem;">
-                                Cảm ơn các bạn đã theo dõi. Ai có câu hỏi cứ raise issue mới 🙂
+                                Cảm ơn cả phòng đã theo dõi 🙂
                             </p>
 
                             <div class="author-row" style="display: flex; align-items: center; gap: 0.75rem; margin-top: 1.5rem;">

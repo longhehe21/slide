@@ -39,44 +39,44 @@
                             <span class="author"><b>@longhehe21</b></span> commented · 2 hours ago
                         </div>
                         <div class="comment-body">
-                            <p><strong>Khác biệt:</strong> cả hai cập nhật branch của bạn với <code>main</code> mới nhất, nhưng <em>tạo lịch sử khác nhau</em>.</p>
+                            <p><strong>Cả hai đều cập nhật nhánh của bạn với <code>main</code> mới nhất, nhưng tạo lịch sử khác nhau.</strong></p>
 
-                            <h2>🔀 git merge main</h2>
-                            <div class="code-block"><span class="cmt"># Đứng ở feature branch</span>
+                            <h2>🔀 Cách 1: <code>git merge main</code></h2>
+                            <div class="code-block"><span class="cmt"># Khi đang ở nhánh của mình</span>
 $ git merge main
 
-<span class="cmt"># Lịch sử có commit merge thừa:</span>
-*   Merge branch 'main' into feat/login
+<span class="cmt"># Lịch sử có thêm 1 commit "gộp" thừa:</span>
+*   Gộp main vào nhánh
 |\
-| * <span class="br">feat: thêm login</span>
-* | <span class="kw">main: cập nhật README</span>
+| * <span class="br">Thêm trang đăng nhập</span>
+* | <span class="kw">Cập nhật README ở main</span>
 |/
-*   init</div>
+*   commit đầu tiên</div>
 
                             <div class="alert note">
                                 <div class="alert-title">📝 Đặc điểm</div>
-                                Giữ toàn bộ history thật, nhưng <strong>thêm commit merge thừa</strong> → đồ thị git rối khi log nhiều branch.
+                                Giữ đủ lịch sử thật, nhưng <strong>có 1 commit "gộp" thừa</strong>. Khi log ra nhiều nhánh sẽ rối.
                             </div>
 
-                            <h2>🔄 git rebase main</h2>
-                            <div class="code-block"><span class="cmt"># Đứng ở feature branch</span>
+                            <h2>🔄 Cách 2: <code>git rebase main</code></h2>
+                            <div class="code-block"><span class="cmt"># Khi đang ở nhánh của mình</span>
 $ git rebase main
 
-<span class="cmt"># Lịch sử thẳng băng:</span>
-* <span class="br">feat: thêm login</span>
-* <span class="kw">main: cập nhật README</span>
-* init</div>
+<span class="cmt"># Lịch sử thẳng băng, không commit thừa:</span>
+* <span class="br">Thêm trang đăng nhập</span>
+* <span class="kw">Cập nhật README ở main</span>
+* commit đầu tiên</div>
 
                             <div class="alert tip">
                                 <div class="alert-title">💡 Đặc điểm</div>
-                                Commit của feature được <strong>xếp lại</strong> trên đầu main → lịch sử tuyến tính, không commit merge thừa.
+                                Commit của bạn được <strong>"xếp lại"</strong> lên trên main → lịch sử tuyến tính, sạch.
                             </div>
 
                             <div class="alert danger">
-                                <div class="alert-title">⛔ GOLDEN RULE</div>
-                                <strong>KHÔNG rebase</strong> branch đã <code>git push</code> lên public (main, develop, hoặc branch đã share team).<br>
-                                Lý do: rebase viết lại hash commit. Người khác đã pull về sẽ vỡ trận.<br>
-                                <strong>OK rebase:</strong> branch riêng của mình chưa share.
+                                <div class="alert-title">⛔ QUY TẮC VÀNG</div>
+                                <strong>KHÔNG rebase code đã đẩy lên nhánh chung</strong> (main, develop, hoặc nhánh team đã pull về).<br>
+                                Lý do: rebase tạo lại commit mới khác commit cũ. Người khác pull về sẽ thấy 2 lịch sử khác nhau → loạn.<br>
+                                <strong>Chỉ rebase</strong> nhánh riêng của mình, chưa share ai.
                             </div>
                         </div>
                     </div>

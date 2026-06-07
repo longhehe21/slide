@@ -39,51 +39,49 @@
                             <span class="author"><b>@longhehe21</b></span> commented · 30 minutes ago
                         </div>
                         <div class="comment-body">
-                            <p>Khi 2 branch sửa cùng 1 dòng, git không tự gộp được → conflict. Git để lại marker trong file cho bạn tự chọn.</p>
+                            <p>Khi <strong>2 người sửa cùng 1 dòng code</strong>, git không tự biết chọn ai → conflict. Git để lại "dấu phân cách" trong file cho bạn tự chọn.</p>
 
-                            <h2>📛 Marker — git nói gì</h2>
+                            <h2>📛 Trong file có 3 dấu phân cách</h2>
 
                             <div class="diff-block">
-                                <div class="diff-head">src/auth.js · <code>both modified</code></div>
+                                <div class="diff-head">src/auth.js</div>
 <pre><span class="line ctx">function login(email, password) {</span>
-<span class="line ctx">  <span style="color: var(--gh-attention);">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span>          // ← code của BẠN</span>
+<span class="line ctx">  <span style="color: var(--gh-attention);">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span>          // ← code CỦA BẠN</span>
 <span class="line add">  return api.post('/v1/login', {</span>
 <span class="line add">      email, password</span>
 <span class="line add">  });</span>
-<span class="line ctx">  <span style="color: var(--gh-attention);">=======</span>                // ← ranh giới</span>
+<span class="line ctx">  <span style="color: var(--gh-attention);">=======</span>                // ← ranh giới chia 2 bên</span>
 <span class="line del">  return api.post('/auth/login', {</span>
 <span class="line del">      username: email, pwd: password</span>
 <span class="line del">  });</span>
-<span class="line ctx">  <span style="color: var(--gh-attention);">&gt;&gt;&gt;&gt;&gt;&gt;&gt; main</span>           // ← code của branch khác</span>
+<span class="line ctx">  <span style="color: var(--gh-attention);">&gt;&gt;&gt;&gt;&gt;&gt;&gt; main</span>           // ← code của NGƯỜI KHÁC</span>
 <span class="line ctx">}</span></pre>
                             </div>
 
                             <div class="alert note">
-                                <div class="alert-title">📝 3 marker</div>
-                                <code>&lt;&lt;&lt; HEAD</code> = code <strong>bạn</strong> · <code>====</code> = ranh giới · <code>&gt;&gt;&gt; main</code> = code <strong>đối phương</strong>. <strong>Xóa cả 3 marker</strong> sau khi chọn xong code.
+                                <div class="alert-title">📝 Đọc 3 dấu</div>
+                                <code>&lt;&lt;&lt;</code> đến <code>===</code> = code <strong>của bạn</strong>.<br>
+                                <code>===</code> đến <code>&gt;&gt;&gt;</code> = code <strong>của người khác</strong>.<br>
+                                Chọn giữ bên nào, hoặc gộp cả hai → <strong>xóa hết 3 dấu</strong> đi → save.
                             </div>
 
                             <h2>🛠 Xử lý — 3 bước</h2>
 
-                            <div class="code-block"><span class="cmt"># 1. Xem file nào conflict</span>
+                            <div class="code-block"><span class="cmt"># 1. Xem file nào bị conflict</span>
 $ git status
-<span class="kw">both modified:</span>   src/auth.js
 
-<span class="cmt"># 2. Mở file, sửa thủ công, xóa 3 marker</span>
-<span class="cmt">#    (VSCode có UI 4 nút: Accept Current / Incoming / Both / Compare)</span>
+<span class="cmt"># 2. Mở file → chọn code giữ → xóa 3 dấu &lt;&lt;&lt; === &gt;&gt;&gt; → save</span>
 
-<span class="cmt"># 3. Stage + tiếp tục</span>
-$ git add src/auth.js
+<span class="cmt"># 3. Báo git là xong, tiếp tục</span>
+$ git add &lt;tên-file&gt;
 $ git rebase --continue
-<span class="cmt">#   (hoặc git merge --continue)</span>
 
-<span class="cmt"># Lỡ rối quá → quay lui:</span>
+<span class="cmt"># Nếu rối quá, muốn quay về như chưa bắt đầu:</span>
 $ git rebase --abort</div>
 
                             <div class="alert tip">
-                                <div class="alert-title">💡 Tip giảm conflict</div>
-                                Pull/rebase main thường xuyên (mỗi sáng) → conflict nhỏ thay vì chờ 1 tuần rồi conflict 50 file.<br>
-                                <strong>1 PR = 1 ý</strong> → ít file đụng = ít conflict.
+                                <div class="alert-title">💡 Cách giảm conflict</div>
+                                Cập nhật <code>main</code> về nhánh của mình <strong>thường xuyên</strong> (mỗi sáng) → conflict nhỏ thay vì chờ 1 tuần conflict 50 file.
                             </div>
                         </div>
                     </div>
