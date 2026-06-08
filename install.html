@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cài Git · git-workflow</title>
+    <link rel="stylesheet" href="shared/deck.css">
+</head>
+<body>
+    <header class="gh-topbar">
+        <span class="octocat">🐙</span>
+        <span class="repo-path">
+            <a href="index.html">longhehe21</a>
+            <span class="sep">/</span>
+            <a href="index.html"><b>git-workflow</b></a>
+        </span>
+        <nav class="repo-tabs">
+            <a href="index.html">📖 Code</a>
+            <a href="menu.html" class="active">⊙ Issues <span class="count">7</span></a>
+        </nav>
+    </header>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <section class="slide">
+        <div class="issue-view reveal">
+            <div class="issue-header">
+                <h1 class="title">[Setup] Cài Git nhanh — 3 hệ điều hành <span class="num">#00</span></h1>
+                <div class="status-line">
+                    <span class="status-badge pinned"><span class="icon">📌</span> Pinned</span>
+                    <span><b>@longhehe21</b> · setup guide cho người mới</span>
+                </div>
+            </div>
+
+            <div class="issue-body">
+                <div>
+                    <div class="comment-card">
+                        <div class="comment-head">
+                            <span class="author"><b>@longhehe21</b></span> · hướng dẫn cài
+                        </div>
+                        <div class="comment-body">
+                            <p>Chạy <b>1 dòng lệnh</b> tương ứng hệ điều hành. Sau khi cài, làm tiếp <b>cấu hình lần đầu</b> ở dưới.</p>
+
+                            <h2>🪟 Windows</h2>
+                            <div class="code-block"><span class="cmt"># Cách 1: dùng winget (có sẵn trên Windows 10/11)</span>
+$ winget install --id Git.Git -e --source winget
+
+<span class="cmt"># Cách 2: tải file .exe về cài bằng tay</span>
+<span class="cmt"># https://git-scm.com/download/win</span></div>
+
+                            <h2>🍎 macOS</h2>
+                            <div class="code-block"><span class="cmt"># Cách 1: dùng Homebrew (khuyên dùng)</span>
+$ brew install git
+
+<span class="cmt"># Cách 2: cài Xcode Command Line Tools (có git sẵn)</span>
+$ xcode-select --install</div>
+
+                            <h2>🐧 Linux</h2>
+                            <div class="code-block"><span class="cmt"># Ubuntu / Debian</span>
+$ sudo apt update && sudo apt install git -y
+
+<span class="cmt"># Fedora / RHEL</span>
+$ sudo dnf install git -y
+
+<span class="cmt"># Arch</span>
+$ sudo pacman -S git</div>
+
+                            <h2>✅ Kiểm tra cài thành công</h2>
+                            <div class="code-block">$ git --version
+<span class="cmt"># Thấy số phiên bản kiểu: git version 2.45.0</span></div>
+
+                            <h2>⚙️ Cấu hình lần đầu (BẮT BUỘC)</h2>
+                            <p>Sau khi cài, gõ 4 lệnh sau (chỉ 1 lần, dùng mãi):</p>
+
+                            <div class="code-block"><span class="cmt"># 1. Đặt tên hiển thị trong commit</span>
+$ git config --global user.name <span class="str">"Tên của bạn"</span>
+
+<span class="cmt"># 2. Đặt email (dùng email GitHub nếu có)</span>
+$ git config --global user.email <span class="str">"email@example.com"</span>
+
+<span class="cmt"># 3. Đổi editor mặc định sang VSCode (đỡ phải dùng vim)</span>
+$ git config --global core.editor <span class="str">"code --wait"</span>
+
+<span class="cmt"># 4. Đặt tên nhánh mặc định là main (thay vì master)</span>
+$ git config --global init.defaultBranch main</div>
+
+                            <div class="alert tip">
+                                <div class="alert-title">💡 Test nhanh sau khi cài</div>
+                                Tạo 1 thư mục thử rồi:
+                                <code>git init</code> →
+                                <code>git add .</code> →
+                                <code>git commit -m "first"</code>.
+                                Chạy được = OK.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="issue-sidebar">
+                    <div class="sidebar-section">
+                        <h4>Labels</h4>
+                        <div class="labels">
+                            <span class="label lbl-yellow">setup</span>
+                            <span class="label lbl-blue">cho người mới</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h4>Assignees</h4>
+                        <div class="assignee"><span class="avatar">HL</span>@longhehe21</div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h4>Tài nguyên</h4>
+                        <div style="color: var(--gh-fg-muted); font-size: var(--fs-small); line-height: 1.6;">
+                            git-scm.com<br>
+                            github.com/git/git
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <nav class="page-nav">
+        <a href="menu.html">← Issues</a>
+        <span class="spacer"></span>
+        <a href="hook.html" class="primary">Tiếp · #01 Hook →</a>
+    </nav>
+
+    <script src="shared/deck.js"></script>
+</body>
+</html>
