@@ -39,49 +39,50 @@
                             <span class="author"><b>@longhehe21</b></span> commented · vài phút trước
                         </div>
                         <div class="comment-body">
-                            <p><strong>3 cách dev hay dùng AI hỗ trợ code hiện nay:</strong></p>
+                            <p><strong>3 cách dev hay dùng AI hỗ trợ code trong VS Code:</strong></p>
 
                             <h2>💬 Chat website (ChatGPT, Claude.ai)</h2>
                             <ul>
-                                <li><strong>Cách dùng:</strong> copy code vào browser, hỏi, copy code trả lời, dán lại IDE</li>
-                                <li><strong>Hạn chế:</strong> không hiểu cấu trúc project, không tự sửa file, không chạy được lệnh</li>
+                                <li><strong>Cách dùng:</strong> copy code từ VS Code, dán vào browser, hỏi, copy code trả lời, dán lại VS Code</li>
+                                <li><strong>Hạn chế:</strong> đổi tab liên tục, không hiểu cấu trúc project, không tự sửa file, không chạy được lệnh</li>
                             </ul>
 
                             <h2>🤖 Copilot / Cursor</h2>
                             <ul>
-                                <li><strong>Cách dùng:</strong> plugin trong IDE, gợi ý code khi gõ, có chat trong sidebar</li>
-                                <li><strong>Hạn chế:</strong> bị bó trong IDE, không tự chạy lệnh terminal, không tự test code</li>
+                                <li><strong>Cách dùng:</strong> extension trong IDE, gợi ý code khi gõ, có chat trong sidebar</li>
+                                <li><strong>Hạn chế:</strong> chỉ gợi ý, không chủ động đọc cả project, không chạy test, không sửa nhiều file cùng lúc</li>
                             </ul>
 
-                            <h2>⚡ Claude Code</h2>
+                            <h2>⚡ Claude Code (trong VS Code)</h2>
                             <ul>
-                                <li><strong>Cách dùng:</strong> chạy trong <strong>terminal</strong>, gõ yêu cầu bằng tiếng người</li>
-                                <li><strong>Tự làm:</strong> đọc file, sửa file, chạy lệnh, chạy test, fix bug — toàn bộ task</li>
-                                <li><strong>Có agent:</strong> phân chia task lớn thành nhiều bước, làm tuần tự</li>
+                                <li><strong>Cài 1 extension</strong> → có chat panel ngay trong VS Code (icon ✨ Spark góc trên-phải)</li>
+                                <li><strong>Tự làm:</strong> đọc file, sửa file, chạy lệnh terminal, chạy test, fix bug — toàn bộ task</li>
+                                <li><strong>Diff hiện ngay trong tab editor</strong> → bạn xem rồi Accept / Reject từng thay đổi</li>
+                                <li><strong>Có agent:</strong> chia task lớn thành nhiều bước, làm tuần tự</li>
                             </ul>
 
                             <div class="alert tip">
                                 <div class="alert-title">💡 Tóm 1 câu</div>
-                                <strong>Chat website</strong> = hỏi đáp · <strong>Copilot/Cursor</strong> = gợi ý code trong IDE · <strong>Claude Code</strong> = <em>"junior tự làm việc"</em> trong terminal.
+                                <strong>Chat website</strong> = hỏi đáp (copy-paste) · <strong>Copilot/Cursor</strong> = gợi ý code khi gõ · <strong>Claude Code</strong> = <em>"junior tự ngồi sửa code"</em> ngay trong VS Code, mình review diff rồi Accept.
                             </div>
 
-                            <h2>🎬 Ví dụ thực tế</h2>
-                            <p>Bạn gõ trong terminal:</p>
-                            <div class="code-block">$ claude
+                            <h2>🎬 Ví dụ thực tế trong VS Code</h2>
+                            <div class="code-block"><span class="cmt"># Mở project trong VS Code</span>
+<span class="cmt"># Click icon ✨ Spark → mở Claude panel bên phải</span>
 
-<span class="cmt"># Trong session, gõ tự nhiên:</span>
 &gt; Thêm chức năng login cho project này.
   Validate email + password tối thiểu 8 ký tự.
   Viết test luôn.
 
-<span class="cmt"># Claude Code sẽ:</span>
-<span class="cmt"># 1. Đọc cấu trúc project</span>
+<span class="cmt"># Claude sẽ:</span>
+<span class="cmt"># 1. Đọc cấu trúc project (tự, không cần chỉ)</span>
 <span class="cmt"># 2. Tạo file login.tsx, validate.ts</span>
-<span class="cmt"># 3. Viết unit test</span>
-<span class="cmt"># 4. Chạy test, fix nếu fail</span>
-<span class="cmt"># 5. Báo "done" + tóm tắt thay đổi</span></div>
+<span class="cmt">#    → diff hiện trong tab editor</span>
+<span class="cmt"># 3. Viết unit test → hiện thêm tab</span>
+<span class="cmt"># 4. Chạy test (trong VS Code terminal), fix nếu fail</span>
+<span class="cmt"># 5. Bạn xem từng diff → Accept / Reject</span></div>
 
-                            <p style="color: var(--gh-fg-muted);">→ Bạn không phải copy-paste, không phải tự test. Claude tự làm.</p>
+                            <p style="color: var(--gh-fg-muted);">→ Không phải copy-paste, không đổi tab. Mọi thứ trong 1 cửa sổ VS Code.</p>
                         </div>
                     </div>
                 </div>

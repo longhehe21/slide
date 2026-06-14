@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>#04 Workflows · claude-code</title>
+    <title>#04 Workflows VS Code · claude-code</title>
     <link rel="stylesheet" href="shared/deck.css">
 </head>
 <body>
@@ -25,7 +25,7 @@
     <section class="slide">
         <div class="issue-view reveal">
             <div class="issue-header">
-                <h1 class="title">Workflow + cách viết prompt hiệu quả <span class="num">#04</span></h1>
+                <h1 class="title">5 workflow trong VS Code + prompt template <span class="num">#04</span></h1>
                 <div class="status-line">
                     <span class="status-badge open"><span class="icon">⊙</span> Open</span>
                     <span><b>@longhehe21</b> · best practices</span>
@@ -39,38 +39,52 @@
                             <span class="author"><b>@longhehe21</b></span> commented · vài phút trước
                         </div>
                         <div class="comment-body">
-                            <h2>🎬 5 Workflow điển hình</h2>
+                            <h2>🎬 5 workflow điển hình trong VS Code</h2>
 
-                            <h3>1. Task mới — bình thường</h3>
-                            <div class="code-block">$ cd ~/my-project
-$ claude
+                            <h3>1. Task mới — mở panel rồi gõ</h3>
+                            <div class="code-block"><span class="cmt"># Mở project trong VS Code</span>
+<span class="cmt"># Click icon ✨ Spark (góc trên-phải) → mở Claude panel</span>
+
 &gt; Thêm chức năng login với validate email + mật khẩu &gt; 8 ký tự.
   Viết test luôn.
 
-<span class="cmt"># Claude tự đọc project → code → test → báo done</span></div>
+<span class="cmt"># Claude tự đọc project → code → test → hiện diff trong tab</span>
+<span class="cmt"># Bạn Accept hoặc chỉnh trong diff rồi Accept</span></div>
 
-                            <h3>2. Hôm sau muốn tiếp tục task dở</h3>
-                            <div class="code-block">$ cd ~/my-project
-$ claude --continue
-<span class="cmt"># Quay lại context lần trước, không phải kể lại từ đầu</span></div>
+                            <h3>2. Sửa code đang chọn — phím tắt Alt+K</h3>
+                            <div class="code-block"><span class="cmt"># 1. Chọn 5-10 dòng code trong editor</span>
+<span class="cmt"># 2. Nhấn Alt+K → tự chèn @file#5-15 vào prompt</span>
+<span class="cmt"># 3. Gõ:</span>
+&gt; refactor đoạn này thành async/await
 
-                            <h3>3. Quay lại task tuần trước</h3>
-                            <div class="code-block">$ claude --resume
-<span class="cmt"># Mở picker → chọn session cũ → tiếp tục</span></div>
+<span class="cmt"># Claude sửa đúng vị trí → Accept</span></div>
 
-                            <h3>4. Change LỚN — plan trước</h3>
-                            <div class="code-block">$ claude --permission-mode plan
+                            <h3>3. Hôm sau muốn tiếp tục task dở</h3>
+                            <div class="code-block"><span class="cmt"># Mở lại VS Code → click ✨ Spark</span>
+<span class="cmt"># Sessions cũ hiện trong panel → click chọn → tiếp</span>
+
+<span class="cmt"># Hoặc qua terminal:</span>
+$ claude --continue   <span class="cmt"># session gần nhất</span>
+$ claude --resume     <span class="cmt"># picker chọn session cũ</span></div>
+
+                            <h3>4. Change LỚN — Plan mode trước</h3>
+                            <div class="code-block"><span class="cmt"># Nhấn Shift+Tab → đổi sang Plan mode</span>
 &gt; Refactor authentication thành module riêng.
 
-<span class="cmt"># Claude lên kế hoạch → review → execute</span></div>
+<span class="cmt"># Claude CHỈ lên kế hoạch — KHÔNG sửa file</span>
+<span class="cmt"># Review plan → Accept → giờ mới execute</span></div>
 
-                            <h3>5. Context rối → reset</h3>
-                            <div class="code-block"><span class="cmt"># Trong session, gõ:</span>
-&gt; /clear
+                            <h3>5. Review code trước khi commit</h3>
+                            <div class="code-block"><span class="cmt"># Trong Claude panel:</span>
+&gt; review thay đổi của tôi, tìm bug + style issues
 
-<span class="cmt"># Xóa context → bắt đầu prompt mới với đầu sạch</span></div>
+<span class="cmt"># Claude tự đọc git diff → list vấn đề</span>
+&gt; sửa các vấn đề bạn vừa liệt kê
 
-                            <h2>✍️ 3 nguyên tắc viết prompt</h2>
+<span class="cmt"># Sạch xong:</span>
+&gt; commit changes với message rõ ràng</div>
+
+                            <h2>✍️ Công thức prompt</h2>
 
                             <h3>1. Cụ thể, không mơ hồ</h3>
                             <div class="diff-block">
@@ -79,20 +93,23 @@ $ claude --continue
 <span class="line del">❌ "fix bug"</span>
 <span class="line del">❌ "làm code đẹp hơn"</span>
 
-<span class="line add">✅ "Viết unit test cho hàm loginUser() trong src/auth/user.ts."</span>
+<span class="line add">✅ "Viết unit test cho hàm loginUser() trong @src/auth/user.ts."</span>
 <span class="line add">   "  Test cases: email + password đúng → true,"</span>
 <span class="line add">   "  password rỗng → false, email sai format → false."</span>
-<span class="line add">   "  Chạy test sau khi viết xong."</span></pre>
+<span class="line add">   "  Chạy npm test sau khi viết xong."</span></pre>
                             </div>
 
-                            <h3>2. Chỉ rõ file / vị trí</h3>
+                            <h3>2. Dùng <code>@</code> để chỉ file/folder</h3>
                             <div class="code-block">❌ "thêm chức năng login"
 
-✅ "Thêm chức năng login. Tạo file <span class="str">src/pages/login.tsx</span>.
-   Dùng API endpoint <span class="str">POST /api/auth/login</span>.
-   Validate trong <span class="str">src/utils/validate.ts</span>."</div>
+✅ "Thêm chức năng login. Tạo file <span class="str">@src/pages/login.tsx</span>.
+   Dùng API <span class="str">POST /api/auth/login</span>.
+   Validate trong <span class="str">@src/utils/validate.ts</span>."
 
-                            <h3>3. Yêu cầu verify (test/chạy/screenshot)</h3>
+<span class="cmt"># Mẹo: gõ @ trong panel → autocomplete file/folder</span>
+<span class="cmt"># Hoặc chọn code rồi Alt+K → tự chèn @file#lines</span></div>
+
+                            <h3>3. Yêu cầu verify (test/chạy)</h3>
                             <div class="code-block">❌ "viết hàm xong rồi"
 
 ✅ "Viết hàm xong, chạy <span class="str">npm test</span> để verify pass.
@@ -100,10 +117,10 @@ $ claude --continue
 
                             <div class="alert tip">
                                 <div class="alert-title">💡 Công thức prompt tốt</div>
-                                <strong>WHAT</strong> (làm gì cụ thể) + <strong>WHERE</strong> (file nào) + <strong>HOW TO VERIFY</strong> (test/chạy gì). Đủ 3 cái → ít phải sửa lại.
+                                <strong>WHAT</strong> (làm gì cụ thể) + <strong>WHERE</strong> (@file nào) + <strong>VERIFY</strong> (test/chạy gì). Đủ 3 → ít phải sửa lại.
                             </div>
 
-                            <h2>🚦 Khi nào dùng plan mode?</h2>
+                            <h2>🚦 Khi nào dùng Plan mode (Shift+Tab)?</h2>
 
                             <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
                                 <tr style="background: var(--gh-canvas-inset);">
@@ -129,16 +146,17 @@ $ claude --continue
                         </div>
                     </div>
                     <div class="sidebar-section">
-                        <h4>Công thức prompt</h4>
+                        <h4>Công thức</h4>
                         <div style="color: var(--gh-fg-muted); font-size: var(--fs-small); line-height: 1.6;">
-                            <b style="color: var(--gh-accent);">WHAT</b> + <b style="color: var(--gh-success);">WHERE</b> + <b style="color: var(--gh-attention);">VERIFY</b>
+                            <b style="color: var(--gh-accent);">WHAT</b> + <b style="color: var(--gh-success);">@WHERE</b> + <b style="color: var(--gh-attention);">VERIFY</b>
                         </div>
                     </div>
                     <div class="sidebar-section">
-                        <h4>Pro tip</h4>
+                        <h4>Phím tắt</h4>
                         <div style="color: var(--gh-fg-muted); font-size: var(--fs-small); line-height: 1.6;">
-                            Dùng <code>@</code> để tag file:<br>
-                            <code>"sửa @src/auth.ts"</code>
+                            <code>Alt+K</code> attach selection<br>
+                            <code>Shift+Tab</code> đổi mode<br>
+                            <code>Ctrl+Esc</code> focus panel
                         </div>
                     </div>
                 </aside>

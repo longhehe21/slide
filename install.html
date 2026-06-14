@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cài Claude Code · claude-code</title>
+    <title>Cài Claude Code trong VS Code · claude-code</title>
     <link rel="stylesheet" href="shared/deck.css">
 </head>
 <body>
@@ -25,10 +25,10 @@
     <section class="slide">
         <div class="issue-view reveal">
             <div class="issue-header">
-                <h1 class="title">[Setup] Cài + đăng nhập Claude Code <span class="num">#00</span></h1>
+                <h1 class="title">[Setup] Cài Claude Code trong VS Code <span class="num">#00</span></h1>
                 <div class="status-line">
                     <span class="status-badge pinned"><span class="icon">📌</span> Pinned</span>
-                    <span><b>@longhehe21</b> · 1 dòng lệnh, 30 giây</span>
+                    <span><b>@longhehe21</b> · 2 cách · 1 phút</span>
                 </div>
             </div>
 
@@ -39,29 +39,46 @@
                             <span class="author"><b>@longhehe21</b></span> · hướng dẫn cài
                         </div>
                         <div class="comment-body">
-                            <h2>🪟 Windows (PowerShell)</h2>
-                            <div class="code-block">$ irm https://claude.ai/install.ps1 | iex</div>
+                            <h2>⚡ Cách 1 — Extension (khuyên dùng)</h2>
+                            <div class="diff-block">
+                                <div class="diff-head">vscode-extension.md</div>
+<pre><span class="line add">1. Mở VS Code → nhấn Ctrl+Shift+X (Extensions)</span>
+<span class="line add">2. Gõ tìm: "Claude Code"  → bấm Install</span>
+<span class="line add">3. Reload VS Code (nếu được hỏi)</span>
+<span class="line add">4. Click icon ✨ Spark ở góc trên-phải → mở panel</span>
+<span class="line add">5. Sign in qua browser → xong</span></pre>
+                            </div>
+                            <p style="color: var(--gh-fg-muted);">→ UI đẹp, có chat panel, diff hiện ngay trong tab editor.</p>
 
-                            <h2>🍎 macOS / 🐧 Linux</h2>
-                            <div class="code-block">$ curl -fsSL https://claude.ai/install.sh | bash</div>
+                            <h2>🖥️ Cách 2 — CLI + Terminal trong VS Code</h2>
+                            <p>Mở terminal trong VS Code bằng <code>Ctrl+`</code> rồi chạy:</p>
+                            <div class="code-block"><span class="cmt"># Windows (PowerShell)</span>
+$ irm https://claude.ai/install.ps1 | iex
 
-                            <h2>🔑 Đăng nhập (lần đầu)</h2>
-                            <div class="code-block"><span class="cmt"># vào thư mục dự án</span>
+<span class="cmt"># macOS / Linux</span>
+$ curl -fsSL https://claude.ai/install.sh | bash
+
+<span class="cmt"># vào project rồi mở session</span>
 $ cd ~/my-project
-
-<span class="cmt"># khởi động claude → nó tự mở link login</span>
 $ claude
+<span class="cmt"># → copy link → mở browser → login → xong</span></div>
 
-<span class="cmt"># → copy link → mở browser → đăng nhập</span>
-<span class="cmt"># → terminal tự cập nhật, sẵn sàng dùng</span></div>
+                            <h2>🔗 Kết nối CLI với VS Code editor</h2>
+                            <p>Khi đang chạy <code>claude</code> trong VS Code terminal, gõ:</p>
+                            <div class="code-block">&gt; /ide
+<span class="cmt"># Claude detect VS Code đang mở → kết nối</span>
+<span class="cmt"># Từ giờ: diff hiện trong tab editor, biết file đang chọn,</span>
+<span class="cmt"># biết selection của bạn, mở file bằng click</span></div>
 
                             <h2>✅ Kiểm tra</h2>
                             <div class="code-block">$ claude --version
 <span class="cmt"># Hiện ra phiên bản → OK</span></div>
 
                             <div class="alert tip">
-                                <div class="alert-title">💡 Mẹo cài</div>
-                                Không cần npm, không cần Node.js cài sẵn. Script trên tự tải binary phù hợp với máy.
+                                <div class="alert-title">💡 Mẹo chọn cách nào</div>
+                                Mới bắt đầu → <strong>Extension</strong> (Cách 1) cho dễ.
+                                Đã quen terminal → <strong>CLI + /ide</strong> (Cách 2) cho có đủ slash commands.
+                                Hôm nay tôi demo cả 2.
                             </div>
                         </div>
                     </div>
@@ -72,21 +89,21 @@ $ claude
                         <h4>Labels</h4>
                         <div class="labels">
                             <span class="label lbl-yellow">setup</span>
-                            <span class="label lbl-blue">cho người mới</span>
+                            <span class="label lbl-blue">vs-code</span>
                         </div>
                     </div>
                     <div class="sidebar-section">
-                        <h4>Yêu cầu hệ thống</h4>
+                        <h4>Yêu cầu</h4>
                         <div style="color: var(--gh-fg-muted); font-size: var(--fs-small); line-height: 1.6;">
-                            Windows 10+ / macOS 12+ / Linux<br>
-                            Terminal (PowerShell / bash / zsh)
+                            VS Code 1.85+<br>
+                            Tài khoản claude.ai
                         </div>
                     </div>
                     <div class="sidebar-section">
                         <h4>Trang chính</h4>
                         <div style="color: var(--gh-fg-muted); font-size: var(--fs-small); line-height: 1.6;">
-                            claude.ai/code<br>
-                            code.claude.com/docs
+                            marketplace.visualstudio.com<br>
+                            code.claude.com/docs/vs-code
                         </div>
                     </div>
                 </aside>

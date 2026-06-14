@@ -41,6 +41,23 @@
                         <div class="comment-body">
                             <p><strong>Cheat sheet</strong> — copy về để đầu giường:</p>
 
+                            <h2>📦 Cài đặt 1 dòng</h2>
+                            <div class="diff-block">
+                                <div class="diff-head">setup.md</div>
+<pre><span class="line add">VS Code → Ctrl+Shift+X → "Claude Code" → Install</span>
+<span class="line add">→ Click ✨ Spark (góc trên-phải) → Sign in → xong</span></pre>
+                            </div>
+
+                            <h2>⌨️ 5 phím tắt VS Code phải nhớ</h2>
+                            <div class="diff-block">
+                                <div class="diff-head">shortcuts.md</div>
+<pre><span class="line add">Alt+K           # đính kèm file/selection hiện tại (@file#lines)</span>
+<span class="line add">Ctrl+Esc        # nhảy focus editor ↔ Claude panel</span>
+<span class="line add">Shift+Tab       # đổi mode (normal/plan/auto-accept)</span>
+<span class="line add">Ctrl+Shift+Esc  # mở conversation mới trong tab</span>
+<span class="line add">@               # autocomplete file/folder trong prompt</span></pre>
+                            </div>
+
                             <h2>🔧 4 câu lệnh CLI cốt lõi</h2>
                             <div class="diff-block">
                                 <div class="diff-head">cli-flags.sh</div>
@@ -55,28 +72,28 @@
                                 <div class="diff-head">slash-commands.md</div>
 <pre><span class="line add">/clear     # context rối → xóa, bắt đầu sạch</span>
 <span class="line add">/compact   # context dài → nén, giữ điểm quan trọng</span>
-<span class="line add">/plan      # change lớn → plan trước, code sau</span></pre>
+<span class="line add">/ide       # CLI → kết nối VS Code editor (diff trong tab)</span></pre>
                             </div>
 
                             <h2>✍️ Công thức prompt</h2>
                             <div class="alert tip">
                                 <div class="alert-title">💡 Nhớ 3 chữ</div>
-                                <strong>WHAT</strong> (làm gì cụ thể) + <strong>WHERE</strong> (file nào) + <strong>VERIFY</strong> (test/chạy gì để kiểm tra).
+                                <strong>WHAT</strong> (làm gì cụ thể) + <strong>@WHERE</strong> (file nào) + <strong>VERIFY</strong> (test/chạy gì để kiểm tra).
                             </div>
 
                             <h2>🎯 4 ý chính cần nhớ</h2>
                             <div class="diff-block">
                                 <div class="diff-head">takeaways.md</div>
-<pre><span class="line add"><strong>1.</strong> Claude Code chạy trong TERMINAL, không phải IDE plugin.</span>
-<span class="line ctx">   Không copy-paste, không chuyển tab — Claude tự sửa file.</span>
+<pre><span class="line add"><strong>1.</strong> Claude Code = extension trong VS Code (✨ Spark icon).</span>
+<span class="line ctx">   Hoặc CLI trong VS Code terminal — cùng 1 tool, 2 UI.</span>
 <span class="line add"></span>
-<span class="line add"><strong>2.</strong> 4 cách mở session: claude / --continue / --resume / -p</span>
-<span class="line ctx">   Lưu context giữa các phiên — không phải kể lại từ đầu.</span>
+<span class="line add"><strong>2.</strong> Diff hiện ngay trong tab editor → Accept / Reject.</span>
+<span class="line ctx">   Không copy-paste, không đổi tab.</span>
 <span class="line add"></span>
-<span class="line add"><strong>3.</strong> Khi context rối → /clear · Khi dài → /compact</span>
-<span class="line ctx">   Trước change lớn → /plan (review trước khi sửa code).</span>
+<span class="line add"><strong>3.</strong> Alt+K = phím tắt quan trọng nhất.</span>
+<span class="line ctx">   Chọn code → Alt+K → gõ yêu cầu → Claude sửa đúng vị trí.</span>
 <span class="line add"></span>
-<span class="line add"><strong>4.</strong> Prompt cụ thể (WHAT + WHERE + VERIFY) = ít phải sửa lại.</span></pre>
+<span class="line add"><strong>4.</strong> Prompt cụ thể (WHAT + @WHERE + VERIFY) = ít phải sửa lại.</span></pre>
                             </div>
 
                             <h2>🎯 Câu hỏi?</h2>
@@ -106,8 +123,8 @@
                     <div class="sidebar-section">
                         <h4>Tài liệu</h4>
                         <div style="color: var(--gh-fg-muted); font-size: var(--fs-small); line-height: 1.6;">
-                            code.claude.com/docs<br>
-                            anthropic.com/claude-code
+                            code.claude.com/docs/vs-code<br>
+                            marketplace.visualstudio.com
                         </div>
                     </div>
                     <div class="sidebar-section">
