@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>#06 Tóm tắt · git-workflow</title>
+    <title>Tóm tắt · claude-code</title>
     <link rel="stylesheet" href="shared/deck.css">
 </head>
 <body>
@@ -12,11 +12,11 @@
         <span class="repo-path">
             <a href="index.html">longhehe21</a>
             <span class="sep">/</span>
-            <a href="index.html"><b>git-workflow</b></a>
+            <a href="index.html"><b>claude-code</b></a>
         </span>
         <nav class="repo-tabs">
             <a href="index.html">📖 Code</a>
-            <a href="menu.html" class="active">⊙ Issues <span class="count">7</span></a>
+            <a href="menu.html" class="active">⊙ Issues <span class="count">6</span></a>
         </nav>
     </header>
 
@@ -25,7 +25,7 @@
     <section class="slide">
         <div class="issue-view reveal">
             <div class="issue-header">
-                <h1 class="title">[Pinned] Tóm tắt — 4 ý cần nhớ <span class="num">#06</span></h1>
+                <h1 class="title">[Pinned] Tóm tắt — cheat sheet <span class="num">#05</span></h1>
                 <div class="status-line">
                     <span class="status-badge pinned"><span class="icon">📌</span> Pinned</span>
                     <span><b>@longhehe21</b> · milestone closing comment</span>
@@ -39,40 +39,56 @@
                             <span class="author"><b>@longhehe21</b></span> closed this milestone · just now
                         </div>
                         <div class="comment-body">
-                            <p><strong>4 ý cần nhớ</strong> sau buổi học hôm nay:</p>
+                            <p><strong>Cheat sheet</strong> — copy về để đầu giường:</p>
 
+                            <h2>🔧 4 câu lệnh CLI cốt lõi</h2>
                             <div class="diff-block">
-                                <div class="diff-head">tóm-tắt.md</div>
-<pre><span class="line add"><strong>1.</strong> Rebase = lịch sử sạch thẳng băng</span>
-<span class="line ctx">   Merge  = giữ commit "gộp" thừa</span>
-<span class="line ctx">   → Nhánh riêng → rebase. Nhánh chung → merge.</span>
-<span class="line add"></span>
-<span class="line add"><strong>2.</strong> git rebase -i HEAD~5</span>
-<span class="line ctx">   → Gộp / sửa tên commit TRƯỚC khi đưa code review.</span>
-<span class="line add"></span>
-<span class="line add"><strong>3.</strong> git cherry-pick &lt;mã commit&gt;</span>
-<span class="line ctx">   → "Hái" 1 commit lẻ từ nhánh khác sang nhánh hiện tại.</span>
-<span class="line add"></span>
-<span class="line add"><strong>4.</strong> Conflict: 3 dấu &lt;&lt;&lt; === &gt;&gt;&gt;</span>
-<span class="line ctx">   → Xóa 3 dấu → git add → git rebase --continue.</span>
-<span class="line ctx">   → Rối quá → git rebase --abort để quay lui.</span></pre>
+                                <div class="diff-head">cli-flags.sh</div>
+<pre><span class="line add">claude              # mở session bình thường</span>
+<span class="line add">claude --continue   # tiếp tục session gần nhất</span>
+<span class="line add">claude --resume     # chọn từ list session cũ</span>
+<span class="line add">claude -p "..."     # chạy 1 lần, in kết quả, thoát</span></pre>
                             </div>
 
-                            <div class="alert danger">
-                                <div class="alert-title">⛔ QUY TẮC VÀNG</div>
-                                <strong>KHÔNG rebase</strong> code đã đẩy lên nhánh chung (main, develop, hoặc nhánh team đã pull về).
+                            <h2>⚡ 3 slash commands cốt lõi</h2>
+                            <div class="diff-block">
+                                <div class="diff-head">slash-commands.md</div>
+<pre><span class="line add">/clear     # context rối → xóa, bắt đầu sạch</span>
+<span class="line add">/compact   # context dài → nén, giữ điểm quan trọng</span>
+<span class="line add">/plan      # change lớn → plan trước, code sau</span></pre>
+                            </div>
+
+                            <h2>✍️ Công thức prompt</h2>
+                            <div class="alert tip">
+                                <div class="alert-title">💡 Nhớ 3 chữ</div>
+                                <strong>WHAT</strong> (làm gì cụ thể) + <strong>WHERE</strong> (file nào) + <strong>VERIFY</strong> (test/chạy gì để kiểm tra).
+                            </div>
+
+                            <h2>🎯 4 ý chính cần nhớ</h2>
+                            <div class="diff-block">
+                                <div class="diff-head">takeaways.md</div>
+<pre><span class="line add"><strong>1.</strong> Claude Code chạy trong TERMINAL, không phải IDE plugin.</span>
+<span class="line ctx">   Không copy-paste, không chuyển tab — Claude tự sửa file.</span>
+<span class="line add"></span>
+<span class="line add"><strong>2.</strong> 4 cách mở session: claude / --continue / --resume / -p</span>
+<span class="line ctx">   Lưu context giữa các phiên — không phải kể lại từ đầu.</span>
+<span class="line add"></span>
+<span class="line add"><strong>3.</strong> Khi context rối → /clear · Khi dài → /compact</span>
+<span class="line ctx">   Trước change lớn → /plan (review trước khi sửa code).</span>
+<span class="line add"></span>
+<span class="line add"><strong>4.</strong> Prompt cụ thể (WHAT + WHERE + VERIFY) = ít phải sửa lại.</span></pre>
                             </div>
 
                             <h2>🎯 Câu hỏi?</h2>
                             <p style="font-size: var(--fs-3); color: var(--gh-accent); margin-top: 1rem;">
-                                Cảm ơn cả phòng đã theo dõi 🙂
+                                Cảm ơn cả phòng 🙂 Sẵn sàng demo live nếu có thời gian.
                             </p>
 
                             <div class="author-row" style="display: flex; align-items: center; gap: 0.75rem; margin-top: 1.5rem;">
                                 <div style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--gh-accent), var(--gh-done)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.95rem;">HL</div>
                                 <div>
                                     <b>Hà Thành Long</b> · Developer · Kiosk AI<br>
-                                    <span style="color: var(--gh-fg-muted); font-size: var(--fs-small);">25/05/2026 · Learning Sharing</span>
+                                    <span style="color: var(--gh-fg-muted); font-size: var(--fs-small);">Learning Sharing · Claude Code</span>
                                 </div>
                             </div>
                         </div>
@@ -83,21 +99,20 @@
                     <div class="sidebar-section">
                         <h4>Labels</h4>
                         <div class="labels">
-                            <span class="label lbl-yellow">recap</span>
+                            <span class="label lbl-yellow">tóm tắt</span>
                             <span class="label lbl-green">closed</span>
                         </div>
                     </div>
                     <div class="sidebar-section">
-                        <h4>Assignees</h4>
-                        <div class="assignee"><span class="avatar">HL</span>@longhehe21</div>
+                        <h4>Tài liệu</h4>
+                        <div style="color: var(--gh-fg-muted); font-size: var(--fs-small); line-height: 1.6;">
+                            code.claude.com/docs<br>
+                            anthropic.com/claude-code
+                        </div>
                     </div>
                     <div class="sidebar-section">
                         <h4>Milestone</h4>
-                        <div><span style="color: var(--gh-accent);">v1.0 · Git Sharing ✓</span></div>
-                    </div>
-                    <div class="sidebar-section">
-                        <h4>Participants</h4>
-                        <div class="assignee"><span class="avatar">HL</span>@longhehe21</div>
+                        <div><span style="color: var(--gh-accent);">v1.0 · Claude Code Talk ✓</span></div>
                     </div>
                 </aside>
             </div>
@@ -105,7 +120,7 @@
     </section>
 
     <nav class="page-nav">
-        <a href="conflict.html">← #05 Conflict</a>
+        <a href="workflows.html">← #04 Workflows</a>
         <span class="spacer"></span>
         <a href="menu.html" class="primary">⊙ Back to Issues</a>
     </nav>

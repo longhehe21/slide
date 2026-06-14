@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>#01 Tại sao cần · git-workflow</title>
+    <title>#01 Vì sao Claude Code · claude-code</title>
     <link rel="stylesheet" href="shared/deck.css">
 </head>
 <body>
@@ -12,11 +12,11 @@
         <span class="repo-path">
             <a href="index.html">longhehe21</a>
             <span class="sep">/</span>
-            <a href="index.html"><b>git-workflow</b></a>
+            <a href="index.html"><b>claude-code</b></a>
         </span>
         <nav class="repo-tabs">
             <a href="index.html">📖 Code</a>
-            <a href="menu.html" class="active">⊙ Issues <span class="count">7</span></a>
+            <a href="menu.html" class="active">⊙ Issues <span class="count">6</span></a>
         </nav>
     </header>
 
@@ -25,10 +25,10 @@
     <section class="slide">
         <div class="issue-view reveal">
             <div class="issue-header">
-                <h1 class="title">Tại sao cần Git workflow nâng cao? <span class="num">#01</span></h1>
+                <h1 class="title">Vì sao Claude Code khác Cursor / Copilot? <span class="num">#01</span></h1>
                 <div class="status-line">
                     <span class="status-badge open"><span class="icon">⊙</span> Open</span>
-                    <span><b>@longhehe21</b> opened this issue 2 hours ago · 3 comments</span>
+                    <span><b>@longhehe21</b> opened this issue · vài phút trước</span>
                 </div>
             </div>
 
@@ -36,39 +36,52 @@
                 <div>
                     <div class="comment-card">
                         <div class="comment-head">
-                            <span class="author"><b>@longhehe21</b></span> commented · 2 hours ago
+                            <span class="author"><b>@longhehe21</b></span> commented · vài phút trước
                         </div>
                         <div class="comment-body">
-                            <p><strong>Cùng 1 chức năng, lịch sử git có 2 kiểu.</strong> Bên rối — người review không hiểu bạn làm gì. Bên sạch — đọc 30 giây là biết.</p>
+                            <p><strong>3 cách dev hay dùng AI hỗ trợ code hiện nay:</strong></p>
 
-                            <h2>🌀 Kiểu rối — 8 commit lẫn lộn</h2>
+                            <h2>💬 Chat website (ChatGPT, Claude.ai)</h2>
+                            <ul>
+                                <li><strong>Cách dùng:</strong> copy code vào browser, hỏi, copy code trả lời, dán lại IDE</li>
+                                <li><strong>Hạn chế:</strong> không hiểu cấu trúc project, không tự sửa file, không chạy được lệnh</li>
+                            </ul>
 
-                            <div class="code-block"><span class="cmt">$ git log</span>
-<span class="h">a8f3b2c</span> sửa typo
-<span class="h">2e7d910</span> sửa tiếp
-<span class="h">9c1ab47</span> đang làm login
-<span class="h">5b2f8e3</span> sửa nữa
-<span class="h">4d6c1a8</span> fix bug
-<span class="h">7e8b3f2</span> xong rồi
-<span class="h">3a9d7e1</span> xong thật
-<span class="h">1c4f9b7</span> đăng nhập ok</div>
+                            <h2>🤖 Copilot / Cursor</h2>
+                            <ul>
+                                <li><strong>Cách dùng:</strong> plugin trong IDE, gợi ý code khi gõ, có chat trong sidebar</li>
+                                <li><strong>Hạn chế:</strong> bị bó trong IDE, không tự chạy lệnh terminal, không tự test code</li>
+                            </ul>
 
-                            <div class="alert danger">
-                                <div class="alert-title">🚫 Hậu quả</div>
-                                Người review không biết commit nào quan trọng. Có bug — không biết commit nào gây ra.
-                            </div>
-
-                            <h2>✨ Kiểu sạch — 3 commit có ý nghĩa</h2>
-
-                            <div class="code-block"><span class="cmt">$ git log</span>
-<span class="h">a8f3b2c</span> <span class="br">Thêm trang đăng nhập</span> kèm phần kiểm tra dữ liệu
-<span class="h">9c1ab47</span> <span class="br">Sửa lỗi</span> sai mật khẩu nhảy về trang trắng
-<span class="h">5b2f8e3</span> <span class="br">Viết test</span> cho form đăng nhập</div>
+                            <h2>⚡ Claude Code</h2>
+                            <ul>
+                                <li><strong>Cách dùng:</strong> chạy trong <strong>terminal</strong>, gõ yêu cầu bằng tiếng người</li>
+                                <li><strong>Tự làm:</strong> đọc file, sửa file, chạy lệnh, chạy test, fix bug — toàn bộ task</li>
+                                <li><strong>Có agent:</strong> phân chia task lớn thành nhiều bước, làm tuần tự</li>
+                            </ul>
 
                             <div class="alert tip">
-                                <div class="alert-title">💡 Lợi ích</div>
-                                Mỗi commit 1 ý. Đọc tên là hiểu code làm gì. Có bug — biết commit nào, gỡ ra 1 phát.
+                                <div class="alert-title">💡 Tóm 1 câu</div>
+                                <strong>Chat website</strong> = hỏi đáp · <strong>Copilot/Cursor</strong> = gợi ý code trong IDE · <strong>Claude Code</strong> = <em>"junior tự làm việc"</em> trong terminal.
                             </div>
+
+                            <h2>🎬 Ví dụ thực tế</h2>
+                            <p>Bạn gõ trong terminal:</p>
+                            <div class="code-block">$ claude
+
+<span class="cmt"># Trong session, gõ tự nhiên:</span>
+&gt; Thêm chức năng login cho project này.
+  Validate email + password tối thiểu 8 ký tự.
+  Viết test luôn.
+
+<span class="cmt"># Claude Code sẽ:</span>
+<span class="cmt"># 1. Đọc cấu trúc project</span>
+<span class="cmt"># 2. Tạo file login.tsx, validate.ts</span>
+<span class="cmt"># 3. Viết unit test</span>
+<span class="cmt"># 4. Chạy test, fix nếu fail</span>
+<span class="cmt"># 5. Báo "done" + tóm tắt thay đổi</span></div>
+
+                            <p style="color: var(--gh-fg-muted);">→ Bạn không phải copy-paste, không phải tự test. Claude tự làm.</p>
                         </div>
                     </div>
                 </div>
@@ -77,25 +90,17 @@
                     <div class="sidebar-section">
                         <h4>Labels</h4>
                         <div class="labels">
-                            <span class="label lbl-blue">hook</span>
-                            <span class="label lbl-yellow">P1</span>
-                            <span class="label lbl-gray">documentation</span>
+                            <span class="label lbl-blue">mở đầu</span>
+                            <span class="label lbl-gray">overview</span>
                         </div>
                     </div>
                     <div class="sidebar-section">
                         <h4>Assignees</h4>
-                        <div class="assignee">
-                            <span class="avatar">HL</span>
-                            @longhehe21
-                        </div>
+                        <div class="assignee"><span class="avatar">HL</span>@longhehe21</div>
                     </div>
                     <div class="sidebar-section">
                         <h4>Milestone</h4>
-                        <div><span style="color: var(--gh-accent);">v1.0 · Git Sharing</span></div>
-                    </div>
-                    <div class="sidebar-section">
-                        <h4>Linked PRs</h4>
-                        <div style="color: var(--gh-fg-muted); font-size: var(--fs-small);">None yet</div>
+                        <div><span style="color: var(--gh-accent);">v1.0 · Claude Code Talk</span></div>
                     </div>
                 </aside>
             </div>
@@ -103,9 +108,10 @@
     </section>
 
     <nav class="page-nav">
-        <a href="menu.html">← Issues</a>
+        <a href="install.html">← #00 Setup</a>
+        <a href="menu.html">⊙ Issues</a>
         <span class="spacer"></span>
-        <a href="rebase.html" class="primary">Next #02 · Rebase →</a>
+        <a href="cli-flags.html" class="primary">Tiếp · #02 CLI flags →</a>
     </nav>
 
     <script src="shared/deck.js"></script>

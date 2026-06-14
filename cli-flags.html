@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#02 CLI flags · claude-code</title>
+    <link rel="stylesheet" href="shared/deck.css">
+</head>
+<body>
+    <header class="gh-topbar">
+        <span class="octocat">🐙</span>
+        <span class="repo-path">
+            <a href="index.html">longhehe21</a>
+            <span class="sep">/</span>
+            <a href="index.html"><b>claude-code</b></a>
+        </span>
+        <nav class="repo-tabs">
+            <a href="index.html">📖 Code</a>
+            <a href="menu.html" class="active">⊙ Issues <span class="count">6</span></a>
+        </nav>
+    </header>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <section class="slide">
+        <div class="issue-view reveal">
+            <div class="issue-header">
+                <h1 class="title">7 câu lệnh <code>claude --xxx</code> cần biết <span class="num">#02</span></h1>
+                <div class="status-line">
+                    <span class="status-badge open"><span class="icon">⊙</span> Open</span>
+                    <span><b>@longhehe21</b> · core CLI flags</span>
+                </div>
+            </div>
+
+            <div class="issue-body">
+                <div>
+                    <div class="comment-card">
+                        <div class="comment-head">
+                            <span class="author"><b>@longhehe21</b></span> commented · vài phút trước
+                        </div>
+                        <div class="comment-body">
+                            <p>Gõ ở terminal <strong>trước khi vào session</strong>. Đây là 7 flag dev hay dùng nhất:</p>
+
+                            <h2>1. <code>claude</code></h2>
+                            <div class="code-block">$ claude
+<span class="cmt"># Mở session tương tác bình thường</span>
+<span class="cmt"># → gõ yêu cầu → Claude làm → hoàn tất → giữ session mở</span></div>
+
+                            <h2>2. <code>claude --continue</code> · <code>-c</code></h2>
+                            <div class="code-block">$ claude --continue
+<span class="cmt"># Tiếp tục session GẦN NHẤT ở thư mục hiện tại</span>
+<span class="cmt"># → giữ nguyên context, không bị mất</span></div>
+
+                            <h2>3. <code>claude --resume</code> · <code>-r</code></h2>
+                            <div class="code-block">$ claude --resume
+<span class="cmt"># Mở picker liệt kê các session cũ</span>
+<span class="cmt"># → chọn 1 cái để quay lại (kể cả session tuần trước)</span></div>
+
+                            <h2>4. <code>claude -p "prompt"</code> · print mode</h2>
+                            <div class="code-block">$ claude -p "tóm tắt commit gần đây"
+<span class="cmt"># Chạy 1 lần, in kết quả, thoát ngay (không tương tác)</span>
+<span class="cmt"># → dùng cho script, pipe, CI/CD</span>
+
+<span class="cmt"># Ví dụ pipe:</span>
+$ git diff | claude -p "review thay đổi này"</div>
+
+                            <h2>5. <code>claude --model &lt;tên&gt;</code></h2>
+                            <div class="code-block">$ claude --model opus      <span class="cmt"># task khó, code nhiều</span>
+$ claude --model sonnet    <span class="cmt"># cân bằng (mặc định)</span>
+$ claude --model haiku     <span class="cmt"># nhanh, đơn giản</span></div>
+
+                            <h2>6. <code>claude --permission-mode plan</code></h2>
+                            <div class="code-block">$ claude --permission-mode plan
+<span class="cmt"># Plan mode: Claude chỉ ĐỌC + lên kế hoạch, KHÔNG sửa file</span>
+<span class="cmt"># → review plan trước khi cho phép execute</span>
+<span class="cmt"># → an toàn cho change lớn</span></div>
+
+                            <h2>7. <code>claude --worktree &lt;branch&gt;</code></h2>
+                            <div class="code-block">$ claude --worktree feat/login
+<span class="cmt"># Tạo session riêng trên 1 branch khác</span>
+<span class="cmt"># → làm feature A + fix bug B SONG SONG không xung đột</span></div>
+
+                            <div class="alert tip">
+                                <div class="alert-title">💡 4 flag DÙNG NHIỀU NHẤT</div>
+                                <code>claude</code> (mở) · <code>--continue</code> (tiếp tục) · <code>--resume</code> (chọn session cũ) · <code>-p</code> (chạy 1 lần). Nhớ 4 cái này là đủ 80% công việc.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="issue-sidebar">
+                    <div class="sidebar-section">
+                        <h4>Labels</h4>
+                        <div class="labels">
+                            <span class="label lbl-green">cli</span>
+                            <span class="label lbl-purple">cốt-lõi</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h4>Assignees</h4>
+                        <div class="assignee"><span class="avatar">HL</span>@longhehe21</div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h4>Cheat-sheet</h4>
+                        <div style="color: var(--gh-fg-muted); font-size: var(--fs-small); font-family: var(--font-mono); line-height: 1.8;">
+                            <code>claude</code><br>
+                            <code>--continue</code><br>
+                            <code>--resume</code><br>
+                            <code>-p "..."</code><br>
+                            <code>--model opus</code><br>
+                            <code>--permission-mode plan</code><br>
+                            <code>--worktree &lt;b&gt;</code>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <nav class="page-nav">
+        <a href="hook.html">← #01 Vì sao</a>
+        <a href="menu.html">⊙ Issues</a>
+        <span class="spacer"></span>
+        <a href="slash-commands.html" class="primary">Tiếp · #03 Slash commands →</a>
+    </nav>
+
+    <script src="shared/deck.js"></script>
+</body>
+</html>

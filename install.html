@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cài Git · git-workflow</title>
+    <title>Cài Claude Code · claude-code</title>
     <link rel="stylesheet" href="shared/deck.css">
 </head>
 <body>
@@ -12,11 +12,11 @@
         <span class="repo-path">
             <a href="index.html">longhehe21</a>
             <span class="sep">/</span>
-            <a href="index.html"><b>git-workflow</b></a>
+            <a href="index.html"><b>claude-code</b></a>
         </span>
         <nav class="repo-tabs">
             <a href="index.html">📖 Code</a>
-            <a href="menu.html" class="active">⊙ Issues <span class="count">7</span></a>
+            <a href="menu.html" class="active">⊙ Issues <span class="count">6</span></a>
         </nav>
     </header>
 
@@ -25,10 +25,10 @@
     <section class="slide">
         <div class="issue-view reveal">
             <div class="issue-header">
-                <h1 class="title">[Setup] Cài Git nhanh — 3 hệ điều hành <span class="num">#00</span></h1>
+                <h1 class="title">[Setup] Cài + đăng nhập Claude Code <span class="num">#00</span></h1>
                 <div class="status-line">
                     <span class="status-badge pinned"><span class="icon">📌</span> Pinned</span>
-                    <span><b>@longhehe21</b> · setup guide cho người mới</span>
+                    <span><b>@longhehe21</b> · 1 dòng lệnh, 30 giây</span>
                 </div>
             </div>
 
@@ -39,36 +39,30 @@
                             <span class="author"><b>@longhehe21</b></span> · hướng dẫn cài
                         </div>
                         <div class="comment-body">
-                            <p>Chạy <b>1 dòng lệnh</b> tương ứng hệ điều hành. Sau khi cài, làm tiếp <b>cấu hình lần đầu</b> ở dưới.</p>
+                            <h2>🪟 Windows (PowerShell)</h2>
+                            <div class="code-block">$ irm https://claude.ai/install.ps1 | iex</div>
 
-                            <h2>🪟 Windows</h2>
-                            <div class="code-block"><span class="cmt"># Cách 1: dùng winget (có sẵn trên Windows 10/11)</span>
-$ winget install --id Git.Git -e --source winget
+                            <h2>🍎 macOS / 🐧 Linux</h2>
+                            <div class="code-block">$ curl -fsSL https://claude.ai/install.sh | bash</div>
 
-<span class="cmt"># Cách 2: tải file .exe về cài bằng tay</span>
-<span class="cmt"># https://git-scm.com/download/win</span></div>
+                            <h2>🔑 Đăng nhập (lần đầu)</h2>
+                            <div class="code-block"><span class="cmt"># vào thư mục dự án</span>
+$ cd ~/my-project
 
-                            <h2>🍎 macOS</h2>
-                            <div class="code-block"><span class="cmt"># Cách 1: dùng Homebrew (khuyên dùng)</span>
-$ brew install git
+<span class="cmt"># khởi động claude → nó tự mở link login</span>
+$ claude
 
-<span class="cmt"># Cách 2: cài Xcode Command Line Tools (có git sẵn)</span>
-$ xcode-select --install</div>
+<span class="cmt"># → copy link → mở browser → đăng nhập</span>
+<span class="cmt"># → terminal tự cập nhật, sẵn sàng dùng</span></div>
 
-                            <h2>🐧 Linux</h2>
-                            <div class="code-block"><span class="cmt"># Ubuntu / Debian</span>
-$ sudo apt update && sudo apt install git -y
+                            <h2>✅ Kiểm tra</h2>
+                            <div class="code-block">$ claude --version
+<span class="cmt"># Hiện ra phiên bản → OK</span></div>
 
-<span class="cmt"># Fedora / RHEL</span>
-$ sudo dnf install git -y
-
-<span class="cmt"># Arch</span>
-$ sudo pacman -S git</div>
-
-                            <h2>✅ Kiểm tra cài thành công</h2>
-                            <div class="code-block">$ git --version
-<span class="cmt"># Thấy số phiên bản kiểu: git version 2.45.0</span></div>
-
+                            <div class="alert tip">
+                                <div class="alert-title">💡 Mẹo cài</div>
+                                Không cần npm, không cần Node.js cài sẵn. Script trên tự tải binary phù hợp với máy.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -82,14 +76,17 @@ $ sudo pacman -S git</div>
                         </div>
                     </div>
                     <div class="sidebar-section">
-                        <h4>Assignees</h4>
-                        <div class="assignee"><span class="avatar">HL</span>@longhehe21</div>
+                        <h4>Yêu cầu hệ thống</h4>
+                        <div style="color: var(--gh-fg-muted); font-size: var(--fs-small); line-height: 1.6;">
+                            Windows 10+ / macOS 12+ / Linux<br>
+                            Terminal (PowerShell / bash / zsh)
+                        </div>
                     </div>
                     <div class="sidebar-section">
-                        <h4>Tài nguyên</h4>
+                        <h4>Trang chính</h4>
                         <div style="color: var(--gh-fg-muted); font-size: var(--fs-small); line-height: 1.6;">
-                            git-scm.com<br>
-                            github.com/git/git
+                            claude.ai/code<br>
+                            code.claude.com/docs
                         </div>
                     </div>
                 </aside>
@@ -100,7 +97,7 @@ $ sudo pacman -S git</div>
     <nav class="page-nav">
         <a href="menu.html">← Issues</a>
         <span class="spacer"></span>
-        <a href="hook.html" class="primary">Tiếp · #01 Hook →</a>
+        <a href="hook.html" class="primary">Tiếp · #01 Vì sao →</a>
     </nav>
 
     <script src="shared/deck.js"></script>

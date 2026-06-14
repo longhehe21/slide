@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#04 Workflows · claude-code</title>
+    <link rel="stylesheet" href="shared/deck.css">
+</head>
+<body>
+    <header class="gh-topbar">
+        <span class="octocat">🐙</span>
+        <span class="repo-path">
+            <a href="index.html">longhehe21</a>
+            <span class="sep">/</span>
+            <a href="index.html"><b>claude-code</b></a>
+        </span>
+        <nav class="repo-tabs">
+            <a href="index.html">📖 Code</a>
+            <a href="menu.html" class="active">⊙ Issues <span class="count">6</span></a>
+        </nav>
+    </header>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <section class="slide">
+        <div class="issue-view reveal">
+            <div class="issue-header">
+                <h1 class="title">Workflow + cách viết prompt hiệu quả <span class="num">#04</span></h1>
+                <div class="status-line">
+                    <span class="status-badge open"><span class="icon">⊙</span> Open</span>
+                    <span><b>@longhehe21</b> · best practices</span>
+                </div>
+            </div>
+
+            <div class="issue-body">
+                <div>
+                    <div class="comment-card">
+                        <div class="comment-head">
+                            <span class="author"><b>@longhehe21</b></span> commented · vài phút trước
+                        </div>
+                        <div class="comment-body">
+                            <h2>🎬 5 Workflow điển hình</h2>
+
+                            <h3>1. Task mới — bình thường</h3>
+                            <div class="code-block">$ cd ~/my-project
+$ claude
+&gt; Thêm chức năng login với validate email + mật khẩu &gt; 8 ký tự.
+  Viết test luôn.
+
+<span class="cmt"># Claude tự đọc project → code → test → báo done</span></div>
+
+                            <h3>2. Hôm sau muốn tiếp tục task dở</h3>
+                            <div class="code-block">$ cd ~/my-project
+$ claude --continue
+<span class="cmt"># Quay lại context lần trước, không phải kể lại từ đầu</span></div>
+
+                            <h3>3. Quay lại task tuần trước</h3>
+                            <div class="code-block">$ claude --resume
+<span class="cmt"># Mở picker → chọn session cũ → tiếp tục</span></div>
+
+                            <h3>4. Change LỚN — plan trước</h3>
+                            <div class="code-block">$ claude --permission-mode plan
+&gt; Refactor authentication thành module riêng.
+
+<span class="cmt"># Claude lên kế hoạch → review → execute</span></div>
+
+                            <h3>5. Context rối → reset</h3>
+                            <div class="code-block"><span class="cmt"># Trong session, gõ:</span>
+&gt; /clear
+
+<span class="cmt"># Xóa context → bắt đầu prompt mới với đầu sạch</span></div>
+
+                            <h2>✍️ 3 nguyên tắc viết prompt</h2>
+
+                            <h3>1. Cụ thể, không mơ hồ</h3>
+                            <div class="diff-block">
+                                <div class="diff-head">prompt-comparison.md</div>
+<pre><span class="line del">❌ "thêm test"</span>
+<span class="line del">❌ "fix bug"</span>
+<span class="line del">❌ "làm code đẹp hơn"</span>
+
+<span class="line add">✅ "Viết unit test cho hàm loginUser() trong src/auth/user.ts."</span>
+<span class="line add">   "  Test cases: email + password đúng → true,"</span>
+<span class="line add">   "  password rỗng → false, email sai format → false."</span>
+<span class="line add">   "  Chạy test sau khi viết xong."</span></pre>
+                            </div>
+
+                            <h3>2. Chỉ rõ file / vị trí</h3>
+                            <div class="code-block">❌ "thêm chức năng login"
+
+✅ "Thêm chức năng login. Tạo file <span class="str">src/pages/login.tsx</span>.
+   Dùng API endpoint <span class="str">POST /api/auth/login</span>.
+   Validate trong <span class="str">src/utils/validate.ts</span>."</div>
+
+                            <h3>3. Yêu cầu verify (test/chạy/screenshot)</h3>
+                            <div class="code-block">❌ "viết hàm xong rồi"
+
+✅ "Viết hàm xong, chạy <span class="str">npm test</span> để verify pass.
+   Nếu fail, fix cho đến khi pass."</div>
+
+                            <div class="alert tip">
+                                <div class="alert-title">💡 Công thức prompt tốt</div>
+                                <strong>WHAT</strong> (làm gì cụ thể) + <strong>WHERE</strong> (file nào) + <strong>HOW TO VERIFY</strong> (test/chạy gì). Đủ 3 cái → ít phải sửa lại.
+                            </div>
+
+                            <h2>🚦 Khi nào dùng plan mode?</h2>
+
+                            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                                <tr style="background: var(--gh-canvas-inset);">
+                                    <th style="padding: 0.5rem; text-align: left; border: 1px solid var(--gh-border);">Tình huống</th>
+                                    <th style="padding: 0.5rem; text-align: left; border: 1px solid var(--gh-border);">Plan mode?</th>
+                                </tr>
+                                <tr><td style="padding: 0.5rem; border: 1px solid var(--gh-border);">Sửa typo, rename biến</td><td style="padding: 0.5rem; border: 1px solid var(--gh-border);">❌ Không cần</td></tr>
+                                <tr><td style="padding: 0.5rem; border: 1px solid var(--gh-border);">Fix bug 1-2 file</td><td style="padding: 0.5rem; border: 1px solid var(--gh-border);">❌ Không cần</td></tr>
+                                <tr><td style="padding: 0.5rem; border: 1px solid var(--gh-border);">Refactor 3+ file</td><td style="padding: 0.5rem; border: 1px solid var(--gh-border);">✅ Nên dùng</td></tr>
+                                <tr><td style="padding: 0.5rem; border: 1px solid var(--gh-border);">Code lạ, chưa hiểu codebase</td><td style="padding: 0.5rem; border: 1px solid var(--gh-border);">✅ Nên dùng</td></tr>
+                                <tr><td style="padding: 0.5rem; border: 1px solid var(--gh-border);">Trước khi commit production</td><td style="padding: 0.5rem; border: 1px solid var(--gh-border);">✅ Nên dùng</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="issue-sidebar">
+                    <div class="sidebar-section">
+                        <h4>Labels</h4>
+                        <div class="labels">
+                            <span class="label lbl-blue">workflow</span>
+                            <span class="label lbl-yellow">tips</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h4>Công thức prompt</h4>
+                        <div style="color: var(--gh-fg-muted); font-size: var(--fs-small); line-height: 1.6;">
+                            <b style="color: var(--gh-accent);">WHAT</b> + <b style="color: var(--gh-success);">WHERE</b> + <b style="color: var(--gh-attention);">VERIFY</b>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h4>Pro tip</h4>
+                        <div style="color: var(--gh-fg-muted); font-size: var(--fs-small); line-height: 1.6;">
+                            Dùng <code>@</code> để tag file:<br>
+                            <code>"sửa @src/auth.ts"</code>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <nav class="page-nav">
+        <a href="slash-commands.html">← #03 Slash</a>
+        <a href="menu.html">⊙ Issues</a>
+        <span class="spacer"></span>
+        <a href="recap.html" class="primary">Tiếp · #05 Tóm tắt →</a>
+    </nav>
+
+    <script src="shared/deck.js"></script>
+</body>
+</html>

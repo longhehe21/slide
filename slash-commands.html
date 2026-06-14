@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#03 Slash commands · claude-code</title>
+    <link rel="stylesheet" href="shared/deck.css">
+</head>
+<body>
+    <header class="gh-topbar">
+        <span class="octocat">🐙</span>
+        <span class="repo-path">
+            <a href="index.html">longhehe21</a>
+            <span class="sep">/</span>
+            <a href="index.html"><b>claude-code</b></a>
+        </span>
+        <nav class="repo-tabs">
+            <a href="index.html">📖 Code</a>
+            <a href="menu.html" class="active">⊙ Issues <span class="count">6</span></a>
+        </nav>
+    </header>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <section class="slide">
+        <div class="issue-view reveal">
+            <div class="issue-header">
+                <h1 class="title">10 slash commands <code>/xxx</code> trong session <span class="num">#03</span></h1>
+                <div class="status-line">
+                    <span class="status-badge open"><span class="icon">⊙</span> Open</span>
+                    <span><b>@longhehe21</b> · in-session commands</span>
+                </div>
+            </div>
+
+            <div class="issue-body">
+                <div>
+                    <div class="comment-card">
+                        <div class="comment-head">
+                            <span class="author"><b>@longhehe21</b></span> commented · vài phút trước
+                        </div>
+                        <div class="comment-body">
+                            <p>Gõ <strong>trong session</strong> Claude Code (sau khi đã chạy <code>claude</code>). Gõ <code>/</code> để xem list, hoặc gõ thẳng tên lệnh.</p>
+
+                            <h2>🔧 Quản lý session</h2>
+
+                            <div class="cmd-list">
+                                <div class="row">
+                                    <span class="cmd">/help</span>
+                                    <span class="doc">Xem tất cả commands có sẵn + cách dùng.</span>
+                                </div>
+                                <div class="row">
+                                    <span class="cmd">/clear</span>
+                                    <span class="doc"><strong>Xóa sạch context</strong>. Dùng khi conversation rối, muốn task mới với đầu sạch.</span>
+                                </div>
+                                <div class="row">
+                                    <span class="cmd">/compact</span>
+                                    <span class="doc"><strong>Nén</strong> conversation dài thành tóm tắt, giữ decisions + code quan trọng. Tiết kiệm token.</span>
+                                </div>
+                                <div class="row">
+                                    <span class="cmd">/resume</span>
+                                    <span class="doc">Mở picker chọn session cũ (giống <code>--resume</code> nhưng dùng trong session).</span>
+                                </div>
+                            </div>
+
+                            <h2>🤖 Model + Plan</h2>
+
+                            <div class="cmd-list">
+                                <div class="row">
+                                    <span class="cmd">/model</span>
+                                    <span class="doc">Đổi model GIỮA CHỪNG (vd <code>/model opus</code> khi gặp task khó).</span>
+                                </div>
+                                <div class="row">
+                                    <span class="cmd">/plan</span>
+                                    <span class="doc">Vào <strong>plan mode</strong>. Claude lên kế hoạch, không sửa code. Review xong → execute.</span>
+                                </div>
+                            </div>
+
+                            <h2>⚙️ Project setup</h2>
+
+                            <div class="cmd-list">
+                                <div class="row">
+                                    <span class="cmd">/init</span>
+                                    <span class="doc">Tạo file <code>CLAUDE.md</code> starter cho project (Claude tự explore + viết). Commit vào git để share team.</span>
+                                </div>
+                                <div class="row">
+                                    <span class="cmd">/permissions</span>
+                                    <span class="doc">Cấu hình quyền — cho phép tự chạy npm, git mà không hỏi mỗi lần.</span>
+                                </div>
+                                <div class="row">
+                                    <span class="cmd">/mcp</span>
+                                    <span class="doc">Quản lý MCP servers (kết nối Notion, Figma, Slack, GitHub...).</span>
+                                </div>
+                            </div>
+
+                            <h2>📊 Theo dõi</h2>
+
+                            <div class="cmd-list">
+                                <div class="row">
+                                    <span class="cmd">/cost</span>
+                                    <span class="doc">Xem số token đã dùng + chi phí ước tính của session hiện tại.</span>
+                                </div>
+                            </div>
+
+                            <div class="alert tip">
+                                <div class="alert-title">💡 3 lệnh DÙNG NHIỀU NHẤT</div>
+                                <code>/clear</code> (khi rối) · <code>/compact</code> (khi context dài) · <code>/plan</code> (trước change lớn). Nhớ 3 cái này.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="issue-sidebar">
+                    <div class="sidebar-section">
+                        <h4>Labels</h4>
+                        <div class="labels">
+                            <span class="label lbl-green">slash</span>
+                            <span class="label lbl-purple">cốt-lõi</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h4>Top 3 cần nhớ</h4>
+                        <div style="color: var(--gh-fg-muted); font-size: var(--fs-small); font-family: var(--font-mono); line-height: 1.8;">
+                            <code>/clear</code><br>
+                            <code>/compact</code><br>
+                            <code>/plan</code>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h4>Mẹo</h4>
+                        <div style="color: var(--gh-fg-muted); font-size: var(--fs-small); line-height: 1.6;">
+                            Gõ <code>/</code> trong session để autocomplete liệt kê tất cả.
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <nav class="page-nav">
+        <a href="cli-flags.html">← #02 CLI flags</a>
+        <a href="menu.html">⊙ Issues</a>
+        <span class="spacer"></span>
+        <a href="workflows.html" class="primary">Tiếp · #04 Workflows →</a>
+    </nav>
+
+    <script src="shared/deck.js"></script>
+</body>
+</html>
